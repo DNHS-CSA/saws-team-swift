@@ -32,10 +32,19 @@ class PlayGameController: UIViewController {
         itemGravity.y = 5
         topIngredientGravity.y = 2.5
         ingredientStack[stackIndex] = ingredientCatcher
+        timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
+        /*
+         
+        timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
+         
+         moved the timer from here to the move did load. If its here everytime the user presses the screen it will start an other timer essentially doubling its speed by moving it to the viewdidLoad() there is only 1 timer running in a game(keeping speeds the same regardless of touch)
+         
+         */
     }
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touchBase:UITouch! = touches.first
         
