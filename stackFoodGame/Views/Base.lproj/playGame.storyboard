@@ -30,6 +30,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gR1-yU-Trt">
+                                <rect key="frame" x="302" y="857" width="105" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="order complete"/>
+                                <connections>
+                                    <segue destination="FPe-qd-Ldh" kind="show" id="goH-T0-ajY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="jtb-9r-ji3"/>
@@ -43,6 +51,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHW-2C-CNb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
+        </scene>
+        <!--orderComplete-->
+        <scene sceneID="nMJ-cq-7h1">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="orderComplete" storyboardName="orderComplete" referencedIdentifier="orderComplete" id="FPe-qd-Ldh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YWH-kE-Mjx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a0Q-jx-GZq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="685" y="421"/>
         </scene>
     </scenes>
 </document>
