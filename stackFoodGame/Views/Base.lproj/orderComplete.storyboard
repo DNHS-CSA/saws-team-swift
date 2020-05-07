@@ -10,7 +10,7 @@
         <!--Order Complete Controller-->
         <scene sceneID="VrM-2p-hxO">
             <objects>
-                <viewController id="Smf-yl-uSa" customClass="OrderCompleteController" customModule="stackFoodGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="orderComplete" storyboardIdentifier="orderComplete" id="Smf-yl-uSa" customClass="OrderCompleteController" customModule="stackFoodGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RU1-eM-y20">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,6 +57,7 @@
                         <outlet property="itemScreen" destination="nNb-Hq-LsM" id="Gqi-U2-mUk"/>
                         <outlet property="mainMenu" destination="39j-ct-5no" id="Ims-JR-ZcU"/>
                         <outlet property="newGame" destination="chG-rw-Q38" id="8Sw-IC-Nyw"/>
+                        <outlet property="orderStatus" destination="GCd-hZ-BVm" id="SKT-7f-xli"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWB-p3-wbf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
