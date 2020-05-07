@@ -22,7 +22,7 @@ class PlayGameController: UIViewController {
     var newLocation: CGPoint = CGPoint(x: 168, y: 802)
     
     var ingredientStack: [UIImageView] = [UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView()]
-    var stackIndex: Int = 1
+    var stackIndex: Int = 0
     
     var timer:Timer? = Timer()
         
@@ -30,11 +30,11 @@ class PlayGameController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         itemGravity.y = 5
-        topIngredientGravity.y = 0.5
+        topIngredientGravity.y = 2.5
         ingredientStack[stackIndex] = ingredientCatcher
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touchBase:UITouch! = touches.first
@@ -48,32 +48,41 @@ class PlayGameController: UIViewController {
         }
     }
     @objc func moveItem(){
+        var localStackIndex = stackIndex
+        if stackIndex != 0 {
+            localStackIndex = stackIndex - 1
+        }
         if stopIngredient == false {
             ingredient.center.y = self.ingredient.center.y + itemGravity.y
         }
-        if ingredientStack[stackIndex].frame.intersects(ingredient.frame){
-            //timer?.invalidate()
+        if ingredientStack[localStackIndex].frame.intersects(ingredient.frame){
             stopIngredient = true
-            if stackIndex == 1{
+            if stackIndex == 0 {
+                stackIndex += 1
                 addIngredient(ingredient: ingredient )
-            } else if ingredientStack[stackIndex - 1] != ingredient {
+            } else if stackIndex - 1 != 0 && stopIngredient == false {
                 addIngredient(ingredient: ingredient)
             }
+            
+            stopIngredient = true
         }
         if stopTopIngredient == false {
-            topIngredient.center.y = self.ingredient.center.y + topIngredientGravity.y
+            topIngredient.center.y = self.topIngredient.center.y + topIngredientGravity.y
         }
-        if ingredientStack[stackIndex].frame.intersects(topIngredient.frame){
-            //timer?.invalidate()
-            stopTopIngredient = true
-            if stackIndex == 1{
-                addIngredient(ingredient: topIngredient )
-            } else if ingredientStack[stackIndex - 1] != topIngredient {
+        
+        if ingredientStack[localStackIndex].frame.intersects(topIngredient.frame){
+            if stackIndex == 0 {
+                stackIndex += 1
+                addIngredient(ingredient: topIngredient)
+            } else if stackIndex - 1 != 0 && stopTopIngredient == false {
                 addIngredient(ingredient: topIngredient)
             }
+            
+            stopTopIngredient = true
         }
     }
     func addIngredient(ingredient: UIImageView!){
+        print(stackIndex)
         ingredientStack[stackIndex] = ingredient
         stackIndex += 1
     }
