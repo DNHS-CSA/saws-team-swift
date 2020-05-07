@@ -53,6 +53,11 @@
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4Te-up-Gzz"/>
                     </view>
+                    <connections>
+                        <outlet property="itemScreen" destination="nNb-Hq-LsM" id="Gqi-U2-mUk"/>
+                        <outlet property="mainMenu" destination="39j-ct-5no" id="Ims-JR-ZcU"/>
+                        <outlet property="newGame" destination="chG-rw-Q38" id="8Sw-IC-Nyw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWB-p3-wbf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
