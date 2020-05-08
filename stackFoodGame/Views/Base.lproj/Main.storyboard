@@ -32,6 +32,9 @@
                                 <state key="normal" title="Customization">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="e95-Tf-bEu" kind="show" id="5nZ-Ae-aG5"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Picture of truck" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykg-Qv-3MB">
                                 <rect key="frame" x="232" y="488" width="162" height="340"/>
@@ -100,6 +103,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jfe-WE-VyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1594" y="228"/>
+        </scene>
+        <!--PlayerCustomization-->
+        <scene sceneID="uI0-jY-Yo2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PlayerCustomization" referencedIdentifier="PlayerCustomization" id="e95-Tf-bEu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2SV-3Q-tao"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgc-xG-Nge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1641" y="-38"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sRA-Qc-xI0">
