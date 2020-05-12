@@ -22,9 +22,10 @@ class PlayGameController: UIViewController {
     var newLocation: CGPoint = CGPoint(x: 168, y: 802)
     
     var ingredientStack: [Ingredient] = []
-    
-    
     var stackIndex: Int = 0
+    var ingredientSize = CGSize(width: 30.0, height: 30.0)
+    
+    var entitiesInView: [Ingredient] = []
     
     var timer:Timer? = Timer()
         
@@ -43,12 +44,13 @@ class PlayGameController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         /*
-         
+        
         timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
          
          moved the timer from here to the move did load. If its here everytime the user presses the screen it will start an other timer essentially doubling its speed by moving it to the viewdidLoad() there is only 1 timer running in a game(keeping speeds the same regardless of touch)
          
          */
+        spawnIngredients(ingredientType: "burger", ingredientGravity: CGPoint(x: 0, y: 0), location: CGPoint(x: 300, y: 200))
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -120,6 +122,32 @@ class PlayGameController: UIViewController {
         ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0)))
         ingredientStack[stackIndex].image = ingredient
         stackIndex += 1
+    }
+    func spawnIngredients(ingredientType: String, ingredientGravity: CGPoint, location: CGPoint){
+        let newIngredient = Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0)) // creates empty variable
+        /*
+         Defines attributes of the image of each new ingredient
+         1. Image based on a randomization of the ingredients
+         2. Location based on a generated value
+         3. Size is constant
+         4. Applys UIImageView to Ingredient() variable
+         5. Uses the same name of ingredientType for future tracking and comparison (check order accuracy)
+         6. Gravity based on a generated value
+         */
+        
+        let newIngredientImage: UIImageView = {
+            let imageView = UIImageView()
+            imageView.image = UIImage(named: ingredientType)
+            imageView.center = location
+            imageView.frame = CGRect(origin: location, size: ingredientSize)
+            return imageView
+        }()
+        newIngredient.image = newIngredientImage
+        newIngredient.name = ingredientType
+        newIngredient.gravity = ingredientGravity
+        
+        entitiesInView.append(newIngredient)
+        self.view.addSubview(newIngredient.image)
     }
     
 }
