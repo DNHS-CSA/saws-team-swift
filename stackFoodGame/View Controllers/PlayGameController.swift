@@ -21,7 +21,9 @@ class PlayGameController: UIViewController {
     @IBOutlet weak var ingredientCatcher: UIImageView!
     var newLocation: CGPoint = CGPoint(x: 168, y: 802)
     
-    var ingredientStack: [UIImageView] = [UIImageView(), UIImageView(), UIImageView(), UIImageView(), UIImageView()]
+    var ingredientStack: [Ingredient] = []
+    
+    
     var stackIndex: Int = 0
     
     var timer:Timer? = Timer()
@@ -31,7 +33,11 @@ class PlayGameController: UIViewController {
         // Do any additional setup after loading the view.
         itemGravity.y = 5 // speed of fall of ingredient UIImageView
         topIngredientGravity.y = 2.5 // speed of fall of topIngredient UIImageView
-        ingredientStack[stackIndex] = ingredientCatcher // array of UIImageViews that fills up based on what is in the stack- first element is the base (ingredientCatcher)
+        
+        ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0)))
+        ingredientStack[stackIndex].image = ingredientCatcher // array of UIImageViews that fills up based on what is in the stack- first element is the base (ingredientCatcher)
+        ingredientStack[stackIndex].name = "ingredientCatcher"
+        
         timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
     }
     
@@ -63,7 +69,7 @@ class PlayGameController: UIViewController {
          Cycles through all of the items in the array and moves according to where the touch is in the UIView. Elements in the array are only added when they are in the stack, thus for loop moves the whole stack on the screen
          */
         for ingredient in ingredientStack {
-            ingredient.center.x = newLocation.x
+            ingredient.image.center.x = newLocation.x
         }
     }
     @objc func moveItem(){
@@ -82,7 +88,7 @@ class PlayGameController: UIViewController {
          2. If there is no other items in stack other than the base (array position zero), then an ingredient is added to the next array position
          3 If there are multiple ingredients in the stack then the item is added to the stack and the ingredient is detected to have stopped so that the ingredient stops falling and it cannot be added to the stack again
          */
-        if ingredientStack[localStackIndex].frame.intersects(ingredient.frame){
+        if ingredientStack[localStackIndex].image.frame.intersects(ingredient.frame){
             if stackIndex == 0 {
                 stackIndex += 1
                 addIngredient(ingredient: ingredient )
@@ -97,7 +103,7 @@ class PlayGameController: UIViewController {
             topIngredient.center.y = self.topIngredient.center.y + topIngredientGravity.y
         }
         
-        if ingredientStack[localStackIndex].frame.intersects(topIngredient.frame){
+        if ingredientStack[localStackIndex].image.frame.intersects(topIngredient.frame){
             if stackIndex == 0 {
                 stackIndex += 1
                 addIngredient(ingredient: topIngredient)
@@ -111,7 +117,8 @@ class PlayGameController: UIViewController {
     func addIngredient(ingredient: UIImageView!){
         print(stackIndex)
         // adds the ingredient to the ingredientStack based on array position - concurrent with the visual experience of the stack
-        ingredientStack[stackIndex] = ingredient
+        ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0)))
+        ingredientStack[stackIndex].image = ingredient
         stackIndex += 1
     }
     
