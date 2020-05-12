@@ -23,7 +23,7 @@ class PlayGameController: UIViewController {
     
     var ingredientStack: [Ingredient] = []
     var stackIndex: Int = 0
-    var ingredientSize = CGSize(width: 30.0, height: 30.0)
+    var ingredientSize = CGSize(width: 80.0, height: 60.0)
     
     var entitiesInView: [Ingredient] = []
     
@@ -32,16 +32,16 @@ class PlayGameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        itemGravity.y = 5 // speed of fall of ingredient UIImageView
-        topIngredientGravity.y = 2.5 // speed of fall of topIngredient UIImageView
         
         ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0)))
         ingredientStack[stackIndex].image = ingredientCatcher // array of UIImageViews that fills up based on what is in the stack- first element is the base (ingredientCatcher)
         ingredientStack[stackIndex].name = "ingredientCatcher"
         
         timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
-        entitiesInView.append(Ingredient(name: String(), image: ingredient, inStack: false, gravity: CGPoint(x: 0.0, y: 5.0)))
-        entitiesInView.append(Ingredient(name: String(), image: topIngredient, inStack: false, gravity: CGPoint(x: 0.0, y: 2.5)))
+        spawnIngredients(ingredientType: "burger", ingredientGravity: CGPoint(x: 0.0, y: 5.0), location: CGPoint(x: 80.0, y: 60.0))
+        spawnIngredients(ingredientType: "tomato", ingredientGravity: CGPoint(x: 0.0, y: 2.5), location: CGPoint(x: 230.0, y: 90.0))
+        //entitiesInView.append(Ingredient(name: String(), image: ingredient, inStack: false, gravity: CGPoint(x: 0.0, y: 5.0)))
+        //entitiesInView.append(Ingredient(name: String(), image: topIngredient, inStack: false, gravity: CGPoint(x: 0.0, y: 2.5)))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -52,7 +52,6 @@ class PlayGameController: UIViewController {
          moved the timer from here to the move did load. If its here everytime the user presses the screen it will start an other timer essentially doubling its speed by moving it to the viewdidLoad() there is only 1 timer running in a game(keeping speeds the same regardless of touch)
          
          */
-        spawnIngredients(ingredientType: "burger", ingredientGravity: CGPoint(x: 0, y: 0), location: CGPoint(x: 300, y: 200))
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -140,31 +139,35 @@ class PlayGameController: UIViewController {
     }
     
 }
-/*
- Old ingredient stack management for reference
-if ingredientStack[localStackIndex].image.frame.intersects(ingredient.frame){
-    if stackIndex == 0 {
-        stackIndex += 1
-        addIngredient(ingredient: ingredient )
-    } else if stackIndex - 1 != 0 && stopIngredient == false {
-        addIngredient(ingredient: ingredient)
+    /*
+    Old ingredient stack management for reference
+ 
+    itemGravity.y = 5 // speed of fall of ingredient UIImageView
+    topIngredientGravity.y = 2.5 // speed of fall of topIngredient UIImageView
+ 
+    if ingredientStack[localStackIndex].image.frame.intersects(ingredient.frame){
+        if stackIndex == 0 {
+            stackIndex += 1
+            addIngredient(ingredient: ingredient )
+        } else if stackIndex - 1 != 0 && stopIngredient == false {
+            addIngredient(ingredient: ingredient)
+        }
+        
+        stopIngredient = true
     }
-    
-    stopIngredient = true
-}
 
-if stopTopIngredient == false {
-    topIngredient.center.y = self.topIngredient.center.y + topIngredientGravity.y
-}
-
-if ingredientStack[localStackIndex].image.frame.intersects(topIngredient.frame){
-    if stackIndex == 0 {
-        stackIndex += 1
-        addIngredient(ingredient: topIngredient)
-    } else if stackIndex - 1 != 0 && stopTopIngredient == false {
-        addIngredient(ingredient: topIngredient)
+    if stopTopIngredient == false {
+        topIngredient.center.y = self.topIngredient.center.y + topIngredientGravity.y
     }
-    
-    stopTopIngredient = true
-}
-*/
+
+    if ingredientStack[localStackIndex].image.frame.intersects(topIngredient.frame){
+        if stackIndex == 0 {
+            stackIndex += 1
+            addIngredient(ingredient: topIngredient)
+        } else if stackIndex - 1 != 0 && stopTopIngredient == false {
+            addIngredient(ingredient: topIngredient)
+        }
+        
+        stopTopIngredient = true
+    }
+    */
