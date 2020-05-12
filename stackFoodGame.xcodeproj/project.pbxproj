@@ -24,6 +24,7 @@
 		8489168824637D1100ACB75A /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489168724637D1100ACB75A /* StoreController.swift */; };
 		8489168A24637D2400ACB75A /* OrderAssignmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489168924637D2400ACB75A /* OrderAssignmentController.swift */; };
 		8489168C24637D3B00ACB75A /* OrderCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489168B24637D3B00ACB75A /* OrderCompleteController.swift */; };
+		84906357246A0EA600485A99 /* ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906356246A0EA600485A99 /* ingredient.swift */; };
 		DAB26BBA2464CD530052BE46 /* PlayerCustomization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB26BB92464CD530052BE46 /* PlayerCustomization.storyboard */; };
 		DAB26BBE2464CDA90052BE46 /* PlayerCustomizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB26BBD2464CDA90052BE46 /* PlayerCustomizationController.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		8489168724637D1100ACB75A /* StoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreController.swift; sourceTree = "<group>"; };
 		8489168924637D2400ACB75A /* OrderAssignmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAssignmentController.swift; sourceTree = "<group>"; };
 		8489168B24637D3B00ACB75A /* OrderCompleteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteController.swift; sourceTree = "<group>"; };
+		84906356246A0EA600485A99 /* ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ingredient.swift; sourceTree = "<group>"; };
 		DAB26BB92464CD530052BE46 /* PlayerCustomization.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayerCustomization.storyboard; sourceTree = "<group>"; };
 		DAB26BBD2464CDA90052BE46 /* PlayerCustomizationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCustomizationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				8489166C24633CAF00ACB75A /* Model */,
 				8489166D24633CB900ACB75A /* Views */,
 				8489166E24633CC100ACB75A /* View Controllers */,
+				84906355246A0DFF00485A99 /* Custom Classes */,
 				8489166F24633CDE00ACB75A /* Data */,
 				84429D7B2463356C00E5BA3A /* Assets.xcassets */,
 				84429D802463356C00E5BA3A /* Info.plist */,
@@ -136,6 +139,14 @@
 				84429D782463356900E5BA3A /* stackFoodGame.xcdatamodeld */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		84906355246A0DFF00485A99 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				84906356246A0EA600485A99 /* ingredient.swift */,
+			);
+			path = "Custom Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +230,7 @@
 				8489168624637CFF00ACB75A /* statsController.swift in Sources */,
 				84429D742463356900E5BA3A /* ViewController.swift in Sources */,
 				8489168A24637D2400ACB75A /* OrderAssignmentController.swift in Sources */,
+				84906357246A0EA600485A99 /* ingredient.swift in Sources */,
 				84429D702463356900E5BA3A /* AppDelegate.swift in Sources */,
 				84429D7A2463356900E5BA3A /* stackFoodGame.xcdatamodeld in Sources */,
 				84429D722463356900E5BA3A /* SceneDelegate.swift in Sources */,
