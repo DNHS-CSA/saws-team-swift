@@ -24,6 +24,7 @@ class PlayGameController: UIViewController {
     var ingredientStack: [Ingredient] = []
     var stackIndex: Int = 0
     var ingredientSize = CGSize(width: 80.0, height: 60.0)
+    var ingredientAlignment = CGPoint(x: 0.0, y: 6.0)
     
     var entitiesInView: [Ingredient] = []
     
@@ -40,6 +41,7 @@ class PlayGameController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
         spawnIngredients(ingredientType: "burger", ingredientGravity: CGPoint(x: 0.0, y: 5.0), location: CGPoint(x: 80.0, y: 60.0))
         spawnIngredients(ingredientType: "tomato", ingredientGravity: CGPoint(x: 0.0, y: 2.5), location: CGPoint(x: 230.0, y: 90.0))
+        spawnIngredients(ingredientType: "tomato", ingredientGravity: CGPoint(x: 0.0, y: 2.0), location: CGPoint(x: 320.0, y: 90.0))
         //entitiesInView.append(Ingredient(name: String(), image: ingredient, inStack: false, gravity: CGPoint(x: 0.0, y: 5.0)))
         //entitiesInView.append(Ingredient(name: String(), image: topIngredient, inStack: false, gravity: CGPoint(x: 0.0, y: 2.5)))
     }
@@ -86,7 +88,8 @@ class PlayGameController: UIViewController {
         1. Cycles through all of the entities in the view
         2. If the stack of food (top item only) intersects with the falling ingredient it will stop the falling ingredient from moving
         3. If there is no other items in stack other than the base (array position zero), then an ingredient is added to the next array position
-        4 If there are multiple ingredients in the stack then the item is added to the stack and the ingredient is detected to have stopped so that the ingredient stops falling and it cannot be added to the stack again
+        4. If there are multiple ingredients in the stack then the item is added to the stack and the ingredient is detected to have stopped so that the ingredient stops falling and it cannot be added to the stack again
+         5. Position is shifted down after detection to better represent stacked ingredients in UI
         */
         for ingredient in entitiesInView {
             // isolation of the movement in a Bool allows all of the falling UIImageViews to run off of one timer
@@ -97,8 +100,10 @@ class PlayGameController: UIViewController {
                 if stackIndex == 0{
                     stackIndex += 1
                     addIngredient(ingredient: ingredient)
+                    animateStack(ingredient: ingredient)
                 } else if stackIndex - 1 != 0 && ingredient.inStack == false {
                     addIngredient(ingredient: ingredient)
+                    animateStack(ingredient: ingredient)
                 }
                 ingredient.inStack = true
             }
@@ -110,6 +115,22 @@ class PlayGameController: UIViewController {
         ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0)))
         ingredientStack[stackIndex] = ingredient
         stackIndex += 1
+    }
+    func animateStack(ingredient: Ingredient) {
+        var animateTimer = 0
+        /*
+         Method explanation
+         1. Runs a timer that moves the ingredient down after it is detected
+         2. Use of timer an small movements results in an animation of the ingredient resting in the stack
+         */
+        Timer.scheduledTimer(withTimeInterval: 0.04, repeats: true) { timer in
+            animateTimer += 1
+            ingredient.image.center.y = ingredient.image.center.y + self.ingredientAlignment.y
+
+            if animateTimer == 6 {
+                timer.invalidate()
+            }
+        }
     }
     func spawnIngredients(ingredientType: String, ingredientGravity: CGPoint, location: CGPoint){
         let newIngredient = Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0)) // creates empty variable
