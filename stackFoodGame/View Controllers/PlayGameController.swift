@@ -40,6 +40,8 @@ class PlayGameController: UIViewController {
         ingredientStack[stackIndex].name = "ingredientCatcher"
         
         timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
+        entitiesInView.append(Ingredient(name: String(), image: ingredient, inStack: false, gravity: CGPoint(x: 0.0, y: 5.0)))
+        entitiesInView.append(Ingredient(name: String(), image: topIngredient, inStack: false, gravity: CGPoint(x: 0.0, y: 2.5)))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -56,7 +58,7 @@ class PlayGameController: UIViewController {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touchBase:UITouch! = touches.first
         /*
-         Base is first mov
+         Base is first move
          */
         newLocation = touchBase.location(in: self.view)
         
@@ -80,47 +82,34 @@ class PlayGameController: UIViewController {
         if stackIndex != 0 {
             localStackIndex = stackIndex - 1
         }
-        // isolation of the movement in a Bool allows all of the falling UIImageViews to run off of one timer
-        if stopIngredient == false {
-            ingredient.center.y = self.ingredient.center.y + itemGravity.y
-        }
         /*
-         Method explanation
-         1. If the stack of food (top item only) intersects with the falling ingredient it will stop the falling ingredient from moving
-         2. If there is no other items in stack other than the base (array position zero), then an ingredient is added to the next array position
-         3 If there are multiple ingredients in the stack then the item is added to the stack and the ingredient is detected to have stopped so that the ingredient stops falling and it cannot be added to the stack again
-         */
-        if ingredientStack[localStackIndex].image.frame.intersects(ingredient.frame){
-            if stackIndex == 0 {
-                stackIndex += 1
-                addIngredient(ingredient: ingredient )
-            } else if stackIndex - 1 != 0 && stopIngredient == false {
-                addIngredient(ingredient: ingredient)
+        Method explanation
+        1. Cycles through all of the entities in the view
+        2. If the stack of food (top item only) intersects with the falling ingredient it will stop the falling ingredient from moving
+        3. If there is no other items in stack other than the base (array position zero), then an ingredient is added to the next array position
+        4 If there are multiple ingredients in the stack then the item is added to the stack and the ingredient is detected to have stopped so that the ingredient stops falling and it cannot be added to the stack again
+        */
+        for ingredient in entitiesInView {
+            // isolation of the movement in a Bool allows all of the falling UIImageViews to run off of one timer
+            if ingredient.inStack == false {
+                ingredient.image.center.y = ingredient.image.center.y + ingredient.gravity.y
             }
-            
-            stopIngredient = true
-        }
-        
-        if stopTopIngredient == false {
-            topIngredient.center.y = self.topIngredient.center.y + topIngredientGravity.y
-        }
-        
-        if ingredientStack[localStackIndex].image.frame.intersects(topIngredient.frame){
-            if stackIndex == 0 {
-                stackIndex += 1
-                addIngredient(ingredient: topIngredient)
-            } else if stackIndex - 1 != 0 && stopTopIngredient == false {
-                addIngredient(ingredient: topIngredient)
+            if ingredientStack[localStackIndex].image.frame.intersects(ingredient.image.frame) {
+                if stackIndex == 0{
+                    stackIndex += 1
+                    addIngredient(ingredient: ingredient)
+                } else if stackIndex - 1 != 0 && ingredient.inStack == false {
+                    addIngredient(ingredient: ingredient)
+                }
+                ingredient.inStack = true
             }
-            
-            stopTopIngredient = true
         }
     }
-    func addIngredient(ingredient: UIImageView!){
+    func addIngredient(ingredient: Ingredient!){
         print(stackIndex)
         // adds the ingredient to the ingredientStack based on array position - concurrent with the visual experience of the stack
         ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0)))
-        ingredientStack[stackIndex].image = ingredient
+        ingredientStack[stackIndex] = ingredient
         stackIndex += 1
     }
     func spawnIngredients(ingredientType: String, ingredientGravity: CGPoint, location: CGPoint){
@@ -151,3 +140,31 @@ class PlayGameController: UIViewController {
     }
     
 }
+/*
+ Old ingredient stack management for reference
+if ingredientStack[localStackIndex].image.frame.intersects(ingredient.frame){
+    if stackIndex == 0 {
+        stackIndex += 1
+        addIngredient(ingredient: ingredient )
+    } else if stackIndex - 1 != 0 && stopIngredient == false {
+        addIngredient(ingredient: ingredient)
+    }
+    
+    stopIngredient = true
+}
+
+if stopTopIngredient == false {
+    topIngredient.center.y = self.topIngredient.center.y + topIngredientGravity.y
+}
+
+if ingredientStack[localStackIndex].image.frame.intersects(topIngredient.frame){
+    if stackIndex == 0 {
+        stackIndex += 1
+        addIngredient(ingredient: topIngredient)
+    } else if stackIndex - 1 != 0 && stopTopIngredient == false {
+        addIngredient(ingredient: topIngredient)
+    }
+    
+    stopTopIngredient = true
+}
+*/
