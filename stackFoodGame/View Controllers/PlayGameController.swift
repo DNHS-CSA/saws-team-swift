@@ -100,10 +100,10 @@ class PlayGameController: UIViewController {
                 if stackIndex == 0{
                     stackIndex += 1
                     addIngredient(ingredient: ingredient)
-                    animateStack(ingredient: ingredient)
+                    animateStack(ingredient: ingredient, currentSpeed: ingredient.gravity)
                 } else if stackIndex - 1 != 0 && ingredient.inStack == false {
                     addIngredient(ingredient: ingredient)
-                    animateStack(ingredient: ingredient)
+                    animateStack(ingredient: ingredient, currentSpeed: ingredient.gravity)
                 }
                 ingredient.inStack = true
             }
@@ -116,18 +116,22 @@ class PlayGameController: UIViewController {
         ingredientStack[stackIndex] = ingredient
         stackIndex += 1
     }
-    func animateStack(ingredient: Ingredient) {
+    func animateStack(ingredient: Ingredient, currentSpeed: CGPoint) {
         var animateTimer = 0
+        var alignmentController = CGPoint(x: 0, y: 0)
+        let centerOfIngredient = CGPoint(x: 0.0, y: 36.0)
         /*
          Method explanation
          1. Runs a timer that moves the ingredient down after it is detected
          2. Use of timer an small movements results in an animation of the ingredient resting in the stack
+         3. Animation movements come from the speed of the ingredient (elminates the ingredient changing speed when it enters the detection area) and is stopped once the ingredient falls approximately halfway through the height of the ingredient in the stack
          */
-        Timer.scheduledTimer(withTimeInterval: 0.04, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 0.025, repeats: true) { timer in
             animateTimer += 1
-            ingredient.image.center.y = ingredient.image.center.y + self.ingredientAlignment.y
+            alignmentController.y += currentSpeed.y
+            ingredient.image.center.y = ingredient.image.center.y + currentSpeed.y
 
-            if animateTimer == 6 {
+            if alignmentController.y > centerOfIngredient.y {
                 timer.invalidate()
             }
         }
