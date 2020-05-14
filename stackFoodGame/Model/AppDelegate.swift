@@ -12,8 +12,16 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: Temporary variables
+    /* The following variables are added temporarily to make Perks.Controller run properly. I will be removing these and replacing them with arrays, some of which could be stored as Core Data. */
+    var itemQuantity: Int = 0;
+    var coins: Int = 0;
+    var xp: Int = 0;
+    var itemImage: UIImage = UIImage(named: "CRT_moneyImage.png")!
+    var itemDescription: String = "This is the first item"
 
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true

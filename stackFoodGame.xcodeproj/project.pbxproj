@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524E6F4B246CC4B800032017 /* PerksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E6F4A246CC4B800032017 /* PerksController.swift */; };
+		524E6F4D246CC4FD00032017 /* Perks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524E6F4C246CC4FD00032017 /* Perks.storyboard */; };
 		84429D702463356900E5BA3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84429D6F2463356900E5BA3A /* AppDelegate.swift */; };
 		84429D722463356900E5BA3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84429D712463356900E5BA3A /* SceneDelegate.swift */; };
 		84429D742463356900E5BA3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84429D732463356900E5BA3A /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		524E6F4A246CC4B800032017 /* PerksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerksController.swift; sourceTree = "<group>"; };
+		524E6F4C246CC4FD00032017 /* Perks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Perks.storyboard; sourceTree = "<group>"; };
 		84429D6C2463356900E5BA3A /* stackFoodGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stackFoodGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84429D6F2463356900E5BA3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84429D712463356900E5BA3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				8489167D24637BC300ACB75A /* orderAssignment.storyboard */,
 				8489167024633D2C00ACB75A /* playGame.storyboard */,
 				8489168224637BED00ACB75A /* orderComplete.storyboard */,
+				524E6F4C246CC4FD00032017 /* Perks.storyboard */,
 				DAB26BB92464CD530052BE46 /* PlayerCustomization.storyboard */,
 			);
 			path = Views;
@@ -125,6 +130,7 @@
 				84429D732463356900E5BA3A /* ViewController.swift */,
 				DAB26BBD2464CDA90052BE46 /* PlayerCustomizationController.swift */,
 				8489167324633F0D00ACB75A /* PlayGameController.swift */,
+				524E6F4A246CC4B800032017 /* PerksController.swift */,
 				8489168524637CFF00ACB75A /* statsController.swift */,
 				8489168724637D1100ACB75A /* StoreController.swift */,
 				8489168924637D2400ACB75A /* OrderAssignmentController.swift */,
@@ -211,6 +217,7 @@
 				84429D7C2463356C00E5BA3A /* Assets.xcassets in Resources */,
 				8489167F24637BC300ACB75A /* orderAssignment.storyboard in Resources */,
 				8489167C24637B8100ACB75A /* store.storyboard in Resources */,
+				524E6F4D246CC4FD00032017 /* Perks.storyboard in Resources */,
 				8489168424637BED00ACB75A /* orderComplete.storyboard in Resources */,
 				8489167924637B7500ACB75A /* stats.storyboard in Resources */,
 				8489167224633D2C00ACB75A /* playGame.storyboard in Resources */,
@@ -227,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8489167424633F0D00ACB75A /* PlayGameController.swift in Sources */,
+				524E6F4B246CC4B800032017 /* PerksController.swift in Sources */,
 				8489168624637CFF00ACB75A /* statsController.swift in Sources */,
 				84429D742463356900E5BA3A /* ViewController.swift in Sources */,
 				8489168A24637D2400ACB75A /* OrderAssignmentController.swift in Sources */,
