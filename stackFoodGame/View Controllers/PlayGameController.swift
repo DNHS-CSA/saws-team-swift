@@ -25,7 +25,7 @@ class PlayGameController: UIViewController {
     var zPositionIngredient: CGFloat = 0.1
     var stackIndex: Int = 0
     var ingredientSize = CGSize(width: 80.0, height: 46.0)
-    var ingredientAlignment = CGPoint(x: 0.0, y: 6)
+    var ingredientAlignment = CGPoint(x: 0.0, y: 0.0)
     
     var entitiesInView: [Ingredient] = []
     @IBOutlet weak var middleDetector: UIImageView!
@@ -91,7 +91,12 @@ class PlayGameController: UIViewController {
         var trafficPrevention = 0
         var randomGravity = CGPoint(x: 0.0, y: randomYValue)
         let randomIngredient = ingredientTypes.randomElement()
-        
+        /*
+         Method explanation: Purpose is to limit the number of ingredients that overlap each other, but not reduce the overlap all together
+         1. Scans all of the entities in the view to see if the new location of an element to be spawned is in the same "column" (see playGameDictionaries) as an existing falling ingredient
+         2. Swift repeat (do while) randomizes another gravity value until it is less than the gravity of the ingredient already falling in the current column
+         3. If a smaller gravity value cannot be found after 30 attempts, it spawns the ingredient in a different random location
+         */
         for ingredient in entitiesInView {
             if randomLocation!.x == ingredient.location.x && ingredient.isPastMiddle == false {
                 repeat { // Swift version of do while
@@ -161,7 +166,7 @@ class PlayGameController: UIViewController {
         /*
          Method explanation
          1. Runs a timer that moves the ingredient down after it is detected
-         2. Use of timer an small movements results in an animation of the ingredient resting in the stack
+         2. Use of timer and small movements results in an animation of the ingredient resting in the stack
          3. Animation movements come from the speed of the ingredient (elminates the ingredient changing speed when it enters the detection area) and is stopped once the ingredient falls approximately halfway through the height of the ingredient in the stack
          */
         Timer.scheduledTimer(withTimeInterval: 0.025, repeats: true) { timer in
@@ -169,7 +174,7 @@ class PlayGameController: UIViewController {
             alignmentController.y += currentSpeed.y
             ingredient.image.center.y = ingredient.image.center.y + currentSpeed.y
 
-            if alignmentController.y > centerOfIngredient.y {
+            if alignmentController.y >= centerOfIngredient.y {
                 timer.invalidate()
             }
         }
