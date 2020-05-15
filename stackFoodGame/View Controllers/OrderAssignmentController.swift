@@ -9,14 +9,23 @@
 import UIKit
 
 class OrderAssignmentController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
-
+    @IBOutlet weak var ingredientNumber1: UILabel!
+    @IBOutlet weak var ingredientNumber2: UILabel!
+    @IBOutlet weak var ingredientNumber3: UILabel!
+    @IBOutlet weak var ingredient1: UIImageView!
+    @IBOutlet weak var ingredient2: UIImageView!
+    @IBOutlet weak var ingredient3: UIImageView!
+    
+    override func viewDidLoad() {
+        let ingredientAmount1 = Int.random(in: 1...3)
+        let ingredientAmount2 = Int.random(in: 1...3)
+        let ingredientAmount3 = Int.random(in: 1...3)
+        ingredientNumber1.text = "x\(String(ingredientAmount1))"
+        ingredientNumber2.text = "x\(String(ingredientAmount2))"
+        ingredientNumber3.text = "x\(String(ingredientAmount3))"
+        super.viewDidLoad()
+    }
     /*
     // MARK: - Navigation
 
