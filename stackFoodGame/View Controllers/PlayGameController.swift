@@ -25,9 +25,10 @@ class PlayGameController: UIViewController {
     var zPositionIngredient: CGFloat = 0.1
     var stackIndex: Int = 0
     var ingredientSize = CGSize(width: 80.0, height: 46.0)
-    var ingredientAlignment = CGPoint(x: 0.0, y: 6)
+    var ingredientAlignment = CGPoint(x: 0.0, y: 0.0)
     
     var entitiesInView: [Ingredient] = []
+    @IBOutlet weak var middleDetector: UIImageView!
     
     var timer:Timer? = Timer()
     var spawnTimer:Timer? = Timer()
@@ -36,12 +37,13 @@ class PlayGameController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0)))
+        ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false))
         ingredientStack[stackIndex].image = ingredientCatcher // array of UIImageViews that fills up based on what is in the stack- first element is the base (ingredientCatcher)
         ingredientStack[stackIndex].name = "ingredientCatcher"
         
         timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
         spawnTimer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(randomizedSpawner), userInfo: nil, repeats: true)
+        middleDetector.isUserInteractionEnabled = false
         /*spawnIngredients(ingredientType: "burger", ingredientGravity: CGPoint(x: 0.0, y: 8.0), location: CGPoint(x: 80.0, y: 60.0))
         spawnIngredients(ingredientType: "tomato", ingredientGravity: CGPoint(x: 0.0, y: 2.5), location: CGPoint(x: 230.0, y: 90.0))
         spawnIngredients(ingredientType: "tomato", ingredientGravity: CGPoint(x: 0.0, y: 2.0), location: CGPoint(x: 320.0, y: 90.0))
@@ -84,22 +86,30 @@ class PlayGameController: UIViewController {
         /*
          Built in Swift randomization functions
          */
-        let randomLocation = locationSpawns.randomElement()
+        var randomLocation = locationSpawns.randomElement()
         let randomYValue = Double.random(in: 1..<8)
-        let trafficGravity = CGPoint(x: 0.0, y: 4)
+        var trafficPrevention = 0
         var randomGravity = CGPoint(x: 0.0, y: randomYValue)
         let randomIngredient = ingredientTypes.randomElement()
-        
-        /*for ingredient in entitiesInView {
-            if randomLocation!.x == ingredient.location.x {
+        /*
+         Method explanation: Purpose is to limit the number of ingredients that overlap each other, but not reduce the overlap all together
+         1. Scans all of the entities in the view to see if the new location of an element to be spawned is in the same "column" (see playGameDictionaries) as an existing falling ingredient
+         2. Swift repeat (do while) randomizes another gravity value until it is less than the gravity of the ingredient already falling in the current column
+         3. If a smaller gravity value cannot be found after 30 attempts, it spawns the ingredient in a different random location
+         */
+        for ingredient in entitiesInView {
+            if randomLocation!.x == ingredient.location.x && ingredient.isPastMiddle == false {
                 repeat { // Swift version of do while
                     let newRandomYValue = Double.random(in: 1..<8) // attemped solution to new random number that uses the half open operator by using the gravity as the limiter (error: ClosedRange<Int> cannot be converted to ClosedRange<_>)
                     randomGravity = CGPoint(x: 0.0, y: newRandomYValue)
-                } while randomGravity.y > ingredient.gravity.y
+                    trafficPrevention += 1
+                } while randomGravity.y > ingredient.gravity.y || trafficPrevention == 30
                 /*randomYValue = Double(ingredient.gravity.y - 0.9)
                 randomGravity = CGPoint(x: 0.0, y: randomYValue)*/
+            } else if trafficPrevention == 30 {
+                randomLocation = locationSpawns.randomElement()
             }
-        }*/
+        }
         
         spawnIngredients(ingredientType: randomIngredient!, ingredientGravity: randomGravity, location: randomLocation!)
     }
@@ -117,6 +127,7 @@ class PlayGameController: UIViewController {
         3. If there is no other items in stack other than the base (array position zero), then an ingredient is added to the next array position
         4. If there are multiple ingredients in the stack then the item is added to the stack and the ingredient is detected to have stopped so that the ingredient stops falling and it cannot be added to the stack again
          5. Position is shifted down after detection to better represent stacked ingredients in UI
+         6. Checks if any ingredients are past the middle of the screen by using a UI Image View placed in storyboard
         */
         for ingredient in entitiesInView {
             // isolation of the movement in a Bool allows all of the falling UIImageViews to run off of one timer
@@ -134,12 +145,15 @@ class PlayGameController: UIViewController {
                 }
                 ingredient.inStack = true
             }
+            if ingredient.image.frame.intersects(middleDetector.frame){
+                ingredient.isPastMiddle = true
+            }
         }
     }
     func addIngredient(ingredient: Ingredient!){
         print(stackIndex)
         // adds the ingredient to the ingredientStack based on array position - concurrent with the visual experience of the stack
-        ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0)))
+        ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false))
         ingredientStack[stackIndex] = ingredient
         ingredient.image.layer.zPosition = zPositionIngredient // makes sure the current ingredient in the stack is really at the top in the UI hierachy
         zPositionIngredient += 0.1
@@ -152,7 +166,7 @@ class PlayGameController: UIViewController {
         /*
          Method explanation
          1. Runs a timer that moves the ingredient down after it is detected
-         2. Use of timer an small movements results in an animation of the ingredient resting in the stack
+         2. Use of timer and small movements results in an animation of the ingredient resting in the stack
          3. Animation movements come from the speed of the ingredient (elminates the ingredient changing speed when it enters the detection area) and is stopped once the ingredient falls approximately halfway through the height of the ingredient in the stack
          */
         Timer.scheduledTimer(withTimeInterval: 0.025, repeats: true) { timer in
@@ -160,13 +174,13 @@ class PlayGameController: UIViewController {
             alignmentController.y += currentSpeed.y
             ingredient.image.center.y = ingredient.image.center.y + currentSpeed.y
 
-            if alignmentController.y > centerOfIngredient.y {
+            if alignmentController.y >= centerOfIngredient.y {
                 timer.invalidate()
             }
         }
     }
     func spawnIngredients(ingredientType: String, ingredientGravity: CGPoint, location: CGPoint){
-        let newIngredient = Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0)) // creates empty variable
+        let newIngredient = Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false) // creates empty variable
         /*
          Defines attributes of the image of each new ingredient
          1. Image based on a randomization of the ingredients

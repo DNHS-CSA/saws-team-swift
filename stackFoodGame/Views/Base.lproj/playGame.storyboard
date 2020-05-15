@@ -37,6 +37,10 @@
                                     <segue destination="FPe-qd-Ldh" kind="show" id="goH-T0-ajY"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9az-xT-IRx" userLabel="middleDetector">
+                                <rect key="frame" x="0.0" y="291" width="414" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="jtb-9r-ji3"/>
@@ -44,6 +48,7 @@
                     <connections>
                         <outlet property="ingredient" destination="Jnp-zF-WoE" id="s5K-lw-7aR"/>
                         <outlet property="ingredientCatcher" destination="JWd-iq-6aX" id="f4N-s1-3VR"/>
+                        <outlet property="middleDetector" destination="9az-xT-IRx" id="hxx-FX-DBy"/>
                         <outlet property="topIngredient" destination="kNU-t7-eg0" id="0DD-f8-8rP"/>
                     </connections>
                 </viewController>
