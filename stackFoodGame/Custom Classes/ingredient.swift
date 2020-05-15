@@ -15,13 +15,14 @@ class Ingredient {
     var name: String
     var inStack: Bool
     var gravity: CGPoint
+    var location: CGPoint
     
-    init(name: String, image: UIImageView, inStack: Bool, gravity: CGPoint) {
+    init(name: String, image: UIImageView, inStack: Bool, gravity: CGPoint, location: CGPoint) {
         self.image = image
         self.name = name
         self.inStack = inStack
         self.gravity = gravity
-        
+        self.location = location
     }
     
 }
