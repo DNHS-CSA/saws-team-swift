@@ -20,7 +20,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topbun.png" translatesAutoresizingMaskIntoConstraints="NO" id="dGI-fq-vbh">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="topbun" translatesAutoresizingMaskIntoConstraints="NO" id="dGI-fq-vbh">
                                 <rect key="frame" x="90" y="254" width="80" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -36,7 +36,7 @@
                                 <rect key="frame" x="90" y="413" width="80" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottombun.png" translatesAutoresizingMaskIntoConstraints="NO" id="els-YE-M8B">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottombun" translatesAutoresizingMaskIntoConstraints="NO" id="els-YE-M8B">
                                 <rect key="frame" x="90" y="466" width="80" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -108,7 +108,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bottombun.png" width="438" height="243"/>
-        <image name="topbun.png" width="438" height="243"/>
+        <image name="bottombun" width="438" height="243"/>
+        <image name="topbun" width="438" height="243"/>
     </resources>
 </document>

@@ -10,9 +10,6 @@
 		524E6F4B246CC4B800032017 /* PerksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E6F4A246CC4B800032017 /* PerksController.swift */; };
 		524E6F4D246CC4FD00032017 /* Perks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524E6F4C246CC4FD00032017 /* Perks.storyboard */; };
 		529481D4246DBDC4004F4236 /* CRT_moneyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 529481D3246DBDC4004F4236 /* CRT_moneyImage.png */; };
-		5A0D0911246EA86000E8F98A /* finalhomescreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0D0910246EA86000E8F98A /* finalhomescreen.png */; };
-		5A0D0913246EA9A400E8F98A /* bottombun.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0D0912246EA9A400E8F98A /* bottombun.png */; };
-		5A0D093C246F198D00E8F98A /* topbun.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0D093B246F198D00E8F98A /* topbun.png */; };
 		84429D702463356900E5BA3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84429D6F2463356900E5BA3A /* AppDelegate.swift */; };
 		84429D722463356900E5BA3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84429D712463356900E5BA3A /* SceneDelegate.swift */; };
 		84429D742463356900E5BA3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84429D732463356900E5BA3A /* ViewController.swift */; };
@@ -40,9 +37,6 @@
 		524E6F4A246CC4B800032017 /* PerksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerksController.swift; sourceTree = "<group>"; };
 		524E6F4C246CC4FD00032017 /* Perks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Perks.storyboard; sourceTree = "<group>"; };
 		529481D3246DBDC4004F4236 /* CRT_moneyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CRT_moneyImage.png; sourceTree = "<group>"; };
-		5A0D0910246EA86000E8F98A /* finalhomescreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = finalhomescreen.png; path = ../../../../Desktop/stackthestore/finalhomescreen.png; sourceTree = "<group>"; };
-		5A0D0912246EA9A400E8F98A /* bottombun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bottombun.png; path = ../../../../Desktop/stackthestore/foodpngs/bottombun.png; sourceTree = "<group>"; };
-		5A0D093B246F198D00E8F98A /* topbun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = topbun.png; path = ../../../../Desktop/stackthestore/foodpngs/topbun.png; sourceTree = "<group>"; };
 		84429D6C2463356900E5BA3A /* stackFoodGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stackFoodGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84429D6F2463356900E5BA3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84429D712463356900E5BA3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,9 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				529481D3246DBDC4004F4236 /* CRT_moneyImage.png */,
-				5A0D0910246EA86000E8F98A /* finalhomescreen.png */,
-				5A0D0912246EA9A400E8F98A /* bottombun.png */,
-				5A0D093B246F198D00E8F98A /* topbun.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -245,17 +236,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				84429D7F2463356C00E5BA3A /* LaunchScreen.storyboard in Resources */,
-				5A0D093C246F198D00E8F98A /* topbun.png in Resources */,
 				84429D7C2463356C00E5BA3A /* Assets.xcassets in Resources */,
 				8489167F24637BC300ACB75A /* orderAssignment.storyboard in Resources */,
 				8489167C24637B8100ACB75A /* store.storyboard in Resources */,
 				524E6F4D246CC4FD00032017 /* Perks.storyboard in Resources */,
 				8489168424637BED00ACB75A /* orderComplete.storyboard in Resources */,
 				8489167924637B7500ACB75A /* stats.storyboard in Resources */,
-				5A0D0913246EA9A400E8F98A /* bottombun.png in Resources */,
 				529481D4246DBDC4004F4236 /* CRT_moneyImage.png in Resources */,
 				8489167224633D2C00ACB75A /* playGame.storyboard in Resources */,
-				5A0D0911246EA86000E8F98A /* finalhomescreen.png in Resources */,
 				DAB26BBA2464CD530052BE46 /* PlayerCustomization.storyboard in Resources */,
 				84429D772463356900E5BA3A /* Main.storyboard in Resources */,
 			);
