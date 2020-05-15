@@ -29,6 +29,7 @@ class PlayGameController: UIViewController {
     var entitiesInView: [Ingredient] = []
     
     var timer:Timer? = Timer()
+    var spawnTimer:Timer? = Timer()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +40,12 @@ class PlayGameController: UIViewController {
         ingredientStack[stackIndex].name = "ingredientCatcher"
         
         timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
-        spawnIngredients(ingredientType: "burger", ingredientGravity: CGPoint(x: 0.0, y: 5.0), location: CGPoint(x: 80.0, y: 60.0))
+        spawnTimer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(randomizedSpawner), userInfo: nil, repeats: true)
+        /*spawnIngredients(ingredientType: "burger", ingredientGravity: CGPoint(x: 0.0, y: 8.0), location: CGPoint(x: 80.0, y: 60.0))
         spawnIngredients(ingredientType: "tomato", ingredientGravity: CGPoint(x: 0.0, y: 2.5), location: CGPoint(x: 230.0, y: 90.0))
         spawnIngredients(ingredientType: "tomato", ingredientGravity: CGPoint(x: 0.0, y: 2.0), location: CGPoint(x: 320.0, y: 90.0))
         //entitiesInView.append(Ingredient(name: String(), image: ingredient, inStack: false, gravity: CGPoint(x: 0.0, y: 5.0)))
-        //entitiesInView.append(Ingredient(name: String(), image: topIngredient, inStack: false, gravity: CGPoint(x: 0.0, y: 2.5)))
+        //entitiesInView.append(Ingredient(name: String(), image: topIngredient, inStack: false, gravity: CGPoint(x: 0.0, y: 2.5)))*/
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -77,6 +79,15 @@ class PlayGameController: UIViewController {
             ingredient.image.center.x = newLocation.x
         }
     }
+    @objc func randomizedSpawner(){
+        let randomLocation = locationSpawns.randomElement()
+        let randomYValue = Double.random(in: 1..<8)
+        let randomGravity = CGPoint(x: 0.0, y: randomYValue)
+        let randomIngredient = ingredientTypes.randomElement()
+        
+        spawnIngredients(ingredientType: randomIngredient!, ingredientGravity: randomGravity, location: randomLocation!)
+    }
+    
     @objc func moveItem(){
         var localStackIndex = stackIndex
         // addIngredient func always sets up array for a new element, thus if the stack has something in it, to do the tests below, it must look at the previous element
