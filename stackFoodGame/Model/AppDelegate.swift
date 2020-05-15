@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var itemQuantity: Int = 0;
     var coins: Int = 0;
     var xp: Int = 0;
-    var itemImage: UIImage = UIImage(named: "CRT_moneyImage.png")!
+    var itemImage: UIImage = UIImage(named: "CRT_moneyImage")!
     var itemDescription: String = "This is the first item"
 
     
