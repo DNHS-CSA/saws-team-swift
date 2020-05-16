@@ -121,7 +121,7 @@ class PlayGameController: UIViewController {
             localStackIndex = stackIndex - 1
         }
         /*
-        Method explanation
+        Loop explanation
         1. Cycles through all of the entities in the view
         2. If the stack of food (top item only) intersects with the falling ingredient it will stop the falling ingredient from moving
         3. If there is no other items in stack other than the base (array position zero), then an ingredient is added to the next array position
@@ -239,4 +239,44 @@ class PlayGameController: UIViewController {
         
         stopTopIngredient = true
     }
-    */
+ 
+    Possible Order Logic
+    class Order {
+        
+        var image: UIImageView
+        var label: UILabel
+        var ingredientType: String
+        var text: String
+        var quantity: Int
+        
+        init(image: UIImageView, label: UILabel, ingredientType: String, text: String, quantity: Int) {
+            self.image = image
+            self.label = label
+            self.ingredientType = ingredientType
+            self.text = text
+            self.quantity = quantity
+        }
+    }
+ 
+    ingredientsInOrder.append(Order(image: ingredient1, label: ingredientNumber1, ingredientType: String(), text: String(), quantity: Int()))
+    ingredientsInOrder.append(Order(image: ingredient2, label: ingredientNumber2, ingredientType: String(), text: String(), quantity: Int()))
+    ingredientsInOrder.append(Order(image: ingredient3, label: ingredientNumber3, ingredientType: String(), text: String(), quantity: Int()))
+    
+    for ingredient in ingredientsInOrder {
+        
+        ingredient.quantity = Int.random(in: 1...3)
+        ingredient.ingredientType = orderIngredientType.randomElement()!
+    }
+    var uniqueIngredients: Bool = false
+    repeat{
+        if ingredientsInOrder[0].ingredientType != ingredientsInOrder[1].ingredientType && ingredientsInOrder[1].ingredientType != ingredientsInOrder[2].ingredientType && ingredientsInOrder[2].ingredientType != ingredientsInOrder[0].ingredientType {
+            uniqueIngredients = true
+        }
+    } while uniqueIngredients == false
+    for ingredient in ingredientsInOrder {
+        ingredient.image.image = UIImage(named: ingredient.ingredientType)
+        ingredient.label.text = "x\(String(ingredient.quantity))"
+        
+    }
+ */
+
