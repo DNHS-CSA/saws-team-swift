@@ -149,6 +149,10 @@ class PlayGameController: UIViewController {
                 ingredient.isPastMiddle = true
             }
         }
+        if ingredientStack[localStackIndex].name == "topBun" {
+            timer?.invalidate()
+            spawnTimer?.invalidate()
+        }
     }
     func addIngredient(ingredient: Ingredient!){
         print(stackIndex)
