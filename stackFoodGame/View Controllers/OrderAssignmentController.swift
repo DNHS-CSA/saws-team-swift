@@ -13,6 +13,7 @@ class OrderAssignmentController: UIViewController {
     @IBOutlet weak var ingredientNumber1: UILabel!
     @IBOutlet weak var ingredientNumber2: UILabel!
     @IBOutlet weak var ingredientNumber3: UILabel!
+    
     @IBOutlet weak var ingredient1: UIImageView!
     @IBOutlet weak var ingredient2: UIImageView!
     @IBOutlet weak var ingredient3: UIImageView!
@@ -24,6 +25,7 @@ class OrderAssignmentController: UIViewController {
         ingredientNumber1.text = "x\(String(ingredientAmount1))"
         ingredientNumber2.text = "x\(String(ingredientAmount2))"
         ingredientNumber3.text = "x\(String(ingredientAmount3))"
+        //setting amount of each ingredient
         
         let randomIngredient1 = orderIngredientType.randomElement()
         let randomIngredient2 = orderIngredientType.randomElement()
@@ -31,6 +33,7 @@ class OrderAssignmentController: UIViewController {
         ingredient1.image = UIImage(named: randomIngredient1!)
         ingredient2.image = UIImage(named: randomIngredient2!)
         ingredient3.image = UIImage(named: randomIngredient3!)
+        //sets image of random ingredient
         
         if ingredient1.image == ingredient2.image {
             let randomIngredient4 = orderIngredientType.randomElement()
@@ -44,6 +47,7 @@ class OrderAssignmentController: UIViewController {
             let randomIngredient6 = orderIngredientType.randomElement()
             ingredient1.image = UIImage(named: randomIngredient6!)
         }
+        //verifies that there are no duplicate ingredients
         
         super.viewDidLoad()
     }
