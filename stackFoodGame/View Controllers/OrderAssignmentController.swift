@@ -13,11 +13,13 @@ class OrderAssignmentController: UIViewController {
     @IBOutlet weak var ingredientNumber1: UILabel!
     @IBOutlet weak var ingredientNumber2: UILabel!
     @IBOutlet weak var ingredientNumber3: UILabel!
+    
     @IBOutlet weak var ingredient1: UIImageView!
     @IBOutlet weak var ingredient2: UIImageView!
     @IBOutlet weak var ingredient3: UIImageView!
     
     override func viewDidLoad() {
+
 
         let numberArray = (0..<3).map{ _ in Int.random(in: 1 ... 3) }
         var ingredientArray : [String] = []
@@ -45,6 +47,10 @@ class OrderAssignmentController: UIViewController {
         ingredientNumber3.text = "x\(String(numberArray[2]))"
         
         orders.append(Order(names: ingredientArray, nums: numberArray))
+
+        
+        //verifies that there are no duplicate ingredients
+
         
         super.viewDidLoad()
     }

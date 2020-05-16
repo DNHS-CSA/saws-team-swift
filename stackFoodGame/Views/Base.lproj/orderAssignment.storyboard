@@ -87,9 +87,11 @@
                         <viewLayoutGuide key="safeArea" id="a5L-ED-OiE"/>
                     </view>
                     <connections>
+
                         <outlet property="ingredient1" destination="Bm6-Hk-FQL" id="R4H-6f-Yx0"/>
                         <outlet property="ingredient2" destination="exY-i2-739" id="Cdr-py-jzp"/>
                         <outlet property="ingredient3" destination="aWi-Tz-qrL" id="QmU-VD-KUP"/>
+
                         <outlet property="ingredientNumber1" destination="N3N-Yt-Omv" id="l67-rZ-1gA"/>
                         <outlet property="ingredientNumber2" destination="bww-4J-Crx" id="rNt-fZ-dfA"/>
                         <outlet property="ingredientNumber3" destination="4Yy-HR-eu1" id="jrX-lr-6Ms"/>
