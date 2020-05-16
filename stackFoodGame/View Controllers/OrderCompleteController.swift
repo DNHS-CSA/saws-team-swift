@@ -27,6 +27,9 @@ class OrderCompleteController: UIViewController {
         }
         // Do any additional setup after loading the view.
         
+        for o in orders.last!.curBurger{
+            print(o)
+        }
 
     }
     

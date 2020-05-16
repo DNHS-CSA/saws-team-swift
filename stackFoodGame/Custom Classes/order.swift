@@ -12,15 +12,24 @@ import UIKit
 class Order {
     
     var imgNames: [String]
+    var curBurger: [String] = []
     var order: [String:Int] = [:]
+
     
-    init(imgNames:[String], order:[String:Int]) {
-        self.imgNames = imgNames
-        self.order = order
+    
+    init(names:[String], nums:[Int]) {
+        self.imgNames = names
+        self.fillOrder(names: names, nums: nums)
+    }
+    
+    func fillOrder(names:[String],nums:[Int]){
+        for i in 0..<3{
+            self.order[names[i]] = nums[i]
+        }
     }
     
     func addIngredient(name:String){
-        
+        curBurger.append(name)
     }
     
 }

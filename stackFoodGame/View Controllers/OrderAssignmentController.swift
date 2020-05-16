@@ -39,13 +39,13 @@ class OrderAssignmentController: UIViewController {
         ingredient2.image = UIImage(named: ingredientArray[1])
         ingredient3.image = UIImage(named: ingredientArray[2])
 
-        //imageView.image = UIImage(named: ingredientType)
-        
-        //orders.append("there")
         
         ingredientNumber1.text = "x\(String(numberArray[0]))"
         ingredientNumber2.text = "x\(String(numberArray[1]))"
         ingredientNumber3.text = "x\(String(numberArray[2]))"
+        
+        orders.append(Order(names: ingredientArray, nums: numberArray))
+        
         super.viewDidLoad()
     }
     /*
