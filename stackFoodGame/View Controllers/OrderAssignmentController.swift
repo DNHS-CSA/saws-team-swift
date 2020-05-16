@@ -32,6 +32,19 @@ class OrderAssignmentController: UIViewController {
         ingredient2.image = UIImage(named: randomIngredient2!)
         ingredient3.image = UIImage(named: randomIngredient3!)
         
+        if ingredient1.image == ingredient2.image {
+            let randomIngredient4 = orderIngredientType.randomElement()
+            ingredient2.image = UIImage(named: randomIngredient4!)
+        }
+        if ingredient2.image == ingredient3.image {
+            let randomIngredient5 = orderIngredientType.randomElement()
+            ingredient3.image = UIImage(named: randomIngredient5!)
+        }
+        if ingredient3.image == ingredient1.image {
+            let randomIngredient6 = orderIngredientType.randomElement()
+            ingredient1.image = UIImage(named: randomIngredient6!)
+        }
+        
         super.viewDidLoad()
     }
     /*
