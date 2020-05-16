@@ -24,15 +24,15 @@
                                 <rect key="frame" x="90" y="254" width="80" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bm6-Hk-FQL">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lettuce" translatesAutoresizingMaskIntoConstraints="NO" id="Bm6-Hk-FQL">
                                 <rect key="frame" x="90" y="307" width="80" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="exY-i2-739">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="burger" translatesAutoresizingMaskIntoConstraints="NO" id="exY-i2-739">
                                 <rect key="frame" x="90" y="360" width="80" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aWi-Tz-qrL">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cheese" translatesAutoresizingMaskIntoConstraints="NO" id="aWi-Tz-qrL">
                                 <rect key="frame" x="90" y="413" width="80" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -87,6 +87,9 @@
                         <viewLayoutGuide key="safeArea" id="a5L-ED-OiE"/>
                     </view>
                     <connections>
+                        <outlet property="ingredient1" destination="Bm6-Hk-FQL" id="FKJ-hu-xDZ"/>
+                        <outlet property="ingredient2" destination="exY-i2-739" id="KgA-ri-hnW"/>
+                        <outlet property="ingredient3" destination="aWi-Tz-qrL" id="nhb-aZ-UcE"/>
                         <outlet property="ingredientNumber1" destination="N3N-Yt-Omv" id="l67-rZ-1gA"/>
                         <outlet property="ingredientNumber2" destination="bww-4J-Crx" id="rNt-fZ-dfA"/>
                         <outlet property="ingredientNumber3" destination="4Yy-HR-eu1" id="jrX-lr-6Ms"/>
@@ -109,6 +112,9 @@
     </scenes>
     <resources>
         <image name="bottombun" width="438" height="243"/>
+        <image name="burger" width="438" height="243"/>
+        <image name="cheese" width="438" height="243"/>
+        <image name="lettuce" width="438" height="243"/>
         <image name="topbun" width="438" height="243"/>
     </resources>
 </document>

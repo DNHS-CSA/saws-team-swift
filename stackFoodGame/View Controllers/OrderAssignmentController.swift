@@ -24,6 +24,14 @@ class OrderAssignmentController: UIViewController {
         ingredientNumber1.text = "x\(String(ingredientAmount1))"
         ingredientNumber2.text = "x\(String(ingredientAmount2))"
         ingredientNumber3.text = "x\(String(ingredientAmount3))"
+        
+        let randomIngredient1 = orderIngredientType.randomElement()
+        let randomIngredient2 = orderIngredientType.randomElement()
+        let randomIngredient3 = orderIngredientType.randomElement()
+        ingredient1.image = UIImage(named: randomIngredient1!)
+        ingredient2.image = UIImage(named: randomIngredient2!)
+        ingredient3.image = UIImage(named: randomIngredient3!)
+        
         super.viewDidLoad()
     }
     /*
