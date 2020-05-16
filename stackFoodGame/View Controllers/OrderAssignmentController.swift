@@ -18,12 +18,34 @@ class OrderAssignmentController: UIViewController {
     @IBOutlet weak var ingredient3: UIImageView!
     
     override func viewDidLoad() {
-        let ingredientAmount1 = Int.random(in: 1...3)
-        let ingredientAmount2 = Int.random(in: 1...3)
-        let ingredientAmount3 = Int.random(in: 1...3)
-        ingredientNumber1.text = "x\(String(ingredientAmount1))"
-        ingredientNumber2.text = "x\(String(ingredientAmount2))"
-        ingredientNumber3.text = "x\(String(ingredientAmount3))"
+
+        let numberArray = (0..<3).map{ _ in Int.random(in: 1 ... 3) }
+        var ingredientArray : [String] = []
+        
+        var foodTypes = ingredientTypes  //just a copy without topbun
+        foodTypes.removeLast()
+        
+        for _ in 0..<3{
+            let igdt = String(foodTypes.randomElement()!)
+            ingredientArray.append(igdt)
+            foodTypes.remove(at: foodTypes.firstIndex(of: String(igdt))!)
+        }
+        
+        for s in ingredientArray{
+            print(s)
+        }
+        
+        ingredient1.image = UIImage(named: ingredientArray[0])
+        ingredient2.image = UIImage(named: ingredientArray[1])
+        ingredient3.image = UIImage(named: ingredientArray[2])
+
+        //imageView.image = UIImage(named: ingredientType)
+        
+        //orders.append("there")
+        
+        ingredientNumber1.text = "x\(String(numberArray[0]))"
+        ingredientNumber2.text = "x\(String(numberArray[1]))"
+        ingredientNumber3.text = "x\(String(numberArray[2]))"
         super.viewDidLoad()
     }
     /*

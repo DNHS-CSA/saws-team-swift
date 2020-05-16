@@ -26,6 +26,8 @@ class OrderCompleteController: UIViewController {
             orderStatus.text = "Order Failed!"
         }
         // Do any additional setup after loading the view.
+        
+
     }
     
 
