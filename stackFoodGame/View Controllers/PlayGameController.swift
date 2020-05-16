@@ -158,6 +158,10 @@ class PlayGameController: UIViewController {
         ingredient.image.layer.zPosition = zPositionIngredient // makes sure the current ingredient in the stack is really at the top in the UI hierachy
         zPositionIngredient += 0.1
         stackIndex += 1
+        
+        //ADDED BELOW TO SYNC BURGER WITH GLOBAL TRACKER IN ORDER.SWIFT
+        orders.last?.curBurger.append(ingredientStack.last!.name)
+        
     }
     func animateStack(ingredient: Ingredient, currentSpeed: CGPoint) {
         var animateTimer = 0
@@ -207,6 +211,14 @@ class PlayGameController: UIViewController {
         self.view.addSubview(newIngredient.image)
     }
     
+    
+    
+    //REMOVE THE BELOW LATER
+    @IBAction func finishedOrderButton(_ sender: Any) {
+        timer?.invalidate()
+        spawnTimer?.invalidate()
+        
+    }
 }
     /*
     Old ingredient stack management for reference

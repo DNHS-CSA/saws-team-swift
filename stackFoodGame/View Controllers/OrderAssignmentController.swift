@@ -19,35 +19,38 @@ class OrderAssignmentController: UIViewController {
     @IBOutlet weak var ingredient3: UIImageView!
     
     override func viewDidLoad() {
-        let ingredientAmount1 = Int.random(in: 1...3)
-        let ingredientAmount2 = Int.random(in: 1...3)
-        let ingredientAmount3 = Int.random(in: 1...3)
-        ingredientNumber1.text = "x\(String(ingredientAmount1))"
-        ingredientNumber2.text = "x\(String(ingredientAmount2))"
-        ingredientNumber3.text = "x\(String(ingredientAmount3))"
-        //setting amount of each ingredient
+
+
+        let numberArray = (0..<3).map{ _ in Int.random(in: 1 ... 3) }
+        var ingredientArray : [String] = []
         
-        let randomIngredient1 = orderIngredientType.randomElement()
-        let randomIngredient2 = orderIngredientType.randomElement()
-        let randomIngredient3 = orderIngredientType.randomElement()
-        ingredient1.image = UIImage(named: randomIngredient1!)
-        ingredient2.image = UIImage(named: randomIngredient2!)
-        ingredient3.image = UIImage(named: randomIngredient3!)
-        //sets image of random ingredient
+        var foodTypes = ingredientTypes  //just a copy without topbun
+        foodTypes.removeLast()
         
-        if ingredient1.image == ingredient2.image {
-            let randomIngredient4 = orderIngredientType.randomElement()
-            ingredient2.image = UIImage(named: randomIngredient4!)
+        for _ in 0..<3{
+            let igdt = String(foodTypes.randomElement()!)
+            ingredientArray.append(igdt)
+            foodTypes.remove(at: foodTypes.firstIndex(of: String(igdt))!)
         }
-        if ingredient2.image == ingredient3.image {
-            let randomIngredient5 = orderIngredientType.randomElement()
-            ingredient3.image = UIImage(named: randomIngredient5!)
+        
+        for i in 0..<3{
+            print(ingredientArray[i]+"  X"+String(numberArray[i]))
         }
-        if ingredient3.image == ingredient1.image {
-            let randomIngredient6 = orderIngredientType.randomElement()
-            ingredient1.image = UIImage(named: randomIngredient6!)
-        }
+        
+        ingredient1.image = UIImage(named: ingredientArray[0])
+        ingredient2.image = UIImage(named: ingredientArray[1])
+        ingredient3.image = UIImage(named: ingredientArray[2])
+
+        
+        ingredientNumber1.text = "x\(String(numberArray[0]))"
+        ingredientNumber2.text = "x\(String(numberArray[1]))"
+        ingredientNumber3.text = "x\(String(numberArray[2]))"
+        
+        orders.append(Order(names: ingredientArray, nums: numberArray))
+
+        
         //verifies that there are no duplicate ingredients
+
         
         super.viewDidLoad()
     }
