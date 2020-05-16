@@ -31,8 +31,8 @@ class OrderAssignmentController: UIViewController {
             foodTypes.remove(at: foodTypes.firstIndex(of: String(igdt))!)
         }
         
-        for s in ingredientArray{
-            print(s)
+        for i in 0..<3{
+            print(ingredientArray[i]+"  X"+String(numberArray[i]))
         }
         
         ingredient1.image = UIImage(named: ingredientArray[0])
