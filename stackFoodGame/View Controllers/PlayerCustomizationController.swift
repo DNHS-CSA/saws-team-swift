@@ -52,6 +52,7 @@ class PlayerCustomizationController: UIViewController {
         let newCount = NSManagedObject(entity: Count!, insertInto:  context)
         
         newCount.setValue(imagescreen, forKey: "imagescreen")
+        newCount.setValue(count, forKey: "count")
         do {
             try context.save()
             print("Save successful")
@@ -71,6 +72,7 @@ class PlayerCustomizationController: UIViewController {
          let newCount = NSManagedObject(entity: Count!, insertInto:  context)
          
          newCount.setValue(imagescreen, forKey: "imagescreen")
+         newCount.setValue(count, forKey: "count")
          do {
              try context.save()
              print("Save successful")
@@ -90,6 +92,7 @@ class PlayerCustomizationController: UIViewController {
          let newCount = NSManagedObject(entity: Count!, insertInto:  context)
          
          newCount.setValue(imagescreen, forKey: "imagescreen")
+         newCount.setValue(count, forKey: "count")
          do {
              try context.save()
              print("Save successful")
@@ -109,6 +112,7 @@ class PlayerCustomizationController: UIViewController {
          let newCount = NSManagedObject(entity: Count!, insertInto:  context)
          
          newCount.setValue(imagescreen, forKey: "imagescreen")
+         newCount.setValue(count, forKey: "count")
          do {
              try context.save()
              print("Save successful")
@@ -128,6 +132,7 @@ class PlayerCustomizationController: UIViewController {
          let newCount = NSManagedObject(entity: Count!, insertInto:  context)
          
          newCount.setValue(imagescreen, forKey: "imagescreen")
+         newCount.setValue(count, forKey: "count")
          do {
              try context.save()
              print("Save successful")
@@ -147,6 +152,7 @@ class PlayerCustomizationController: UIViewController {
          let newCount = NSManagedObject(entity: Count!, insertInto:  context)
          
          newCount.setValue(imagescreen, forKey: "imagescreen")
+         newCount.setValue(count, forKey: "count")
          do {
              try context.save()
              print("Save successful")
@@ -166,6 +172,7 @@ class PlayerCustomizationController: UIViewController {
         let newCount = NSManagedObject(entity: Count!, insertInto:  context)
         
         newCount.setValue(count, forKey: "count")
+        newCount.setValue(imagescreen, forKey: "imagescreen")
         do {
             try context.save()
             print("Save successful")
@@ -178,13 +185,14 @@ class PlayerCustomizationController: UIViewController {
     
     @IBAction func PreviousArrow(_ sender: Any)
     {
-        count -= 1
+        count += 1
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let Count = NSEntityDescription.entity(forEntityName: "ImageVar", in: context)
         let newCount = NSManagedObject(entity: Count!, insertInto:  context)
         
         newCount.setValue(count, forKey: "count")
+        newCount.setValue(imagescreen, forKey: "imagescreen")
         do {
             try context.save()
             print("Save successful")
@@ -208,6 +216,7 @@ class PlayerCustomizationController: UIViewController {
                 count = data.value(forKey: "count") as! Int
                 imagescreen = data.value(forKey: "imagescreen") as! Int
             }
+            print("Data successfully fetched")
         }
         catch
         {
