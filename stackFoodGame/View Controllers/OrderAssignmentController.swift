@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class OrderAssignmentController: UIViewController {
     
@@ -17,6 +18,10 @@ class OrderAssignmentController: UIViewController {
     @IBOutlet weak var ingredient1: UIImageView!
     @IBOutlet weak var ingredient2: UIImageView!
     @IBOutlet weak var ingredient3: UIImageView!
+    
+    @IBOutlet weak var PlayerImage: UIImageView!
+    
+    var imagenumber = Int()
     
     override func viewDidLoad() {
 
@@ -47,10 +52,14 @@ class OrderAssignmentController: UIViewController {
         ingredientNumber3.text = "x\(String(numberArray[2]))"
         
         orders.append(Order(names: ingredientArray, nums: numberArray))
+        
+        orderGetData()
+        imagenumbercheck(imagenumber: imagenumber)
 
         
         //verifies that there are no duplicate ingredients
 
+        
         
         super.viewDidLoad()
     }
@@ -63,5 +72,49 @@ class OrderAssignmentController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func orderGetData()
+    {
+        let orderContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let orderRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageVar")
+        orderRequest.returnsObjectsAsFaults = false
+        do
+        {
+            let orderResult = try orderContext.fetch(orderRequest)
+            for orderData in orderResult as! [NSManagedObject]
+            {
+                imagenumber = orderData.value(forKey: "imagescreen") as! Int
+            }
+            print("Data successfully fetched")
+            print(imagenumber)
+        }
+        catch
+        {
+            print("Fetch failed")
+        }
+    }
+    func imagenumbercheck(imagenumber: Int)
+    {
+        if imagenumber == 0 {
+            PlayerImage.isHidden = true
+        }
+        if imagenumber == 1 {
+            PlayerImage.image = UIImage(named: "boychef")
+        }
+        if imagenumber == 2 {
+            PlayerImage.image = UIImage(named: "girlchef")
+        }
+        if imagenumber == 3 {
+            PlayerImage.image = UIImage(named: "frog")
+        }
+        if imagenumber == 4 {
+            PlayerImage.image = UIImage(named: "penguin")
+        }
+        if imagenumber == 5 {
+            PlayerImage.isHidden = true
+        }
+        if imagenumber == 6 {
+            PlayerImage.isHidden = true
+        }
+    }
 
 }
