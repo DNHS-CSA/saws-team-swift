@@ -85,7 +85,6 @@ class OrderAssignmentController: UIViewController {
                 imagenumber = orderData.value(forKey: "imagescreen") as! Int
             }
             print("Data successfully fetched")
-            print(imagenumber)
         }
         catch
         {
