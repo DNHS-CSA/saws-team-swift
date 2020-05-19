@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Avatar" representedClassName="Avatar" syncable="YES">
         <attribute name="iconName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="gameHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameHistory" inverseName="avatar" inverseEntity="GameHistory"/>
+        <relationship name="player" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="avatar" inverseEntity="Player"/>
     </entity>
     <entity name="Food" representedClassName="Food" syncable="YES">
         <attribute name="iconName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="gameHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameHistory" inverseName="food" inverseEntity="GameHistory"/>
+        <relationship name="player" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="food" inverseEntity="Player"/>
+    </entity>
+    <entity name="GameHistory" representedClassName="GameHistory" syncable="YES" codeGenerationType="class">
+        <attribute name="coins" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="avatar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Avatar" inverseName="gameHistory" inverseEntity="Avatar"/>
+        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Food" inverseName="gameHistory" inverseEntity="Food"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="gameHistory" inverseEntity="Location"/>
+        <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="gameHistory" inverseEntity="Player"/>
     </entity>
     <entity name="ImageVar" representedClassName="ImageVar" syncable="YES" codeGenerationType="class">
         <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -18,13 +31,16 @@
         <attribute name="iconName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="gameHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameHistory" inverseName="location" inverseEntity="GameHistory"/>
+        <relationship name="player" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="location" inverseEntity="Player"/>
     </entity>
     <entity name="Player" representedClassName="Player" syncable="YES">
-        <attribute name="avatarFK" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="foodFK" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="locationFK" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="avatar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Avatar" inverseName="player" inverseEntity="Avatar"/>
+        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Food" inverseName="player" inverseEntity="Food"/>
+        <relationship name="gameHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameHistory" inverseName="player" inverseEntity="GameHistory"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="player" inverseEntity="Location"/>
     </entity>
     <entity name="Powerup" representedClassName="Powerup" syncable="YES" codeGenerationType="class">
         <attribute name="iconName" optional="YES" attributeType="String"/>
@@ -33,11 +49,12 @@
         <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="ImageVar" positionX="-63" positionY="-18" width="128" height="73"/>
-        <element name="Player" positionX="-54" positionY="9" width="128" height="118"/>
-        <element name="Avatar" positionX="-36" positionY="54" width="128" height="88"/>
-        <element name="Food" positionX="-18" positionY="72" width="128" height="88"/>
-        <element name="Powerup" positionX="0" positionY="90" width="128" height="103"/>
-        <element name="Location" positionX="18" positionY="99" width="128" height="88"/>
+        <element name="Avatar" positionX="-54.35546875" positionY="-176.58203125" width="128" height="118"/>
+        <element name="Food" positionX="-74.49609375" positionY="118.98046875" width="128" height="118"/>
+        <element name="ImageVar" positionX="56.359375" positionY="-351.35546875" width="128" height="73"/>
+        <element name="Location" positionX="-95.57421875" positionY="260.62890625" width="128" height="118"/>
+        <element name="Player" positionX="-275.39453125" positionY="-111.078125" width="128" height="133"/>
+        <element name="Powerup" positionX="207.1328125" positionY="-155.13671875" width="128" height="103"/>
+        <element name="GameHistory" positionX="281.31640625" positionY="23.45703125" width="128" height="148"/>
     </elements>
 </model>

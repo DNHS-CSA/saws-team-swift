@@ -178,21 +178,23 @@ class PlayGameController: UIViewController {
                 ingredient.image.center.y = ingredient.image.center.y + ingredient.gravity.y
             }
             if ingredientStack[localStackIndex].image.frame.intersects(ingredient.image.frame) {
-                if stackIndex == 0{
-                    stackIndex += 1
-                    addIngredient(ingredient: ingredient)
-                    animateStack(ingredient: ingredient, currentSpeed: ingredient.gravity)
-                } else if stackIndex - 1 != 0 && ingredient.inStack == false {
-                    addIngredient(ingredient: ingredient)
-                    animateStack(ingredient: ingredient, currentSpeed: ingredient.gravity)
+                if abs(ingredientStack[localStackIndex].image.center.x - ingredient.image.center.x) < CGFloat(55) && ingredientStack[localStackIndex].image.center.y - ingredient.image.center.y > CGFloat(10)  {
+                    if stackIndex == 0{
+                        stackIndex += 1
+                        addIngredient(ingredient: ingredient)
+                        animateStack(ingredient: ingredient, currentSpeed: ingredient.gravity)
+                    } else if stackIndex - 1 != 0 && ingredient.inStack == false {
+                        addIngredient(ingredient: ingredient)
+                        animateStack(ingredient: ingredient, currentSpeed: ingredient.gravity)
+                    }
+                    ingredient.inStack = true
                 }
-                ingredient.inStack = true
             }
             if ingredient.image.frame.intersects(middleDetector.frame){
                 ingredient.isPastMiddle = true
             }
         }
-        if ingredientStack[localStackIndex].name == "topBun" {
+        if ingredientStack[localStackIndex].name == "topbun" {
             timer?.invalidate()
             spawnTimer?.invalidate()
         }
