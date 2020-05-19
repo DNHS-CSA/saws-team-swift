@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var itemQuantity: Int = 0;
     var coins: Int = 0;
     var xp: Int = 0;
-    var itemImage: UIImage = UIImage(named: "CRT_moneyImage")!
-    var itemDescription: String = "This is the first item"
+    var perkImages: [UIImage] = [UIImage(named: "snail.png")!, UIImage(named: "tips.jpeg")!, UIImage(named: "magnet.png")!, UIImage(named: "chef.jpg")!, UIImage(named: "gold.png")!, UIImage(named: "secret.jpg")!]
+    var perkDescriptions: [String] = ["This snail will slow down the speed of ites falling by 5% for you!", "Increase the total tip amount by 10%", "Attract the ingredients towards your burger, making it easier to collect them!", "This chef will make your engridients delicious! Increase the money earned from a completed order by 10%", "Gold rush! All your ingredients will be covered in gold, giving you a 100% bonus for money earned from a completed order!", "Unlock a mystery ingredient, which, if collected, will give you an immense amount of money and experience!"]
 
     
     
