@@ -49,7 +49,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="te7-O4-Hzr" kind="show" id="62s-Ss-aXc"/>
+                                    <segue destination="te7-O4-Hzr" kind="show" identifier="goToPlayGame" id="62s-Ss-aXc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cP-iK-r4w">

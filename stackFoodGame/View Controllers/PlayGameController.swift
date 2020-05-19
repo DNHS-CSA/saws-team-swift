@@ -30,6 +30,22 @@ class PlayGameController: UIViewController {
     var entitiesInView: [Ingredient] = []
     @IBOutlet weak var middleDetector: UIImageView!
     
+    
+    @IBOutlet weak var backgroundHeader: UIImageView!
+    // IBOutlets of header content
+    @IBOutlet weak var top: UIImageView!
+    @IBOutlet weak var ingredientL: UIImageView!
+    @IBOutlet weak var quantityL: UILabel!
+    @IBOutlet weak var ingredientC: UIImageView!
+    @IBOutlet weak var quantityC: UILabel!
+    @IBOutlet weak var ingredientR: UIImageView!
+    @IBOutlet weak var quantityR: UILabel!
+    @IBOutlet weak var bottom: UIImageView!
+    
+    var orderUI = (ingredientNames: [String()], quantityOfEachIngredient: [Int()])
+    var ingredientHeaderImages: [UIImageView] = [UIImageView(), UIImageView(), UIImageView()]
+    var ingredientHeaderQuantities: [UILabel] = [UILabel(), UILabel(), UILabel()]
+    
     var timer:Timer? = Timer()
     var spawnTimer:Timer? = Timer()
         
@@ -49,8 +65,35 @@ class PlayGameController: UIViewController {
         spawnIngredients(ingredientType: "tomato", ingredientGravity: CGPoint(x: 0.0, y: 2.0), location: CGPoint(x: 320.0, y: 90.0))
         //entitiesInView.append(Ingredient(name: String(), image: ingredient, inStack: false, gravity: CGPoint(x: 0.0, y: 5.0)))
         //entitiesInView.append(Ingredient(name: String(), image: topIngredient, inStack: false, gravity: CGPoint(x: 0.0, y: 2.5)))*/
+
+        // UI header setup
+        self.navigationController?.isNavigationBarHidden = true
+        backgroundHeader.clipsToBounds = true
+        backgroundHeader.layer.cornerRadius = 15
+        backgroundHeader.layer.zPosition = 2
+        backgroundHeader.backgroundColor = UIColor(named: "appRed")
+        // images setup in code to host future burger and ice cream modes
+        ingredientHeaderImages = [ingredientL, ingredientC, ingredientR]
+        ingredientHeaderQuantities = [quantityL, quantityC, quantityR]
+        let topBun = "topbun"
+        let bottomBun = "bottombun"
+        top.image = UIImage(named: topBun)
+        top.layer.zPosition = 2.01
+        top.transform = top.transform.rotated(by: -.pi/2)
+        bottom.image = UIImage(named: bottomBun)
+        bottom.layer.zPosition = 2.01
+        bottom.transform = bottom.transform.rotated(by: -.pi/2)
+        
+        for i in 0..<3 {
+            let imageName = orderUI.ingredientNames[i] // takes stored string literal as image name
+            ingredientHeaderImages[i].image = UIImage(named: imageName)
+            ingredientHeaderImages[i].layer.zPosition = 2.01
+            let quantityText = orderUI.quantityOfEachIngredient[i]
+            ingredientHeaderQuantities[i].text = "x\(quantityText)"
+            ingredientHeaderQuantities[i].layer.zPosition = 2.01
+        }
+        
     }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         /*
         
@@ -149,6 +192,10 @@ class PlayGameController: UIViewController {
                 ingredient.isPastMiddle = true
             }
         }
+        if ingredientStack[localStackIndex].name == "topBun" {
+            timer?.invalidate()
+            spawnTimer?.invalidate()
+        }
     }
     func addIngredient(ingredient: Ingredient!){
         print(stackIndex)
@@ -217,6 +264,7 @@ class PlayGameController: UIViewController {
     @IBAction func finishedOrderButton(_ sender: Any) {
         timer?.invalidate()
         spawnTimer?.invalidate()
+        self.navigationController?.isNavigationBarHidden = false
         
     }
 }
