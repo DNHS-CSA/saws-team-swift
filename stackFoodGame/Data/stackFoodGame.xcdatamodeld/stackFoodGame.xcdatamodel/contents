@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Avatar" representedClassName="Avatar" syncable="YES">
         <attribute name="iconName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -35,8 +35,10 @@
         <relationship name="player" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="location" inverseEntity="Player"/>
     </entity>
     <entity name="Player" representedClassName="Player" syncable="YES">
+        <attribute name="coins" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="xp" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="avatar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Avatar" inverseName="player" inverseEntity="Avatar"/>
         <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Food" inverseName="player" inverseEntity="Food"/>
         <relationship name="gameHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameHistory" inverseName="player" inverseEntity="GameHistory"/>
@@ -51,10 +53,10 @@
     <elements>
         <element name="Avatar" positionX="-54.35546875" positionY="-176.58203125" width="128" height="118"/>
         <element name="Food" positionX="-74.49609375" positionY="118.98046875" width="128" height="118"/>
+        <element name="GameHistory" positionX="281.31640625" positionY="23.45703125" width="128" height="148"/>
         <element name="ImageVar" positionX="56.359375" positionY="-351.35546875" width="128" height="73"/>
         <element name="Location" positionX="-95.57421875" positionY="260.62890625" width="128" height="118"/>
-        <element name="Player" positionX="-275.39453125" positionY="-111.078125" width="128" height="133"/>
+        <element name="Player" positionX="-275.39453125" positionY="-111.078125" width="128" height="163"/>
         <element name="Powerup" positionX="207.1328125" positionY="-155.13671875" width="128" height="103"/>
-        <element name="GameHistory" positionX="281.31640625" positionY="23.45703125" width="128" height="148"/>
     </elements>
 </model>
