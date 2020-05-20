@@ -14,7 +14,7 @@
         <relationship name="gameHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameHistory" inverseName="food" inverseEntity="GameHistory"/>
         <relationship name="player" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="food" inverseEntity="Player"/>
     </entity>
-    <entity name="GameHistory" representedClassName="GameHistory" syncable="YES" codeGenerationType="class">
+    <entity name="GameHistory" representedClassName="GameHistory" syncable="YES">
         <attribute name="coins" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -23,11 +23,11 @@
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="gameHistory" inverseEntity="Location"/>
         <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="gameHistory" inverseEntity="Player"/>
     </entity>
-    <entity name="ImageVar" representedClassName="ImageVar" syncable="YES" codeGenerationType="class">
+    <entity name="ImageVar" representedClassName="ImageVar" syncable="YES">
         <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="imagescreen" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
+    <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="iconName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -44,7 +44,7 @@
         <relationship name="gameHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameHistory" inverseName="player" inverseEntity="GameHistory"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="player" inverseEntity="Location"/>
     </entity>
-    <entity name="Powerup" representedClassName="Powerup" syncable="YES" codeGenerationType="class">
+    <entity name="Powerup" representedClassName="Powerup" syncable="YES">
         <attribute name="iconName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>

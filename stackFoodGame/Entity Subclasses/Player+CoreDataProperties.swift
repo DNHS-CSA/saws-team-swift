@@ -7,7 +7,7 @@
 //
 //
 
-import UIKit
+import Foundation
 import CoreData
 
 
@@ -17,9 +17,9 @@ extension Player {
         return NSFetchRequest<Player>(entityName: "Player")
     }
 
+    @NSManaged public var coins: Int16
     @NSManaged public var id: Int16
     @NSManaged public var name: String?
-    @NSManaged public var coins: Int16
     @NSManaged public var xp: Int16
     @NSManaged public var avatar: Avatar?
     @NSManaged public var food: Food?

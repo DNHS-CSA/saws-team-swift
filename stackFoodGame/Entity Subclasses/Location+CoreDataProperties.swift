@@ -7,8 +7,7 @@
 //
 //
 
-
-import UIKit
+import Foundation
 import CoreData
 
 

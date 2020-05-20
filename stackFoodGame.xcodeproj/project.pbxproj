@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		521B7A4B2475A06900C9BFF3 /* ImageVar+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A3D2475A06900C9BFF3 /* ImageVar+CoreDataClass.swift */; };
+		521B7A4C2475A06900C9BFF3 /* ImageVar+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A3E2475A06900C9BFF3 /* ImageVar+CoreDataProperties.swift */; };
+		521B7A4D2475A06900C9BFF3 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A3F2475A06900C9BFF3 /* Location+CoreDataClass.swift */; };
+		521B7A4E2475A06900C9BFF3 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A402475A06900C9BFF3 /* Location+CoreDataProperties.swift */; };
+		521B7A4F2475A06900C9BFF3 /* Avatar+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A412475A06900C9BFF3 /* Avatar+CoreDataClass.swift */; };
+		521B7A502475A06900C9BFF3 /* Avatar+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A422475A06900C9BFF3 /* Avatar+CoreDataProperties.swift */; };
+		521B7A512475A06900C9BFF3 /* Player+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A432475A06900C9BFF3 /* Player+CoreDataClass.swift */; };
+		521B7A522475A06900C9BFF3 /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A442475A06900C9BFF3 /* Player+CoreDataProperties.swift */; };
+		521B7A532475A06900C9BFF3 /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A452475A06900C9BFF3 /* Food+CoreDataClass.swift */; };
+		521B7A542475A06900C9BFF3 /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A462475A06900C9BFF3 /* Food+CoreDataProperties.swift */; };
+		521B7A552475A06900C9BFF3 /* GameHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A472475A06900C9BFF3 /* GameHistory+CoreDataClass.swift */; };
+		521B7A562475A06900C9BFF3 /* GameHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A482475A06900C9BFF3 /* GameHistory+CoreDataProperties.swift */; };
+		521B7A572475A06900C9BFF3 /* Powerup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A492475A06900C9BFF3 /* Powerup+CoreDataClass.swift */; };
+		521B7A582475A06900C9BFF3 /* Powerup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A4A2475A06900C9BFF3 /* Powerup+CoreDataProperties.swift */; };
 		524E6F4B246CC4B800032017 /* PerksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E6F4A246CC4B800032017 /* PerksController.swift */; };
 		524E6F4D246CC4FD00032017 /* Perks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524E6F4C246CC4FD00032017 /* Perks.storyboard */; };
-		52CE75EE247599F9008F7BFC /* Avatar+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75E0247599F9008F7BFC /* Avatar+CoreDataClass.swift */; };
-		52CE75EF247599F9008F7BFC /* Avatar+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75E1247599F9008F7BFC /* Avatar+CoreDataProperties.swift */; };
-		52CE75F0247599F9008F7BFC /* Player+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75E2247599F9008F7BFC /* Player+CoreDataClass.swift */; };
-		52CE75F1247599F9008F7BFC /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75E3247599F9008F7BFC /* Player+CoreDataProperties.swift */; };
-		52CE75F2247599F9008F7BFC /* GameHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75E4247599F9008F7BFC /* GameHistory+CoreDataClass.swift */; };
-		52CE75F3247599F9008F7BFC /* GameHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75E5247599F9008F7BFC /* GameHistory+CoreDataProperties.swift */; };
-		52CE75F4247599F9008F7BFC /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75E6247599F9008F7BFC /* Food+CoreDataClass.swift */; };
-		52CE75F5247599F9008F7BFC /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75E7247599F9008F7BFC /* Food+CoreDataProperties.swift */; };
-		52CE75F6247599F9008F7BFC /* ImageVar+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75E8247599F9008F7BFC /* ImageVar+CoreDataClass.swift */; };
-		52CE75F7247599F9008F7BFC /* ImageVar+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75E9247599F9008F7BFC /* ImageVar+CoreDataProperties.swift */; };
-		52CE75F8247599F9008F7BFC /* Powerup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75EA247599F9008F7BFC /* Powerup+CoreDataClass.swift */; };
-		52CE75F9247599F9008F7BFC /* Powerup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75EB247599F9008F7BFC /* Powerup+CoreDataProperties.swift */; };
-		52CE75FA247599F9008F7BFC /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75EC247599F9008F7BFC /* Location+CoreDataClass.swift */; };
-		52CE75FB247599F9008F7BFC /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE75ED247599F9008F7BFC /* Location+CoreDataProperties.swift */; };
 		52D5898D247375A400C8E12D /* chef.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 52D5898C247375A400C8E12D /* chef.jpg */; };
 		52D58991247375CE00C8E12D /* gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D58990247375CE00C8E12D /* gold.png */; };
 		52D58995247375F700C8E12D /* magnet.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D58994247375F700C8E12D /* magnet.png */; };
@@ -54,22 +54,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		521B7A3D2475A06900C9BFF3 /* ImageVar+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageVar+CoreDataClass.swift"; sourceTree = "<group>"; };
+		521B7A3E2475A06900C9BFF3 /* ImageVar+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageVar+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		521B7A3F2475A06900C9BFF3 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		521B7A402475A06900C9BFF3 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		521B7A412475A06900C9BFF3 /* Avatar+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Avatar+CoreDataClass.swift"; sourceTree = "<group>"; };
+		521B7A422475A06900C9BFF3 /* Avatar+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Avatar+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		521B7A432475A06900C9BFF3 /* Player+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataClass.swift"; sourceTree = "<group>"; };
+		521B7A442475A06900C9BFF3 /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		521B7A452475A06900C9BFF3 /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
+		521B7A462475A06900C9BFF3 /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		521B7A472475A06900C9BFF3 /* GameHistory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		521B7A482475A06900C9BFF3 /* GameHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		521B7A492475A06900C9BFF3 /* Powerup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Powerup+CoreDataClass.swift"; sourceTree = "<group>"; };
+		521B7A4A2475A06900C9BFF3 /* Powerup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Powerup+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		524E6F4A246CC4B800032017 /* PerksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerksController.swift; sourceTree = "<group>"; };
 		524E6F4C246CC4FD00032017 /* Perks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Perks.storyboard; sourceTree = "<group>"; };
-		52CE75E0247599F9008F7BFC /* Avatar+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Avatar+CoreDataClass.swift"; sourceTree = "<group>"; };
-		52CE75E1247599F9008F7BFC /* Avatar+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Avatar+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		52CE75E2247599F9008F7BFC /* Player+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataClass.swift"; sourceTree = "<group>"; };
-		52CE75E3247599F9008F7BFC /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		52CE75E4247599F9008F7BFC /* GameHistory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
-		52CE75E5247599F9008F7BFC /* GameHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		52CE75E6247599F9008F7BFC /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
-		52CE75E7247599F9008F7BFC /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		52CE75E8247599F9008F7BFC /* ImageVar+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageVar+CoreDataClass.swift"; sourceTree = "<group>"; };
-		52CE75E9247599F9008F7BFC /* ImageVar+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageVar+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		52CE75EA247599F9008F7BFC /* Powerup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Powerup+CoreDataClass.swift"; sourceTree = "<group>"; };
-		52CE75EB247599F9008F7BFC /* Powerup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Powerup+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		52CE75EC247599F9008F7BFC /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
-		52CE75ED247599F9008F7BFC /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		52D5898C247375A400C8E12D /* chef.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chef.jpg; sourceTree = "<group>"; };
 		52D58990247375CE00C8E12D /* gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold.png; sourceTree = "<group>"; };
 		52D58994247375F700C8E12D /* magnet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnet.png; sourceTree = "<group>"; };
@@ -116,20 +116,20 @@
 		52CE75C3247598DC008F7BFC /* Entity Subclasses */ = {
 			isa = PBXGroup;
 			children = (
-				52CE75E0247599F9008F7BFC /* Avatar+CoreDataClass.swift */,
-				52CE75E1247599F9008F7BFC /* Avatar+CoreDataProperties.swift */,
-				52CE75E2247599F9008F7BFC /* Player+CoreDataClass.swift */,
-				52CE75E3247599F9008F7BFC /* Player+CoreDataProperties.swift */,
-				52CE75E4247599F9008F7BFC /* GameHistory+CoreDataClass.swift */,
-				52CE75E5247599F9008F7BFC /* GameHistory+CoreDataProperties.swift */,
-				52CE75E6247599F9008F7BFC /* Food+CoreDataClass.swift */,
-				52CE75E7247599F9008F7BFC /* Food+CoreDataProperties.swift */,
-				52CE75E8247599F9008F7BFC /* ImageVar+CoreDataClass.swift */,
-				52CE75E9247599F9008F7BFC /* ImageVar+CoreDataProperties.swift */,
-				52CE75EA247599F9008F7BFC /* Powerup+CoreDataClass.swift */,
-				52CE75EB247599F9008F7BFC /* Powerup+CoreDataProperties.swift */,
-				52CE75EC247599F9008F7BFC /* Location+CoreDataClass.swift */,
-				52CE75ED247599F9008F7BFC /* Location+CoreDataProperties.swift */,
+				521B7A3D2475A06900C9BFF3 /* ImageVar+CoreDataClass.swift */,
+				521B7A3E2475A06900C9BFF3 /* ImageVar+CoreDataProperties.swift */,
+				521B7A3F2475A06900C9BFF3 /* Location+CoreDataClass.swift */,
+				521B7A402475A06900C9BFF3 /* Location+CoreDataProperties.swift */,
+				521B7A412475A06900C9BFF3 /* Avatar+CoreDataClass.swift */,
+				521B7A422475A06900C9BFF3 /* Avatar+CoreDataProperties.swift */,
+				521B7A432475A06900C9BFF3 /* Player+CoreDataClass.swift */,
+				521B7A442475A06900C9BFF3 /* Player+CoreDataProperties.swift */,
+				521B7A452475A06900C9BFF3 /* Food+CoreDataClass.swift */,
+				521B7A462475A06900C9BFF3 /* Food+CoreDataProperties.swift */,
+				521B7A472475A06900C9BFF3 /* GameHistory+CoreDataClass.swift */,
+				521B7A482475A06900C9BFF3 /* GameHistory+CoreDataProperties.swift */,
+				521B7A492475A06900C9BFF3 /* Powerup+CoreDataClass.swift */,
+				521B7A4A2475A06900C9BFF3 /* Powerup+CoreDataProperties.swift */,
 			);
 			path = "Entity Subclasses";
 			sourceTree = "<group>";
@@ -329,34 +329,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				521B7A502475A06900C9BFF3 /* Avatar+CoreDataProperties.swift in Sources */,
 				8489167424633F0D00ACB75A /* PlayGameController.swift in Sources */,
 				524E6F4B246CC4B800032017 /* PerksController.swift in Sources */,
-				52CE75F3247599F9008F7BFC /* GameHistory+CoreDataProperties.swift in Sources */,
-				52CE75F1247599F9008F7BFC /* Player+CoreDataProperties.swift in Sources */,
 				D85D0149246F70ED00B129B7 /* order.swift in Sources */,
+				521B7A582475A06900C9BFF3 /* Powerup+CoreDataProperties.swift in Sources */,
+				521B7A562475A06900C9BFF3 /* GameHistory+CoreDataProperties.swift in Sources */,
 				8489168624637CFF00ACB75A /* statsController.swift in Sources */,
-				52CE75FA247599F9008F7BFC /* Location+CoreDataClass.swift in Sources */,
-				52CE75EF247599F9008F7BFC /* Avatar+CoreDataProperties.swift in Sources */,
-				52CE75FB247599F9008F7BFC /* Location+CoreDataProperties.swift in Sources */,
-				52CE75F8247599F9008F7BFC /* Powerup+CoreDataClass.swift in Sources */,
-				52CE75F2247599F9008F7BFC /* GameHistory+CoreDataClass.swift in Sources */,
+				521B7A4F2475A06900C9BFF3 /* Avatar+CoreDataClass.swift in Sources */,
+				521B7A572475A06900C9BFF3 /* Powerup+CoreDataClass.swift in Sources */,
+				521B7A532475A06900C9BFF3 /* Food+CoreDataClass.swift in Sources */,
+				521B7A4D2475A06900C9BFF3 /* Location+CoreDataClass.swift in Sources */,
 				84429D742463356900E5BA3A /* ViewController.swift in Sources */,
-				52CE75F7247599F9008F7BFC /* ImageVar+CoreDataProperties.swift in Sources */,
-				52CE75F4247599F9008F7BFC /* Food+CoreDataClass.swift in Sources */,
 				8489168A24637D2400ACB75A /* OrderAssignmentController.swift in Sources */,
 				84906357246A0EA600485A99 /* ingredient.swift in Sources */,
+				521B7A542475A06900C9BFF3 /* Food+CoreDataProperties.swift in Sources */,
 				84429D702463356900E5BA3A /* AppDelegate.swift in Sources */,
 				84429D7A2463356900E5BA3A /* stackFoodGame.xcdatamodeld in Sources */,
+				521B7A512475A06900C9BFF3 /* Player+CoreDataClass.swift in Sources */,
+				521B7A4C2475A06900C9BFF3 /* ImageVar+CoreDataProperties.swift in Sources */,
 				84429D722463356900E5BA3A /* SceneDelegate.swift in Sources */,
-				52CE75F6247599F9008F7BFC /* ImageVar+CoreDataClass.swift in Sources */,
-				52CE75F0247599F9008F7BFC /* Player+CoreDataClass.swift in Sources */,
+				521B7A552475A06900C9BFF3 /* GameHistory+CoreDataClass.swift in Sources */,
 				84489FB6246E0D8300621433 /* playGameDictionaries.swift in Sources */,
-				52CE75EE247599F9008F7BFC /* Avatar+CoreDataClass.swift in Sources */,
+				521B7A522475A06900C9BFF3 /* Player+CoreDataProperties.swift in Sources */,
 				8489168824637D1100ACB75A /* StoreController.swift in Sources */,
-				52CE75F9247599F9008F7BFC /* Powerup+CoreDataProperties.swift in Sources */,
+				521B7A4E2475A06900C9BFF3 /* Location+CoreDataProperties.swift in Sources */,
+				521B7A4B2475A06900C9BFF3 /* ImageVar+CoreDataClass.swift in Sources */,
 				DAB26BBE2464CDA90052BE46 /* PlayerCustomizationController.swift in Sources */,
 				8489168C24637D3B00ACB75A /* OrderCompleteController.swift in Sources */,
-				52CE75F5247599F9008F7BFC /* Food+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
