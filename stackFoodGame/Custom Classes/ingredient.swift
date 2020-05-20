@@ -14,14 +14,16 @@ class Ingredient {
     var image: UIImageView
     var name: String
     var inStack: Bool
+    var outOfView: Bool
     var gravity: CGPoint
     var location: CGPoint
     var isPastMiddle: Bool
     
-    init(name: String, image: UIImageView, inStack: Bool, gravity: CGPoint, location: CGPoint, isPastMiddle: Bool) {
+    init(name: String, image: UIImageView, inStack: Bool, outOfView: Bool, gravity: CGPoint, location: CGPoint, isPastMiddle: Bool) {
         self.image = image
         self.name = name
         self.inStack = inStack
+        self.outOfView = outOfView
         self.gravity = gravity
         self.location = location
         self.isPastMiddle = isPastMiddle
