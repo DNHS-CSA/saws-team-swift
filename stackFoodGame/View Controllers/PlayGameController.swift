@@ -164,7 +164,7 @@ class PlayGameController: UIViewController {
             localStackIndex = stackIndex - 1
         }
         /*
-        Loop explanation
+        Loop explanation - Goal =  movement of ingredients
         1. Cycles through all of the entities in the view
         2. If the stack of food (top item only) intersects with the falling ingredient it will stop the falling ingredient from moving
         3. If the ingredient reaches the end of the screen, the image is removed from the superview (to reduce stress of app), and the location will not change in future calls of the ingredient.

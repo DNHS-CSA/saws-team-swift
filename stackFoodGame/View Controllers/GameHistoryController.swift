@@ -12,8 +12,15 @@ class GameHistoryController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let currentTime = Date() // creates date - Date() default is current time
+        
+        let displayFormatter = DateFormatter() // can either format how a date is saved or parsed
+        displayFormatter.dateStyle = .medium // displays date in readable form to user - works in different locales
+        displayFormatter.timeStyle = .medium // displays time in readable form to user
+        
+        let displayString = displayFormatter.string(from: currentTime)
+        print(displayString)
     }
     
 
