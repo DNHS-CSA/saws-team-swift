@@ -42,6 +42,17 @@
                                 <rect key="frame" x="-2" y="0.0" width="418" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lc-oM-w4Z">
+                                <rect key="frame" x="252" y="256" width="125" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Perks">
+                                    <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="MoT-a0-6GQ" kind="show" id="NLC-XJ-ltx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -61,6 +72,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jfe-WE-VyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1594" y="228"/>
+        </scene>
+        <!--Perks-->
+        <scene sceneID="RFH-IH-eaV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Perks" referencedIdentifier="Perks" id="MoT-a0-6GQ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KL9-O9-Gq4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZT-kh-SHH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1553" y="-100"/>
         </scene>
         <!--PlayerCustomization-->
         <scene sceneID="uI0-jY-Yo2">

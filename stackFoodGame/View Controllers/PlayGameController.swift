@@ -30,6 +30,22 @@ class PlayGameController: UIViewController {
     var entitiesInView: [Ingredient] = []
     @IBOutlet weak var middleDetector: UIImageView!
     
+    
+    @IBOutlet weak var backgroundHeader: UIImageView!
+    // IBOutlets of header content
+    @IBOutlet weak var top: UIImageView!
+    @IBOutlet weak var ingredientL: UIImageView!
+    @IBOutlet weak var quantityL: UILabel!
+    @IBOutlet weak var ingredientC: UIImageView!
+    @IBOutlet weak var quantityC: UILabel!
+    @IBOutlet weak var ingredientR: UIImageView!
+    @IBOutlet weak var quantityR: UILabel!
+    @IBOutlet weak var bottom: UIImageView!
+    
+    var orderUI = (ingredientNames: [String()], quantityOfEachIngredient: [Int()])
+    var ingredientHeaderImages: [UIImageView] = [UIImageView(), UIImageView(), UIImageView()]
+    var ingredientHeaderQuantities: [UILabel] = [UILabel(), UILabel(), UILabel()]
+    
     var timer:Timer? = Timer()
     var spawnTimer:Timer? = Timer()
         
@@ -37,7 +53,7 @@ class PlayGameController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false))
+        ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, outOfView: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false))
         ingredientStack[stackIndex].image = ingredientCatcher // array of UIImageViews that fills up based on what is in the stack- first element is the base (ingredientCatcher)
         ingredientStack[stackIndex].name = "ingredientCatcher"
         
@@ -49,8 +65,35 @@ class PlayGameController: UIViewController {
         spawnIngredients(ingredientType: "tomato", ingredientGravity: CGPoint(x: 0.0, y: 2.0), location: CGPoint(x: 320.0, y: 90.0))
         //entitiesInView.append(Ingredient(name: String(), image: ingredient, inStack: false, gravity: CGPoint(x: 0.0, y: 5.0)))
         //entitiesInView.append(Ingredient(name: String(), image: topIngredient, inStack: false, gravity: CGPoint(x: 0.0, y: 2.5)))*/
+
+        // UI header setup
+        self.navigationController?.isNavigationBarHidden = true
+        backgroundHeader.clipsToBounds = true
+        backgroundHeader.layer.cornerRadius = 15
+        backgroundHeader.layer.zPosition = 2
+        backgroundHeader.backgroundColor = UIColor(named: "appRed")
+        // images setup in code to host future burger and ice cream modes
+        ingredientHeaderImages = [ingredientL, ingredientC, ingredientR]
+        ingredientHeaderQuantities = [quantityL, quantityC, quantityR]
+        let topBun = "topbun"
+        let bottomBun = "bottombun"
+        top.image = UIImage(named: topBun)
+        top.layer.zPosition = 2.01
+        top.transform = top.transform.rotated(by: -.pi/2)
+        bottom.image = UIImage(named: bottomBun)
+        bottom.layer.zPosition = 2.01
+        bottom.transform = bottom.transform.rotated(by: -.pi/2)
+        
+        for i in 0..<3 {
+            let imageName = orderUI.ingredientNames[i] // takes stored string literal as image name
+            ingredientHeaderImages[i].image = UIImage(named: imageName)
+            ingredientHeaderImages[i].layer.zPosition = 2.01
+            let quantityText = orderUI.quantityOfEachIngredient[i]
+            ingredientHeaderQuantities[i].text = "x\(quantityText)"
+            ingredientHeaderQuantities[i].layer.zPosition = 2.01
+        }
+        
     }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         /*
         
@@ -124,36 +167,47 @@ class PlayGameController: UIViewController {
         Loop explanation
         1. Cycles through all of the entities in the view
         2. If the stack of food (top item only) intersects with the falling ingredient it will stop the falling ingredient from moving
-        3. If there is no other items in stack other than the base (array position zero), then an ingredient is added to the next array position
-        4. If there are multiple ingredients in the stack then the item is added to the stack and the ingredient is detected to have stopped so that the ingredient stops falling and it cannot be added to the stack again
-         5. Position is shifted down after detection to better represent stacked ingredients in UI
-         6. Checks if any ingredients are past the middle of the screen by using a UI Image View placed in storyboard
+        3. If the ingredient reaches the end of the screen, the image is removed from the superview (to reduce stress of app), and the location will not change in future calls of the ingredient.
+        4. If there is no other items in stack other than the base (array position zero), then an ingredient is added to the next array position
+        5. If there are multiple ingredients in the stack then the item is added to the stack and the ingredient is detected to have stopped so that the ingredient stops falling and it cannot be added to the stack again
+         6. Position is shifted down after detection to better represent stacked ingredients in UI
+         7. Checks if any ingredients are past the middle of the screen by using a UI Image View placed in storyboard
         */
         for ingredient in entitiesInView {
             // isolation of the movement in a Bool allows all of the falling UIImageViews to run off of one timer
-            if ingredient.inStack == false {
+            if ingredient.inStack == false && ingredient.outOfView == false {
                 ingredient.image.center.y = ingredient.image.center.y + ingredient.gravity.y
+                if ingredient.image.center.y == CGFloat(895.0) {
+                    ingredient.outOfView = true
+                    ingredient.image.removeFromSuperview()
+                }
             }
             if ingredientStack[localStackIndex].image.frame.intersects(ingredient.image.frame) {
-                if stackIndex == 0{
-                    stackIndex += 1
-                    addIngredient(ingredient: ingredient)
-                    animateStack(ingredient: ingredient, currentSpeed: ingredient.gravity)
-                } else if stackIndex - 1 != 0 && ingredient.inStack == false {
-                    addIngredient(ingredient: ingredient)
-                    animateStack(ingredient: ingredient, currentSpeed: ingredient.gravity)
+                if abs(ingredientStack[localStackIndex].image.center.x - ingredient.image.center.x) < CGFloat(55) && ingredientStack[localStackIndex].image.center.y - ingredient.image.center.y > CGFloat(10)  {
+                    if stackIndex == 0{
+                        stackIndex += 1
+                        addIngredient(ingredient: ingredient)
+                        animateStack(ingredient: ingredient, currentSpeed: ingredient.gravity)
+                    } else if stackIndex - 1 != 0 && ingredient.inStack == false {
+                        addIngredient(ingredient: ingredient)
+                        animateStack(ingredient: ingredient, currentSpeed: ingredient.gravity)
+                    }
+                    ingredient.inStack = true
                 }
-                ingredient.inStack = true
             }
             if ingredient.image.frame.intersects(middleDetector.frame){
                 ingredient.isPastMiddle = true
             }
         }
+        if ingredientStack[localStackIndex].name == "topbun" {
+            timer?.invalidate()
+            spawnTimer?.invalidate()
+        }
     }
     func addIngredient(ingredient: Ingredient!){
         print(stackIndex)
         // adds the ingredient to the ingredientStack based on array position - concurrent with the visual experience of the stack
-        ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false))
+        ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, outOfView: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false))
         ingredientStack[stackIndex] = ingredient
         ingredient.image.layer.zPosition = zPositionIngredient // makes sure the current ingredient in the stack is really at the top in the UI hierachy
         zPositionIngredient += 0.1
@@ -184,7 +238,7 @@ class PlayGameController: UIViewController {
         }
     }
     func spawnIngredients(ingredientType: String, ingredientGravity: CGPoint, location: CGPoint){
-        let newIngredient = Ingredient(name: String(), image: UIImageView(), inStack: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false) // creates empty variable
+        let newIngredient = Ingredient(name: String(), image: UIImageView(), inStack: false, outOfView: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false) // creates empty variable
         /*
          Defines attributes of the image of each new ingredient
          1. Image based on a randomization of the ingredients
@@ -217,6 +271,7 @@ class PlayGameController: UIViewController {
     @IBAction func finishedOrderButton(_ sender: Any) {
         timer?.invalidate()
         spawnTimer?.invalidate()
+        self.navigationController?.isNavigationBarHidden = false
         
     }
 }

@@ -25,11 +25,13 @@ class OrderAssignmentController: UIViewController {
     var orderImageName = String()
     var orderIconName = String()
     
+    let numberArray = (0..<3).map{ _ in Int.random(in: 1 ... 3) }
+    var ingredientArray : [String] = []
+    
     override func viewDidLoad() {
 
-
-        let numberArray = (0..<3).map{ _ in Int.random(in: 1 ... 3) }
-        var ingredientArray : [String] = []
+        // array definitions moved public to allow for segue data transfer
+       
         
         var foodTypes = ingredientTypes  //just a copy without topbun
         foodTypes.removeLast()
@@ -121,5 +123,23 @@ class OrderAssignmentController: UIViewController {
             PlayerImage.isHidden = true
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // if someone is going to change segue type away from storyboard reference, keep segue identifiers the same
+        
+        switch segue.identifier ?? "" {
+        // cases based on segue identifiers
+        case "goToPlayGame":
+            guard let orderInGameUI = segue.destination as? PlayGameController else {
+                fatalError("No order assignment")
+            }
+            orderInGameUI.orderUI.ingredientNames = ingredientArray
+            orderInGameUI.orderUI.quantityOfEachIngredient = numberArray
+        default:
+            fatalError("No segue identifiers")
+        }
+    }
+
+
 
 }
