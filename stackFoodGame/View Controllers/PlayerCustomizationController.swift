@@ -33,26 +33,33 @@ class PlayerCustomizationController: UIViewController {
     @IBOutlet weak var PressPic5: UIButton!
     @IBOutlet weak var PressPic6: UIButton!
     
-    var count = Int()
-    var imagescreen = Int()
+    var tabCount = Int()
+    var id = Int()
+    var imageName = String()
+    var iconName = String()
+    
     
     override func viewDidLoad() {
         getData()
-        imagechecker(imagescreen: imagescreen)
-        countchecker(count: count)
+        idchecker(id: id)
+        tabCountChecker(tabCount: tabCount)
         super.viewDidLoad()
     }
     
     @IBAction func PressPic1(_ sender: Any)
     {
-        imagescreen = 1
+        id = 1
+        imageName = "boychef"
+        iconName = "boychef"
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let Count = NSEntityDescription.entity(forEntityName: "ImageVar", in: context)
+        let Count = NSEntityDescription.entity(forEntityName: "Avatar", in: context)
         let newCount = NSManagedObject(entity: Count!, insertInto:  context)
         
-        newCount.setValue(imagescreen, forKey: "imagescreen")
-        newCount.setValue(count, forKey: "count")
+        newCount.setValue(id, forKey: "id")
+        newCount.setValue(tabCount, forKey: "tabCount")
+        newCount.setValue(imageName, forKey: "name")
+        newCount.setValue(iconName, forKey: "iconName")
         do {
             try context.save()
             print("Save successful")
@@ -60,19 +67,23 @@ class PlayerCustomizationController: UIViewController {
         } catch {
             print("Save failed")
         }
-        imagechecker(imagescreen: imagescreen)
+        idchecker(id: id)
     }
     
     @IBAction func PressPic2(_ sender: Any)
     {
-        imagescreen = 2
+        id = 2
+        imageName = "girlchef"
+        iconName = "girlchef"
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
          
-         let Count = NSEntityDescription.entity(forEntityName: "ImageVar", in: context)
+         let Count = NSEntityDescription.entity(forEntityName: "Avatar", in: context)
          let newCount = NSManagedObject(entity: Count!, insertInto:  context)
          
-         newCount.setValue(imagescreen, forKey: "imagescreen")
-         newCount.setValue(count, forKey: "count")
+         newCount.setValue(id, forKey: "id")
+         newCount.setValue(tabCount, forKey: "tabCount")
+         newCount.setValue(imageName, forKey: "name")
+         newCount.setValue(iconName, forKey: "iconName")
          do {
              try context.save()
              print("Save successful")
@@ -80,19 +91,23 @@ class PlayerCustomizationController: UIViewController {
          } catch {
              print("Save failed")
          }
-        imagechecker(imagescreen: imagescreen)
+        idchecker(id: id)
     }
     
     @IBAction func PressPic3(_ sender: Any)
     {
-        imagescreen = 3
+        id = 3
+        imageName = "frog"
+        iconName = "frog"
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
          
-         let Count = NSEntityDescription.entity(forEntityName: "ImageVar", in: context)
+         let Count = NSEntityDescription.entity(forEntityName: "Avatar", in: context)
          let newCount = NSManagedObject(entity: Count!, insertInto:  context)
          
-         newCount.setValue(imagescreen, forKey: "imagescreen")
-         newCount.setValue(count, forKey: "count")
+         newCount.setValue(id, forKey: "id")
+         newCount.setValue(tabCount, forKey: "tabCount")
+         newCount.setValue(imageName, forKey: "name")
+         newCount.setValue(iconName, forKey: "iconName")
          do {
              try context.save()
              print("Save successful")
@@ -100,39 +115,49 @@ class PlayerCustomizationController: UIViewController {
          } catch {
              print("Save failed")
          }
-        imagechecker(imagescreen: imagescreen)
+        idchecker(id: id)
     }
     
     @IBAction func PressPic4(_ sender: Any)
     {
-        imagescreen = 4
+        id = 4
+        imageName = "penguin"
+        iconName = "penguin"
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
          
-         let Count = NSEntityDescription.entity(forEntityName: "ImageVar", in: context)
+         let Count = NSEntityDescription.entity(forEntityName: "Avatar", in: context)
          let newCount = NSManagedObject(entity: Count!, insertInto:  context)
          
-         newCount.setValue(imagescreen, forKey: "imagescreen")
-         newCount.setValue(count, forKey: "count")
+         newCount.setValue(id, forKey: "id")
+         newCount.setValue(tabCount, forKey: "tabCount")
+         newCount.setValue(imageName, forKey: "name")
+         newCount.setValue(iconName, forKey: "iconName")
          do {
              try context.save()
              print("Save successful")
              getData()
+             print(imageName)
+             print(iconName)
          } catch {
              print("Save failed")
          }
-        imagechecker(imagescreen: imagescreen)
+        idchecker(id: id)
     }
     
     @IBAction func PressPic5(_ sender: Any)
     {
-        imagescreen = 5
+        id = 5
+        imageName = "image5"
+        iconName = "image5"
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
          
-         let Count = NSEntityDescription.entity(forEntityName: "ImageVar", in: context)
+         let Count = NSEntityDescription.entity(forEntityName: "Avatar", in: context)
          let newCount = NSManagedObject(entity: Count!, insertInto:  context)
          
-         newCount.setValue(imagescreen, forKey: "imagescreen")
-         newCount.setValue(count, forKey: "count")
+         newCount.setValue(id, forKey: "id")
+         newCount.setValue(tabCount, forKey: "tabCount")
+         newCount.setValue(imageName, forKey: "name")
+         newCount.setValue(iconName, forKey: "iconName")
          do {
              try context.save()
              print("Save successful")
@@ -140,19 +165,23 @@ class PlayerCustomizationController: UIViewController {
          } catch {
              print("Save failed")
          }
-        imagechecker(imagescreen: imagescreen)
+        idchecker(id: id)
     }
     
     @IBAction func PressPic6(_ sender: Any)
     {
-        imagescreen = 6
+        id = 6
+        imageName = "image6"
+        iconName = "image6"
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
          
-         let Count = NSEntityDescription.entity(forEntityName: "ImageVar", in: context)
+         let Count = NSEntityDescription.entity(forEntityName: "Avatar", in: context)
          let newCount = NSManagedObject(entity: Count!, insertInto:  context)
          
-         newCount.setValue(imagescreen, forKey: "imagescreen")
-         newCount.setValue(count, forKey: "count")
+         newCount.setValue(id, forKey: "id")
+         newCount.setValue(tabCount, forKey: "tabCount")
+         newCount.setValue(imageName, forKey: "name")
+         newCount.setValue(iconName, forKey: "iconName")
          do {
              try context.save()
              print("Save successful")
@@ -160,19 +189,21 @@ class PlayerCustomizationController: UIViewController {
          } catch {
              print("Save failed")
          }
-        imagechecker(imagescreen: imagescreen)
+        idchecker(id: id)
     }
     
     @IBAction func NextArrow(_ sender: Any)
     {
-        count += 1
+        tabCount += 1
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let Count = NSEntityDescription.entity(forEntityName: "ImageVar", in: context)
+        let Count = NSEntityDescription.entity(forEntityName: "Avatar", in: context)
         let newCount = NSManagedObject(entity: Count!, insertInto:  context)
         
-        newCount.setValue(count, forKey: "count")
-        newCount.setValue(imagescreen, forKey: "imagescreen")
+        newCount.setValue(tabCount, forKey: "tabCount")
+        newCount.setValue(id, forKey: "id")
+        newCount.setValue(imageName, forKey: "name")
+        newCount.setValue(iconName, forKey: "iconName")
         do {
             try context.save()
             print("Save successful")
@@ -180,19 +211,21 @@ class PlayerCustomizationController: UIViewController {
         } catch {
             print("Save failed")
         }
-        countchecker(count: count)
+        tabCountChecker(tabCount: tabCount)
     }
     
     @IBAction func PreviousArrow(_ sender: Any)
     {
-        count += 1
+        tabCount += 1
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let Count = NSEntityDescription.entity(forEntityName: "ImageVar", in: context)
+        let Count = NSEntityDescription.entity(forEntityName: "Avatar", in: context)
         let newCount = NSManagedObject(entity: Count!, insertInto:  context)
         
-        newCount.setValue(count, forKey: "count")
-        newCount.setValue(imagescreen, forKey: "imagescreen")
+        newCount.setValue(tabCount, forKey: "tabCount")
+        newCount.setValue(id, forKey: "id")
+        newCount.setValue(imageName, forKey: "name")
+        newCount.setValue(iconName, forKey: "iconName")
         do {
             try context.save()
             print("Save successful")
@@ -200,21 +233,23 @@ class PlayerCustomizationController: UIViewController {
         } catch {
             print("Save failed")
         }
-        countchecker(count: count)
+        tabCountChecker(tabCount: tabCount)
     }
 
     func getData()
     {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageVar")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Avatar")
         request.returnsObjectsAsFaults = false
         do
         {
             let result = try context.fetch(request)
             for data in result as! [NSManagedObject]
             {
-                count = data.value(forKey: "count") as! Int
-                imagescreen = data.value(forKey: "imagescreen") as! Int
+                tabCount = data.value(forKey: "tabCount") as! Int
+                id = data.value(forKey: "id") as! Int
+                imageName = data.value(forKey: "name") as! String
+                iconName = data.value(forKey: "iconName") as! String
             }
             print("Data successfully fetched")
         }
@@ -224,9 +259,9 @@ class PlayerCustomizationController: UIViewController {
         }
     }
     
-    func imagechecker(imagescreen: Int)
+    func idchecker(id: Int)
     {
-        if imagescreen == 0 {
+        if id == 0 {
             Pic1.isHidden = true
             Pic2.isHidden = true
             Pic3.isHidden = true
@@ -234,7 +269,7 @@ class PlayerCustomizationController: UIViewController {
             Pic5.isHidden = true
             Pic6.isHidden = true
         }
-        if imagescreen == 1 {
+        if id == 1 {
             Pic1.isHidden = false
             Pic2.isHidden = true
             Pic3.isHidden = true
@@ -242,7 +277,7 @@ class PlayerCustomizationController: UIViewController {
             Pic5.isHidden = true
             Pic6.isHidden = true
         }
-        if imagescreen == 2 {
+        if id == 2 {
             Pic1.isHidden = true
             Pic2.isHidden = false
             Pic3.isHidden = true
@@ -250,7 +285,7 @@ class PlayerCustomizationController: UIViewController {
             Pic5.isHidden = true
             Pic6.isHidden = true
         }
-        if imagescreen == 3 {
+        if id == 3 {
             Pic1.isHidden = true
             Pic2.isHidden = true
             Pic3.isHidden = false
@@ -258,7 +293,7 @@ class PlayerCustomizationController: UIViewController {
             Pic5.isHidden = true
             Pic6.isHidden = true
         }
-        if imagescreen == 4 {
+        if id == 4 {
             Pic1.isHidden = true
             Pic2.isHidden = true
             Pic3.isHidden = true
@@ -266,7 +301,7 @@ class PlayerCustomizationController: UIViewController {
             Pic5.isHidden = true
             Pic6.isHidden = true
         }
-        if imagescreen == 5 {
+        if id == 5 {
             Pic1.isHidden = true
             Pic2.isHidden = true
             Pic3.isHidden = true
@@ -274,7 +309,7 @@ class PlayerCustomizationController: UIViewController {
             Pic5.isHidden = false
             Pic6.isHidden = true
         }
-        if imagescreen == 6 {
+        if id == 6 {
             Pic1.isHidden = true
             Pic2.isHidden = true
             Pic3.isHidden = true
@@ -284,9 +319,9 @@ class PlayerCustomizationController: UIViewController {
         }
     }
     
-    func countchecker(count: Int)
+    func tabCountChecker(tabCount: Int)
     {
-        if (count.magnitude % 2) == 0 {
+        if (tabCount.magnitude % 2) == 0 {
             CustomPic1.isHidden = false
             CustomPic2.isHidden = false
             CustomPic3.isHidden = false
@@ -301,7 +336,7 @@ class PlayerCustomizationController: UIViewController {
             PressPic5.isHidden = true
             PressPic6.isHidden = true
         }
-        if (count.magnitude % 2) == 1 {
+        if (tabCount.magnitude % 2) == 1 {
             CustomPic1.isHidden = true
             CustomPic2.isHidden = true
             CustomPic3.isHidden = true

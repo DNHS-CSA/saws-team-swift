@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19B88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Avatar" representedClassName="Avatar" syncable="YES">
-        <attribute name="iconName" optional="YES" attributeType="String"/>
+        <attribute name="iconName" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="tabCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="Food" representedClassName="Food" syncable="YES">
         <attribute name="iconName" optional="YES" attributeType="String"/>
@@ -12,7 +13,6 @@
     </entity>
     <entity name="ImageVar" representedClassName="ImageVar" syncable="YES" codeGenerationType="class">
         <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="imagescreen" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
         <attribute name="iconName" optional="YES" attributeType="String"/>
@@ -33,11 +33,11 @@
         <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="ImageVar" positionX="-63" positionY="-18" width="128" height="73"/>
-        <element name="Player" positionX="-54" positionY="9" width="128" height="118"/>
-        <element name="Avatar" positionX="-36" positionY="54" width="128" height="88"/>
+        <element name="Avatar" positionX="-36" positionY="54" width="128" height="103"/>
         <element name="Food" positionX="-18" positionY="72" width="128" height="88"/>
-        <element name="Powerup" positionX="0" positionY="90" width="128" height="103"/>
+        <element name="ImageVar" positionX="-63" positionY="-18" width="128" height="58"/>
         <element name="Location" positionX="18" positionY="99" width="128" height="88"/>
+        <element name="Player" positionX="-54" positionY="9" width="128" height="118"/>
+        <element name="Powerup" positionX="0" positionY="90" width="128" height="103"/>
     </elements>
 </model>

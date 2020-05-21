@@ -21,7 +21,9 @@ class OrderAssignmentController: UIViewController {
     
     @IBOutlet weak var PlayerImage: UIImageView!
     
-    var imagenumber = Int()
+    var idOrderImage = Int()
+    var orderImageName = String()
+    var orderIconName = String()
     
     override func viewDidLoad() {
 
@@ -54,7 +56,7 @@ class OrderAssignmentController: UIViewController {
         orders.append(Order(names: ingredientArray, nums: numberArray))
         
         orderGetData()
-        imagenumbercheck(imagenumber: imagenumber)
+        orderImageCheck(idOrderImage: idOrderImage)
 
         
         //verifies that there are no duplicate ingredients
@@ -75,15 +77,19 @@ class OrderAssignmentController: UIViewController {
     func orderGetData()
     {
         let orderContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let orderRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageVar")
+        let orderRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Avatar")
         orderRequest.returnsObjectsAsFaults = false
         do
         {
             let orderResult = try orderContext.fetch(orderRequest)
             for orderData in orderResult as! [NSManagedObject]
             {
-                imagenumber = orderData.value(forKey: "imagescreen") as! Int
+                idOrderImage = orderData.value(forKey: "id") as! Int
+                orderImageName = orderData.value(forKey: "name") as! String
+                orderIconName = orderData.value(forKey: "iconName") as! String
             }
+            print(orderImageName)
+            print(orderIconName)
             print("Data successfully fetched")
         }
         catch
@@ -91,27 +97,27 @@ class OrderAssignmentController: UIViewController {
             print("Fetch failed")
         }
     }
-    func imagenumbercheck(imagenumber: Int)
+    func orderImageCheck(idOrderImage: Int)
     {
-        if imagenumber == 0 {
+        if idOrderImage == 0 {
             PlayerImage.isHidden = true
         }
-        if imagenumber == 1 {
+        if idOrderImage == 1 {
             PlayerImage.image = UIImage(named: "boychef")
         }
-        if imagenumber == 2 {
+        if idOrderImage == 2 {
             PlayerImage.image = UIImage(named: "girlchef")
         }
-        if imagenumber == 3 {
+        if idOrderImage == 3 {
             PlayerImage.image = UIImage(named: "frog")
         }
-        if imagenumber == 4 {
+        if idOrderImage == 4 {
             PlayerImage.image = UIImage(named: "penguin")
         }
-        if imagenumber == 5 {
+        if idOrderImage == 5 {
             PlayerImage.isHidden = true
         }
-        if imagenumber == 6 {
+        if idOrderImage == 6 {
             PlayerImage.isHidden = true
         }
     }
