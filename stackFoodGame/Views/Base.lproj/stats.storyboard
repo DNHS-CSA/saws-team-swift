@@ -10,13 +10,13 @@
         <!--Stats Controller-->
         <scene sceneID="S6n-bl-tgd">
             <objects>
-                <viewController id="hBr-Qc-cXu" customClass="statsController" customModule="stackFoodGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="stats" id="hBr-Qc-cXu" customClass="statsController" customModule="stackFoodGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9e1-z3-mpj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gs-oD-rJ2">
-                                <rect key="frame" x="151" y="736" width="106" height="55"/>
+                                <rect key="frame" x="154" y="776" width="106" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -39,6 +39,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M93-R1-Aov">
+                                <rect key="frame" x="93" y="697" width="229" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Detailed Profile History">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="OdC-zs-9xl" kind="show" id="6iN-Jt-zTl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="kPX-B9-Rul"/>
@@ -46,7 +58,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k56-Oz-CiP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="112"/>
+            <point key="canvasLocation" x="137.68115942028987" y="111.83035714285714"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HDu-vh-ZjH">
+            <objects>
+                <viewController id="fty-gG-vUk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PSK-9l-ig1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="SJt-09-iAL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2Ta-Wh-WwG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0in-ja-m06" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1844.9275362318842" y="111.83035714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mi9-fk-hTa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="OdC-zs-9xl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Hsp-BT-LDA"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bVP-N9-LYi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fty-gG-vUk" kind="relationship" relationship="rootViewController" id="a4Z-dB-Ynf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e9I-Kb-hUI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="934.78260869565224" y="111.83035714285714"/>
         </scene>
     </scenes>
 </document>
