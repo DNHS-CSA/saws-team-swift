@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PerksController: UIViewController {
     
@@ -28,10 +29,14 @@ class PerksController: UIViewController {
     
     var imageViews : [UIImageView] = []
     var textViews : [UITextView] = []
-
-    var itemQuantity: Int = 0
-    var coins: Int = 0
-    var xp: Int = 0
+    var coins: Int = 0;
+    var xp: Int = 0;
+    var perkSpeed: Int = 0
+    var perkTips: Int = 0
+    var perkMagnet: Int = 0
+    var perkChef: Int = 0
+    var perkGold: Int = 0
+    var perkSecret: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
@@ -41,23 +46,58 @@ class PerksController: UIViewController {
             imageViews[i].image = appDelegate.perkImages[i]
             textViews[i].text = appDelegate.perkDescriptions[i]
         }
-        itemQuantity = appDelegate.itemQuantity
-        coins = appDelegate.coins
-        xp = appDelegate.xp
-    }
-
-    @IBAction func plusButtonTapped(_ sender: UIButton) {
-        itemQuantity = itemQuantity + 1
+ //       itemQuantity = appDelegate.itemQuantity
     }
     
-    @IBAction func minusButtonTapped(_ sender: UIButton) {
-        if(itemQuantity > 0) {
-            itemQuantity = itemQuantity - 1
+    func getData()
+    {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Player")
+        request.returnsObjectsAsFaults = false
+        do
+        {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject]
+            {
+                coins = data.value(forKey: "coins") as! Int
+                xp = data.value(forKey: "xp") as! Int
+            }
+            print("Data successfully fetched")
+        }
+        catch
+        {
+            print("Fetch failed")
         }
     }
     
-    @IBAction func purchaseButtonTapped(_ sender: UIButton) {
-        appDelegate.itemQuantity = itemQuantity
+    func saveData(){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let player = NSEntityDescription.entity(forEntityName: "Player", in: context)
+        
+        player!.setValue(coins, forKey: "coins")
+        player!.setValue(xp, forKey: "xp")
+        do {
+            try context.save()
+            print("Save successful")
+            getData()
+        } catch {
+            print("Save failed")
+        }
     }
+
+//    @IBAction func plusButtonTapped(_ sender: UIButton) {
+//        itemQuantity = itemQuantity + 1
+//    }
+//
+//    @IBAction func minusButtonTapped(_ sender: UIButton) {
+//        if(itemQuantity > 0) {
+//            itemQuantity = itemQuantity - 1
+//        }
+//    }
+//
+//    @IBAction func purchaseButtonTapped(_ sender: UIButton) {
+//        appDelegate.itemQuantity = itemQuantity
+//    }
 }
 
