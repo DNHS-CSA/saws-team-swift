@@ -38,6 +38,7 @@
 		84429D7F2463356C00E5BA3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84429D7D2463356C00E5BA3A /* LaunchScreen.storyboard */; };
 		84489FB6246E0D8300621433 /* playGameDictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84489FB5246E0D8300621433 /* playGameDictionaries.swift */; };
 		8467586C247794190030092B /* GameHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467586B247794190030092B /* GameHistoryTableViewController.swift */; };
+		8467586E24779F2F0030092B /* GameHistoryDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467586D24779F2F0030092B /* GameHistoryDetailController.swift */; };
 		8489167224633D2C00ACB75A /* playGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8489167024633D2C00ACB75A /* playGame.storyboard */; };
 		8489167424633F0D00ACB75A /* PlayGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489167324633F0D00ACB75A /* PlayGameController.swift */; };
 		8489167924637B7500ACB75A /* stats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8489167724637B7500ACB75A /* stats.storyboard */; };
@@ -89,6 +90,7 @@
 		84429D802463356C00E5BA3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84489FB5246E0D8300621433 /* playGameDictionaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playGameDictionaries.swift; sourceTree = "<group>"; };
 		8467586B247794190030092B /* GameHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryTableViewController.swift; sourceTree = "<group>"; };
+		8467586D24779F2F0030092B /* GameHistoryDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryDetailController.swift; sourceTree = "<group>"; };
 		8489167124633D2C00ACB75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/playGame.storyboard; sourceTree = "<group>"; };
 		8489167324633F0D00ACB75A /* PlayGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGameController.swift; sourceTree = "<group>"; };
 		8489167824637B7500ACB75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/stats.storyboard; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				524E6F4A246CC4B800032017 /* PerksController.swift */,
 				8489168524637CFF00ACB75A /* statsController.swift */,
 				8467586B247794190030092B /* GameHistoryTableViewController.swift */,
+				8467586D24779F2F0030092B /* GameHistoryDetailController.swift */,
 				84C4D3D0247645F700AABDD6 /* GameHistoryTableViewCell.swift */,
 				8489168724637D1100ACB75A /* StoreController.swift */,
 				8489168924637D2400ACB75A /* OrderAssignmentController.swift */,
@@ -355,6 +358,7 @@
 				84429D702463356900E5BA3A /* AppDelegate.swift in Sources */,
 				84429D7A2463356900E5BA3A /* stackFoodGame.xcdatamodeld in Sources */,
 				521B7A512475A06900C9BFF3 /* Player+CoreDataClass.swift in Sources */,
+				8467586E24779F2F0030092B /* GameHistoryDetailController.swift in Sources */,
 				521B7A4C2475A06900C9BFF3 /* ImageVar+CoreDataProperties.swift in Sources */,
 				84429D722463356900E5BA3A /* SceneDelegate.swift in Sources */,
 				521B7A552475A06900C9BFF3 /* GameHistory+CoreDataClass.swift in Sources */,

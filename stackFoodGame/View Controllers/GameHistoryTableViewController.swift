@@ -93,12 +93,14 @@ class GameHistoryTableViewController: UITableViewController {
         //row or object in data source
         let logEntry = gameLogData[indexPath.row]
         
-        //cell.location.text = "Location" + String(logEntry.location?.name ?? "No location - error") // sets the location to real location and catches any Core Data relationship errors
-        cell.location.text = "Location: " + String("\(randomizer(typeOfSampleData: "Location"))")
-        cell.coins.text = "Coins Earned: " + String(Int.random(in: 1...200)) // sets coin value to filler value
+        /* What is the difference between two lines below?
+        cell.location.text = "Location: " + String(logEntry.location?.name ?? "No location - error") // sets the location to real location and catches any Core Data relationship errors
+        cell.location.text = "Location: " + String(logEntry.player?.location?.name ?? "No location - error") */
+        cell.location.text = String("\(randomizer(typeOfSampleData: "Location"))")
+        cell.coins.text = String(Int.random(in: 1...200)) // sets coin value to filler value
         // next line will work once we have coin data for each player
         //cell.coins.text = String(logEntry.coins)
-    
+        
         /*
          Extra lines of code for date display
          1. First thing to understand about dates: they are stored in UTC time in universal format, whole point of a displayFormatter is to make date readable in our style (en_US)
@@ -159,14 +161,36 @@ class GameHistoryTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        
+        super.prepare(for: segue, sender: sender)
 
+        switch segue.identifier ?? "" {
+        case "viewHistoryDetail":
+            //Get Cell object
+            guard let gameHistoryCell = sender as? GameHistoryTableViewCell else {
+                fatalError("Unable to retrieve cell")
+            }
+
+            //Get current index
+            guard let indexPath = tableView.indexPath(for: gameHistoryCell) else {
+                fatalError("Could not find current index")
+            }
+            let currentGameHistoryCell = gameLogData[indexPath.row]
+            //Provide destination segue reference
+            guard let gameHistoryDetail = segue.destination as? GameHistoryDetailController else {
+                fatalError("Could not find GameHistoryDetailController")
+            }
+            gameHistoryDetail.detailContent.avatar = currentGameHistoryCell.avatar?.iconName ?? ""
+            gameHistoryDetail.detailContent.date = currentGameHistoryCell.date!
+            gameHistoryDetail.detailContent.location = gameHistoryCell.location.text!//currentGameHistoryCell.location?.name ?? "No location"
+            gameHistoryDetail.detailContent.coins = gameHistoryCell.coins.text!//currentGameHistoryCell.coins
+            
+        default:
+            print("Did not locate segue identifier")
+        }
+    }
 }
