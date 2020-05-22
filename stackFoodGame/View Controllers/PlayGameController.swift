@@ -272,7 +272,6 @@ class PlayGameController: UIViewController {
         let endOfRoundTimeStamp = Date() // takes current timestamp once order is complete
         let timeStampOfPlay = GameHistory(entity: GameHistory.entity(), insertInto: managedObjectContext) // creates a new space for new timestamp in table view
         timeStampOfPlay.setValue(endOfRoundTimeStamp, forKey: "date") // sets date attribute of entity "GameHistory"
-        
         saveData()
     }
     func saveData(){

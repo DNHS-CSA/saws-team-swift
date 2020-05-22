@@ -10,6 +10,7 @@ import UIKit
 
 class GameHistoryDetailController: UIViewController {
 
+    @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var coinsLabel: UILabel!
@@ -17,7 +18,7 @@ class GameHistoryDetailController: UIViewController {
     // Location that data from GameHistoryTableViewController to be assigned
     var detailContent = (avatar: String(), date: Date(), location: String(), coins: Int16())
     */
-    var detailContent = (avatar: String(), date: Date(), location: String(), coins: String())
+    var detailContent = (avatar: UIImage(), date: Date(), location: String(), coins: String())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class GameHistoryDetailController: UIViewController {
         let universalDate = detailContent.date
         let localDate = displayFormatter.string(from: universalDate)
         
+        avatarImage.image = detailContent.avatar
         dateLabel.text = String(localDate)
         locationLabel.text = detailContent.location
         coinsLabel.text = detailContent.coins
