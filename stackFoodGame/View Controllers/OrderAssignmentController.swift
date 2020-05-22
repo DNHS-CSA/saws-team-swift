@@ -135,8 +135,10 @@ class OrderAssignmentController: UIViewController {
             }
             orderInGameUI.orderUI.ingredientNames = ingredientArray
             orderInGameUI.orderUI.quantityOfEachIngredient = numberArray
+        case "OrderAssignmentUnwind":
+            print("Unwind Successful")
         default:
-            fatalError("No segue identifiers")
+            print("No segue identifiers")
         }
     }
 

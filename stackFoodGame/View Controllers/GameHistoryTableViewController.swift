@@ -98,7 +98,7 @@ class GameHistoryTableViewController: UITableViewController {
 //      let avatarImageName = logEntry.player?.avatar?.iconName
 //      cell.avatar.image = UIImage(named: avatarImageName!)
 //      cell.coins.text = String(logEntry.coins)
-        /* What is the difference between two lines below?
+        /*What is the difference between two lines below?
         cell.location.text = "Location: " + String(logEntry.location?.name ?? "No location - error") // sets the location to real location and catches any Core Data relationship errors
         cell.location.text = "Location: " + String(logEntry.player?.location?.name ?? "No location - error") */
         let randomAvatar = avatars.randomElement()
