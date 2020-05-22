@@ -48,6 +48,8 @@
 		8489168A24637D2400ACB75A /* OrderAssignmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489168924637D2400ACB75A /* OrderAssignmentController.swift */; };
 		8489168C24637D3B00ACB75A /* OrderCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489168B24637D3B00ACB75A /* OrderCompleteController.swift */; };
 		84906357246A0EA600485A99 /* ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906356246A0EA600485A99 /* ingredient.swift */; };
+		84C4D3CD247644C200AABDD6 /* GameHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4D3CC247644C200AABDD6 /* GameHistoryController.swift */; };
+		84C4D3D1247645F700AABDD6 /* GameHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4D3D0247645F700AABDD6 /* GameHistoryTableViewCell.swift */; };
 		D85D0149246F70ED00B129B7 /* order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85D0148246F70ED00B129B7 /* order.swift */; };
 		DAB26BBA2464CD530052BE46 /* PlayerCustomization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB26BB92464CD530052BE46 /* PlayerCustomization.storyboard */; };
 		DAB26BBE2464CDA90052BE46 /* PlayerCustomizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB26BBD2464CDA90052BE46 /* PlayerCustomizationController.swift */; };
@@ -97,6 +99,8 @@
 		8489168924637D2400ACB75A /* OrderAssignmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAssignmentController.swift; sourceTree = "<group>"; };
 		8489168B24637D3B00ACB75A /* OrderCompleteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteController.swift; sourceTree = "<group>"; };
 		84906356246A0EA600485A99 /* ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ingredient.swift; sourceTree = "<group>"; };
+		84C4D3CC247644C200AABDD6 /* GameHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryController.swift; sourceTree = "<group>"; };
+		84C4D3D0247645F700AABDD6 /* GameHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		D85D0148246F70ED00B129B7 /* order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = order.swift; sourceTree = "<group>"; };
 		DAB26BB92464CD530052BE46 /* PlayerCustomization.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayerCustomization.storyboard; sourceTree = "<group>"; };
 		DAB26BBD2464CDA90052BE46 /* PlayerCustomizationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCustomizationController.swift; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 				8489167324633F0D00ACB75A /* PlayGameController.swift */,
 				524E6F4A246CC4B800032017 /* PerksController.swift */,
 				8489168524637CFF00ACB75A /* statsController.swift */,
+				84C4D3CC247644C200AABDD6 /* GameHistoryController.swift */,
+				84C4D3D0247645F700AABDD6 /* GameHistoryTableViewCell.swift */,
 				8489168724637D1100ACB75A /* StoreController.swift */,
 				8489168924637D2400ACB75A /* OrderAssignmentController.swift */,
 				8489168B24637D3B00ACB75A /* OrderCompleteController.swift */,
@@ -329,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C4D3CD247644C200AABDD6 /* GameHistoryController.swift in Sources */,
 				521B7A502475A06900C9BFF3 /* Avatar+CoreDataProperties.swift in Sources */,
 				8489167424633F0D00ACB75A /* PlayGameController.swift in Sources */,
 				524E6F4B246CC4B800032017 /* PerksController.swift in Sources */,
@@ -340,6 +347,7 @@
 				521B7A572475A06900C9BFF3 /* Powerup+CoreDataClass.swift in Sources */,
 				521B7A532475A06900C9BFF3 /* Food+CoreDataClass.swift in Sources */,
 				521B7A4D2475A06900C9BFF3 /* Location+CoreDataClass.swift in Sources */,
+				84C4D3D1247645F700AABDD6 /* GameHistoryTableViewCell.swift in Sources */,
 				84429D742463356900E5BA3A /* ViewController.swift in Sources */,
 				8489168A24637D2400ACB75A /* OrderAssignmentController.swift in Sources */,
 				84906357246A0EA600485A99 /* ingredient.swift in Sources */,

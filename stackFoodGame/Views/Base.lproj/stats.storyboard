@@ -60,14 +60,36 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="111.83035714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Game History Controller-->
         <scene sceneID="HDu-vh-ZjH">
             <objects>
-                <viewController id="fty-gG-vUk" sceneMemberID="viewController">
+                <viewController id="fty-gG-vUk" customClass="GameHistoryController" customModule="stackFoodGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PSK-9l-ig1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-bB-3pK">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="5QW-ue-VNi" customClass="GameHistoryTableViewCell" customModule="stackFoodGame" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="130"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5QW-ue-VNi" id="fXd-w1-y0K">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QCP-bB-3pK" firstAttribute="leading" secondItem="SJt-09-iAL" secondAttribute="leading" id="Oyg-2x-4Pl"/>
+                            <constraint firstItem="SJt-09-iAL" firstAttribute="bottom" secondItem="QCP-bB-3pK" secondAttribute="bottom" id="hDL-db-Zzn"/>
+                            <constraint firstItem="SJt-09-iAL" firstAttribute="trailing" secondItem="QCP-bB-3pK" secondAttribute="trailing" id="hHY-ed-uj9"/>
+                            <constraint firstItem="QCP-bB-3pK" firstAttribute="top" secondItem="SJt-09-iAL" secondAttribute="top" id="nsO-0P-PKh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SJt-09-iAL"/>
                     </view>
                     <navigationItem key="navigationItem" id="2Ta-Wh-WwG"/>
