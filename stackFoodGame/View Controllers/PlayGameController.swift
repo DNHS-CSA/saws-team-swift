@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PlayGameController: UIViewController {
    
@@ -48,7 +49,9 @@ class PlayGameController: UIViewController {
     
     var timer:Timer? = Timer()
     var spawnTimer:Timer? = Timer()
-        
+    
+    var managedObjectContext: NSManagedObjectContext!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -60,12 +63,10 @@ class PlayGameController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(moveItem), userInfo: nil, repeats: true)
         spawnTimer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(randomizedSpawner), userInfo: nil, repeats: true)
         middleDetector.isUserInteractionEnabled = false
-        /*spawnIngredients(ingredientType: "burger", ingredientGravity: CGPoint(x: 0.0, y: 8.0), location: CGPoint(x: 80.0, y: 60.0))
-        spawnIngredients(ingredientType: "tomato", ingredientGravity: CGPoint(x: 0.0, y: 2.5), location: CGPoint(x: 230.0, y: 90.0))
-        spawnIngredients(ingredientType: "tomato", ingredientGravity: CGPoint(x: 0.0, y: 2.0), location: CGPoint(x: 320.0, y: 90.0))
-        //entitiesInView.append(Ingredient(name: String(), image: ingredient, inStack: false, gravity: CGPoint(x: 0.0, y: 5.0)))
-        //entitiesInView.append(Ingredient(name: String(), image: topIngredient, inStack: false, gravity: CGPoint(x: 0.0, y: 2.5)))*/
 
+        // Core Data setup
+         managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
         // UI header setup
         self.navigationController?.isNavigationBarHidden = true
         backgroundHeader.clipsToBounds = true
@@ -175,6 +176,11 @@ class PlayGameController: UIViewController {
         */
         for ingredient in entitiesInView {
             // isolation of the movement in a Bool allows all of the falling UIImageViews to run off of one timer
+            if ingredientStack[localStackIndex].name == "topbun" {
+                timer?.invalidate()
+                spawnTimer?.invalidate()
+                timeStampPlay()
+            }
             if ingredient.inStack == false && ingredient.outOfView == false {
                 ingredient.image.center.y = ingredient.image.center.y + ingredient.gravity.y
                 if ingredient.image.center.y == CGFloat(895.0) {
@@ -198,10 +204,6 @@ class PlayGameController: UIViewController {
             if ingredient.image.frame.intersects(middleDetector.frame){
                 ingredient.isPastMiddle = true
             }
-        }
-        if ingredientStack[localStackIndex].name == "topbun" {
-            timer?.invalidate()
-            spawnTimer?.invalidate()
         }
     }
     func addIngredient(ingredient: Ingredient!){
@@ -264,15 +266,30 @@ class PlayGameController: UIViewController {
         entitiesInView.append(newIngredient)
         self.view.addSubview(newIngredient.image)
     }
+    // MARK: - CoreData management
     
-    
+    func timeStampPlay(){
+        let endOfRoundTimeStamp = Date() // takes current timestamp once order is complete
+        let timeStampOfPlay = GameHistory(entity: GameHistory.entity(), insertInto: managedObjectContext) // creates a new space for new timestamp in table view
+        timeStampOfPlay.setValue(endOfRoundTimeStamp, forKey: "date") // sets date attribute of entity "GameHistory"
+        
+        saveData()
+    }
+    func saveData(){
+        do{
+            try self.managedObjectContext.save() // try = handler for errors; saves the new detail set inside of the entity
+            print("playGame Core Data saved successfully")
+        } catch{
+            print("Save failed due to \(error.localizedDescription)") // if the save fails, displays error message
+        }
+    }
     
     //REMOVE THE BELOW LATER
     @IBAction func finishedOrderButton(_ sender: Any) {
         timer?.invalidate()
         spawnTimer?.invalidate()
+        timeStampPlay()
         self.navigationController?.isNavigationBarHidden = false
-        
     }
 }
     /*

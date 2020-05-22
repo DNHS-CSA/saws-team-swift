@@ -9,7 +9,13 @@
 import UIKit
 
 class GameHistoryTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var coins: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +26,4 @@ class GameHistoryTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
