@@ -93,13 +93,20 @@ class GameHistoryTableViewController: UITableViewController {
         //row or object in data source
         let logEntry = gameLogData[indexPath.row]
         
+        
+        // lines below will work on Core Data is implemented
+//      let avatarImageName = logEntry.player?.avatar?.iconName
+//      cell.avatar.image = UIImage(named: avatarImageName!)
+//      cell.coins.text = String(logEntry.coins)
         /* What is the difference between two lines below?
         cell.location.text = "Location: " + String(logEntry.location?.name ?? "No location - error") // sets the location to real location and catches any Core Data relationship errors
         cell.location.text = "Location: " + String(logEntry.player?.location?.name ?? "No location - error") */
+        let randomAvatar = avatars.randomElement()
+        
+        cell.avatar.image = UIImage(named: randomAvatar!)
         cell.location.text = String("\(randomizer(typeOfSampleData: "Location"))")
         cell.coins.text = String(Int.random(in: 1...200)) // sets coin value to filler value
-        // next line will work once we have coin data for each player
-        //cell.coins.text = String(logEntry.coins)
+        
         
         /*
          Extra lines of code for date display
@@ -184,7 +191,7 @@ class GameHistoryTableViewController: UITableViewController {
             guard let gameHistoryDetail = segue.destination as? GameHistoryDetailController else {
                 fatalError("Could not find GameHistoryDetailController")
             }
-            gameHistoryDetail.detailContent.avatar = currentGameHistoryCell.avatar?.iconName ?? ""
+            gameHistoryDetail.detailContent.avatar = gameHistoryCell.avatar.image!//currentGameHistoryCell.player?.avatar?.iconName ?? ""
             gameHistoryDetail.detailContent.date = currentGameHistoryCell.date!
             gameHistoryDetail.detailContent.location = gameHistoryCell.location.text!//currentGameHistoryCell.location?.name ?? "No location"
             gameHistoryDetail.detailContent.coins = gameHistoryCell.coins.text!//currentGameHistoryCell.coins
