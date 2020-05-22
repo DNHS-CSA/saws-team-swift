@@ -18,3 +18,4 @@ var ingredientTypes: [String] = ["cheese", "burger", "lettuce", "tomato", "onion
 
 var orderIngredientType: [String] = ["cheese", "burger", "lettuce", "tomato", "onions", "mustard", "ketchup"]
 
+var locations: [String] = ["Park", "City" ]
