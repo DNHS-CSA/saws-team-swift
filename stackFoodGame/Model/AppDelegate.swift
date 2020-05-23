@@ -11,6 +11,8 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    let coreDataManager = CoreDataManager(modelName: "stackFoodGame") //AHHHH the s is small case AHHHHH!!!
 
     // MARK: Temporary variables
     /* The following variables are added temporarily to make Perks.Controller run properly. I will be removing these and replacing them with arrays, some of which could be stored as Core Data. */
@@ -28,6 +30,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+                    
+        print(coreDataManager.managedObjectContext)
+        
+        let managedObjectContext = coreDataManager.managedObjectContext
+        
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Player", in: managedObjectContext)
+        
+        if  let entityDescription = entityDescription {
+            /*
+            print(entityDescription.name ?? "No Name")
+            print(entityDescription.properties) //print out JSON data about Player*/
+            
+            let player = NSManagedObject(entity: entityDescription, insertInto: managedObjectContext) //Creates new entity within CoreData
+            
+            // print(String(player.value(forKey: "coins") as! Int)) // <- money maker right here
+            
+            print(player)
+            
+            do{
+                try managedObjectContext.save()
+            }catch{}
+            
+        }
+
+        
         return true
     }
 
@@ -43,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+
     }
 
     // MARK: - Core Data stack
@@ -70,6 +98,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
+            
+            
         })
         return container
     }()
