@@ -43,7 +43,7 @@ class OrderAssignmentController: UIViewController {
         }
         
         for i in 0..<3{
-            print(ingredientArray[i]+"  X"+String(numberArray[i]))
+            print("OrderAssignment> " + ingredientArray[i] + "  X"+String(numberArray[i]))
         }
         
         ingredient1.image = UIImage(named: ingredientArray[0])
@@ -90,8 +90,8 @@ class OrderAssignmentController: UIViewController {
                 orderImageName = orderData.value(forKey: "name") as! String
                 orderIconName = orderData.value(forKey: "iconName") as! String
             }
-            print("HERE" + orderImageName)
-            print("HERE" + orderIconName)
+            //print("HERE" + orderImageName)
+            //print("HERE" + orderIconName)
             print("Data successfully fetched")
         }
         catch
@@ -139,9 +139,9 @@ class OrderAssignmentController: UIViewController {
             orderInGameUI.orderUI.ingredientNames = ingredientArray
             orderInGameUI.orderUI.quantityOfEachIngredient = numberArray
         case "OrderAssignmentUnwind":
-            print("Unwind Successful")
+            print("OrderAssignment> Unwind Successful")
         default:
-            print("No segue identifiers")
+            print("OrderAssignment> No segue identifiers")
         }
     }
 
