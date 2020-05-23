@@ -31,8 +31,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
                     
-        print(coreDataManager.managedObjectContext)
+        print(coreDataManager.managedObjectContext)//prints node
         
+        let managedObjectContext = coreDataManager.managedObjectContext //This returns node for object context
+        
+        let _ = createRecordForEntity("Player", inManagedObjectContext: managedObjectContext) //Method to insert entity into MOC (managed object context)
+        
+        //-------------------------------------------------------> fetching
+        
+        var player: NSManagedObject? = nil
+        
+        let players = fetchRecordsForEntity("Player", inManagedObjectContext: managedObjectContext)
+        
+        if let p_record = players.first{ //this block basically make sure there is at least 1 element within entity, sets player to the first one
+            
+            player = p_record
+        }else if let p_record = createRecordForEntity("Player", inManagedObjectContext: managedObjectContext){
+            player = p_record
+        }
+        
+        print("Num of entities: \(players.count)") //just printing
+        print(player as Any)
+        print("coins : " + String(player?.value(forKey: "coins") as! Int))
+        
+        //--------------------------------------------------------------> end of fetching
+        
+        
+        //--------------------------------------------------------------> updating attribute/relationship
+        if let player = player {
+            print(player.value(forKey: "coins") ?? "no coins")
+            print(player.value(forKey: "name") ?? "no name")
+
+                player.setValue(5, forKey: "coins")
+
+                player.setValue("nathan", forKey: "name")
+            
+        } else {
+            print("unable to fetch or create list")
+        }
+        
+        //-------------------------------------------------------------->
+        
+        
+        do{
+            try managedObjectContext.save() //Saving MOC into persistant container through CoreDataManager
+            
+        }catch{print("FAILED TO SAVE CONTEXT")}
+        
+        
+        
+        /* UNCOMMENT FOR 1st VERSION
+         
         let managedObjectContext = coreDataManager.managedObjectContext
         
         let entityDescription = NSEntityDescription.entity(forEntityName: "Player", in: managedObjectContext)
@@ -40,23 +89,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if  let entityDescription = entityDescription {
             /*
             print(entityDescription.name ?? "No Name")
-            print(entityDescription.properties) //print out JSON data about Player*/
+            print(entityDescription.properties) //print out JSON data about Entity*/
             
             let player = NSManagedObject(entity: entityDescription, insertInto: managedObjectContext) //Creates new entity within CoreData
             
             // print(String(player.value(forKey: "coins") as! Int)) // <- money maker right here
             
-            print(player)
+            print(player) //More JSON about Entity
             
             do{
                 try managedObjectContext.save()
             }catch{}
             
-        }
+        } */
 
         
         return true
     }
+    
+    
+    
+    private func createRecordForEntity(_ entity: String, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> NSManagedObject? {
+        // Helpers
+        var result: NSManagedObject?
+
+        // Create Entity Description
+        let entityDescription = NSEntityDescription.entity(forEntityName: entity, in: managedObjectContext)
+
+        if let entityDescription = entityDescription {
+            // Create Managed Object
+            result = NSManagedObject(entity: entityDescription, insertInto: managedObjectContext)
+        }
+
+        //return an NSManagedObject that holds all the parameters created in +CoreDataProperties
+        return result
+    }
+    
+    private func fetchRecordsForEntity(_ entity: String, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> [NSManagedObject] {
+        // Create Fetch Request
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity) //using entityName: entity in order to load description to MOC
+
+        // Helpers
+        var result = [NSManagedObject]()
+
+        do {
+            // Execute Fetch Request
+            let records = try managedObjectContext.fetch(fetchRequest)
+
+            if let records = records as? [NSManagedObject] {
+                result = records
+            }
+
+        } catch {
+            print("Unable to fetch managed objects for entity \(entity).")
+        }
+
+        return result
+    }
+    
 
     // MARK: UISceneSession Lifecycle
 
