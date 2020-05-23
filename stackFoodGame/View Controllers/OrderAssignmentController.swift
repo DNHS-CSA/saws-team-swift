@@ -90,8 +90,8 @@ class OrderAssignmentController: UIViewController {
                 orderImageName = orderData.value(forKey: "name") as! String
                 orderIconName = orderData.value(forKey: "iconName") as! String
             }
-            print(orderImageName)
-            print(orderIconName)
+            print("HERE" + orderImageName)
+            print("HERE" + orderIconName)
             print("Data successfully fetched")
         }
         catch
@@ -99,6 +99,7 @@ class OrderAssignmentController: UIViewController {
             print("Fetch failed")
         }
     }
+    
     func orderImageCheck(idOrderImage: Int)
     {
         if idOrderImage == 0 {
@@ -124,6 +125,8 @@ class OrderAssignmentController: UIViewController {
         }
     }
 
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // if someone is going to change segue type away from storyboard reference, keep segue identifiers the same
         
