@@ -120,6 +120,22 @@ class PlayerCustomizationController: UIViewController {
     
     @IBAction func PressPic4(_ sender: Any)
     {
+        /*
+        Avatar Table
+
+        1 boychef
+        2 girlchef
+        3 penguin
+        
+        fetch - avatar -- get only id 4
+        
+        fetch - player: go to player.first
+        
+        player.avatar = avatar
+        
+        save()*/
+        
+        
         id = 4
         imageName = "penguin"
         iconName = "penguin"
