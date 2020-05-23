@@ -207,7 +207,7 @@ class PlayGameController: UIViewController {
         }
     }
     func addIngredient(ingredient: Ingredient!){
-        print(stackIndex)
+        print("GameController> stackIndex " + String(stackIndex))
         // adds the ingredient to the ingredientStack based on array position - concurrent with the visual experience of the stack
         ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, outOfView: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false))
         ingredientStack[stackIndex] = ingredient
@@ -287,7 +287,13 @@ class PlayGameController: UIViewController {
     @IBAction func finishedOrderButton(_ sender: Any) {
         timer?.invalidate()
         spawnTimer?.invalidate()
-        timeStampPlay()
+        
+        
+        
+        //timeStampPlay() THROWING ERROR
+        
+        
+        
         self.navigationController?.isNavigationBarHidden = false
     }
 }

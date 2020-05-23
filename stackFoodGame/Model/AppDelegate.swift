@@ -35,74 +35,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let managedObjectContext = coreDataManager.managedObjectContext //This returns node for object context
         
-        let _ = createRecordForEntity("Player", inManagedObjectContext: managedObjectContext) //Method to insert entity into MOC (managed object context)
         
-        //-------------------------------------------------------> fetching
+        //setting the stage for a player-centric model
+        let players = getRecordsFor(entity: "Player")  //fetchRecordsForEntity("Player", inManagedObjectContext: managedObjectContext)
         
-        var player: NSManagedObject? = nil
-        
-        let players = fetchRecordsForEntity("Player", inManagedObjectContext: managedObjectContext)
-        
-        if let p_record = players.first{ //this block basically make sure there is at least 1 element within entity, sets player to the first one
+        if players.count != 1 { //make sure that there is only 1 player on start
+            for p in players{
+                managedObjectContext.delete(p)
+                print("deleted player")
+            }
+            let _ = createRecordForEntity("Player", inManagedObjectContext: managedObjectContext)
             
-            player = p_record
-        }else if let p_record = createRecordForEntity("Player", inManagedObjectContext: managedObjectContext){
-            player = p_record
+            saveAllEntityData()
         }
         
-        print("Num of entities: \(players.count)") //just printing
-        print(player as Any)
-        print("coins : " + String(player?.value(forKey: "coins") as! Int))
+        var player: NSManagedObject? = nil
+        if let precord = players.first{
+            player = precord
+        }
         
-        //--------------------------------------------------------------> end of fetching
+        print("AppDelegate> PLAYERS: \(players.count) (make sure this is 1 on start)")
+        //print(player as Any) //prints the FAULT not object
+                
         
-        
-        //--------------------------------------------------------------> updating attribute/relationship
+        /*
         if let player = player {
             print(player.value(forKey: "coins") ?? "no coins")
-            print(player.value(forKey: "name") ?? "no name")
 
                 player.setValue(5, forKey: "coins")
-
-                player.setValue("nathan", forKey: "name")
             
         } else {
             print("unable to fetch or create list")
-        }
-        
-        //-------------------------------------------------------------->
-        
-        
-        do{
-            try managedObjectContext.save() //Saving MOC into persistant container through CoreDataManager
-            
-        }catch{print("FAILED TO SAVE CONTEXT")}
+        }*/
         
         
         
-        /* UNCOMMENT FOR 1st VERSION
-         
-        let managedObjectContext = coreDataManager.managedObjectContext
-        
-        let entityDescription = NSEntityDescription.entity(forEntityName: "Player", in: managedObjectContext)
-        
-        if  let entityDescription = entityDescription {
-            /*
-            print(entityDescription.name ?? "No Name")
-            print(entityDescription.properties) //print out JSON data about Entity*/
-            
-            let player = NSManagedObject(entity: entityDescription, insertInto: managedObjectContext) //Creates new entity within CoreData
-            
-            // print(String(player.value(forKey: "coins") as! Int)) // <- money maker right here
-            
-            print(player) //More JSON about Entity
-            
-            do{
-                try managedObjectContext.save()
-            }catch{}
-            
-        } */
+        //print(player?.value(forKey: "coins") as Any) //HOW TO GET COINS
 
+        //player?.setValue(0, forKey: "coins") //set value for coins
+        
+        //saveAllEntityData()
+        
+        //print(player?.value(forKey: "coins") as Any)
         
         return true
     }
@@ -125,9 +99,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return result
     }
     
+    func getRecordsFor(entity: String) -> [NSManagedObject] {
+        let managedObjectContext = coreDataManager.managedObjectContext
+        
+        let entities = fetchRecordsForEntity(entity, inManagedObjectContext: managedObjectContext)
+        
+        return entities
+    }
+    
     private func fetchRecordsForEntity(_ entity: String, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> [NSManagedObject] {
+        
         // Create Fetch Request
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity) //using entityName: entity in order to load description to MOC
+        
 
         // Helpers
         var result = [NSManagedObject]()
@@ -145,6 +129,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         return result
+    }
+    
+    
+    
+    
+    func saveAllEntityData(){
+        let managedObjectContext =  coreDataManager.managedObjectContext
+        
+            do{
+                try managedObjectContext.save() //Saving MOC into persistant container through CoreDataManager
+                print("MOC> Succesfully saved!")
+            }catch{
+                print("MOC> FAILED TO SAVE CONTEXT")
+                
+            }
+        
     }
     
 

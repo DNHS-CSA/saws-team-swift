@@ -20,6 +20,7 @@ class OrderCompleteController: UIViewController {
     let oStatus = true //pass in from CoreData true=fufilled false=failed
     
     var points : Int = 100
+    var coins: Int = 10
     
     var timer:Timer? = Timer()
     
@@ -28,7 +29,9 @@ class OrderCompleteController: UIViewController {
     var good :[String] = ["Awesome!","Nice Job!","Incredible!"]
     var bad :[String] = ["Whoops","Hmmmmm","Is it supposed to look like that?"]
     
-    var managedObjectContext: NSManagedObjectContext!
+    let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+
+    
 
     
     override func viewDidLoad() {
@@ -45,10 +48,11 @@ class OrderCompleteController: UIViewController {
                 if myBurger.contains(key){
                     myBurger.remove(at: myBurger.firstIndex(of: String(key))!)
                     points += 40
-                    print("found " + key)
+                    print("OrderComplete> found " + key)
+                    coins += 50
                 }else{
                     points -= 40
-                    print("didnt find " + key)
+                    print("OrderComplete> didnt find " + key)
                 }
                 idealPoints += 40
             }
@@ -57,22 +61,25 @@ class OrderCompleteController: UIViewController {
         points -= myBurger.count*20 //subtracting points for excess ingredients
         if(points<0){points=0}
         
-        if(points >= idealPoints-80){
+        if(Double(points) >= Double(idealPoints) * 0.65){
             orderStatus.text = good.randomElement()
         }else{
             orderStatus.text = bad.randomElement()
         }
         orderStatus.isHidden = true
-        print(String(idealPoints))
+        
+        print("OrderComplete> Ideal Points, " + String(idealPoints))
         
         
-        
-        print("POINTS " + String(points))
+        print("OrderComplete> POINTS " + String(points))
         
 
         itemScreen.text = String(0) + " xp"
         
-
+        let player = appDelegate?.getRecordsFor(entity: "Player").first
+        
+        let tcoins = player?.value(forKey: "coins") as! Int
+        totalCoins.text =  ("CURRENT COINS: " + String(tcoins))
         
         
         
@@ -81,74 +88,17 @@ class OrderCompleteController: UIViewController {
         
         self.orderStatus.isHidden = false
         //totalCoins.text = "COINS: " + String(getCoins())
-        saveData()
+        //saveData()
+        
+        player?.setValue(tcoins + coins, forKey: "coins")
+        appDelegate?.saveAllEntityData()
+        totalCoins.text =  ("CURRENT COINS: " + String(tcoins + coins))
+
+        
+
+
     }
     
-    
-    
-    func saveData(){
-        
-        let fetchRequest: NSFetchRequest<Player> = Player.fetchRequest()
-        do{
-        let book = try persistenceService.context.fetch(fetchRequest)
-            print("COUNT: " + String(book.count))
-        }catch{}
-        
-        let plr = Player(context: persistenceService.context)
-        plr.coins = 10
-        persistenceService.saveContext()
-    }
-    
-    
-    
-    func getCoins()->Int{
-
-        let fetchRequest: NSFetchRequest<Avatar> = Avatar.fetchRequest()
-        do {
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            let avatar = try context.fetch(fetchRequest)
-            print(String(avatar.count) + " <---")
-        }catch{}
-
-        /*
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        do{
-         let gameLogData = try managedObjectContext.fetch(GameHistory.fetchRequest())
-
-        } catch {
-            print("Load failed due to \(error.localizedDescription)")
-        }
-        
-        /*
-        let coinRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Avatar")
-        coinRequest.returnsObjectsAsFaults = false
-        do{
-            let coinResult = try context.fetch(coinRequest)
-            print(String(coinResult.count))
-            for coinData in coinResult as! [NSManagedObject]
-            {
-                print("IN HERE")
-
-                let coins = coinData.value(forKey: "coins") as! Int
-                
-                print("COINS: " + String(coins))
-                return coins
-            }
-        
-            
-            print("coins fetched")
-        }catch{
-            print("Fetch failed")
-            return -1
-        }
-        */
-            */         
-        return -2
-        
-    }
     
     
     
@@ -166,7 +116,7 @@ class OrderCompleteController: UIViewController {
         //if()
         
         if(Int(step3) <= self.points){
-            itemScreen.text = String(Int(step3)) + " xp"
+            itemScreen.text = "+" + String(Int(step3)) + " xp"
         }else{
             
             timer?.invalidate()
