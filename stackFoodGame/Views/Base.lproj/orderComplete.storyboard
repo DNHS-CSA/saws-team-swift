@@ -31,6 +31,9 @@
                                 <state key="normal" title="Next Game">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Vb0-QM-lHG" kind="show" id="NZa-4v-YzF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39j-ct-5no">
                                 <rect key="frame" x="155" y="818" width="106" height="55"/>
@@ -40,6 +43,9 @@
                                 <state key="normal" title="Main Menu">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="yZL-co-IBI" kind="unwind" unwindAction="unwindToMainMenu:" id="IiU-kb-Hr7"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order Complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCd-hZ-BVm">
                                 <rect key="frame" x="47" y="97" width="321" height="71"/>
@@ -61,8 +67,19 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWB-p3-wbf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="yZL-co-IBI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="139" y="112"/>
+        </scene>
+        <!--orderassign-->
+        <scene sceneID="dQl-tY-PLJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="orderAssignment" referencedIdentifier="orderassign" id="Vb0-QM-lHG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bLc-bF-zmW"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iVl-5d-Aa4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="686" y="266"/>
         </scene>
     </scenes>
 </document>
