@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var perkGold: Int = 0
     var perkSecret: Int = 0
 
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -54,6 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             player = precord
         }
         
+        if player == nil{
+            player = createRecordForEntity("Player", inManagedObjectContext: managedObjectContext)
+            saveAllEntityData()
+
+        }
+        
         print("AppDelegate> PLAYERS: \(players.count) (make sure this is 1 on start)")
         //print(player as Any) //prints the FAULT not object
                 
@@ -78,9 +85,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //print(player?.value(forKey: "coins") as Any)
         
+        
+        
+        let avatars = getRecordsFor(entity: "Avatar")   // Loads in BoyChef as starting character
+        var avatar : NSManagedObject? = nil
+        
+        if let a_record = avatars.first{ //this block basically make sure there is at least 1 element within entity, sets player to the first one
+            
+            avatar = a_record
+        }else if let a_record = createRecordForEntity("Avatar", inManagedObjectContext: managedObjectContext){
+            avatar = a_record
+        }
+        
+        
+
+        avatar?.setValue(1, forKey: "id")
+        avatar?.setValue("boychef", forKey: "name")
+        avatar?.setValue("boychef", forKey: "iconName")
+        
+        
+        player?.setValue(avatar, forKey: "avatar")
+        //print(avatar as Any)
+        
+        saveAllEntityData()
+        
+        print("APP DELEGATE: ")
+        let playr = getRecordsFor(entity: "Player").first
+        print(playr?.value(forKey: "avatar") as Any)
+        
+        if playr?.value(forKey: "avatar") == nil{
+            let atr = createEntity(entity: "Avatar")
+            atr?.setValue(1, forKey: "id")
+            atr?.setValue("boychef", forKey: "name")
+            atr?.setValue("boychef", forKey: "iconName")
+            playr?.setValue(atr, forKey: "avatar")
+            saveAllEntityData()
+        }
+        
+        print("APP DELEGATE2: ")
+        let playr2 = getRecordsFor(entity: "Player").first
+        print(playr2?.value(forKey: "avatar") as Any)
+            
+
+        
         return true
     }
     
+
     
     
     private func createRecordForEntity(_ entity: String, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> NSManagedObject? {
@@ -131,7 +182,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return result
     }
     
-    
+    func createEntity(entity: String) -> NSManagedObject?{
+        let managedObjectContext = coreDataManager.managedObjectContext
+
+        let result = createRecordForEntity(entity, inManagedObjectContext: managedObjectContext)
+        
+        return result
+        
+    }
     
     
     func saveAllEntityData(){
@@ -162,6 +220,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 
     }
+    
+    
+    
 
     // MARK: - Core Data stack
 

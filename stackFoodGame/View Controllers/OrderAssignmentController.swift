@@ -28,6 +28,9 @@ class OrderAssignmentController: UIViewController {
     let numberArray = (0..<3).map{ _ in Int.random(in: 1 ... 3) }
     var ingredientArray : [String] = []
     
+    let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+
+    
     override func viewDidLoad() {
 
         // array definitions moved public to allow for segue data transfer
@@ -59,7 +62,14 @@ class OrderAssignmentController: UIViewController {
         
         orderGetData()
         orderImageCheck(idOrderImage: idOrderImage)
-
+        
+        /*
+         
+         
+        setIcon() //alternate method of setting image data based of player-centric model
+         
+         
+        */
         
         //verifies that there are no duplicate ingredients
 
@@ -76,6 +86,16 @@ class OrderAssignmentController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func setIcon() -> Void {
+        let players = appDelegate?.getRecordsFor(entity: "Player").first
+        let avatar = players?.value(forKey: "avatar") as! NSObject
+        let name = avatar.value(forKey: "iconName") as! String
+        PlayerImage.image = UIImage(named: name)
+    }
+    
+    
+    
     func orderGetData()
     {
         let orderContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

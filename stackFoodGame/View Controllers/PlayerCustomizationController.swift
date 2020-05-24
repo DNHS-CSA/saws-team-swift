@@ -25,6 +25,7 @@ class PlayerCustomizationController: UIViewController {
     @IBOutlet weak var Pic4: UIImageView!
     @IBOutlet weak var Pic5: UIImageView!
     @IBOutlet weak var Pic6: UIImageView!
+    @IBOutlet weak var imageDisplay: UIImageView!
     
     @IBOutlet weak var PressPic1: UIButton!
     @IBOutlet weak var PressPic2: UIButton!
@@ -38,13 +39,61 @@ class PlayerCustomizationController: UIViewController {
     var imageName = String()
     var iconName = String()
     
+    var myIcon = String()
+    var imageNameData = [1:"boychef",2:"girlchef",3:"frog",4:"penguin",5:"image5",6:"image6"]
     
+    let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+    var player : NSManagedObject?
+    var avatar : NSObject?
+
     override func viewDidLoad() {
         getData()
         idchecker(id: id)
         tabCountChecker(tabCount: tabCount)
         super.viewDidLoad()
+        
+
+            
+            /* Load Data for different Avatars here with
+             
+             
+            avatars.append((appDelegate?.createEntity(entity: "Avatar"))!) //creating and loading avatars
+            avatars[0].setValue(0, forKey: "id")
+            avatars[0].setValue("frog", forKey: "name")
+            
+            let player = appDelegate?.getRecordsFor(entity: "Player").first
+            player?.setValue(avatars, forKey: "avatar")
+            
+            appDelegate?.saveAllEntityData() */
+            
+            
+        player = appDelegate?.getRecordsFor(entity: "Player").first
+        avatar = player?.value(forKey: "avatar") as? NSObject
+        
+        myIcon = avatar!.value(forKey: "iconName") as! String
+        
+        print("PlayerCustomization> id = " + String(avatar!.value(forKey: "id") as! Int) + " name = " + String(avatar!.value(forKey: "name") as! String))
+            
+        setPicture()
+        
     }
+    
+    func setPicture(){
+        imageDisplay.image = UIImage(named: myIcon)
+    }
+    
+    
+    func editAvatar(imageID: Int) -> Void {
+        myIcon = imageNameData[imageID]!
+        avatar?.setValue(imageID, forKey: "id")
+        avatar?.setValue(myIcon, forKey: "name")
+        avatar?.setValue(myIcon, forKey: "iconName")
+        appDelegate?.saveAllEntityData()
+        setPicture()
+
+    }
+    
+    
     
     @IBAction func PressPic1(_ sender: Any)
     {
@@ -68,6 +117,9 @@ class PlayerCustomizationController: UIViewController {
             print("Save failed")
         }
         idchecker(id: id)
+        
+        editAvatar(imageID: id)
+
     }
     
     @IBAction func PressPic2(_ sender: Any)
@@ -92,6 +144,8 @@ class PlayerCustomizationController: UIViewController {
              print("Save failed")
          }
         idchecker(id: id)
+        
+        editAvatar(imageID: id)
     }
     
     @IBAction func PressPic3(_ sender: Any)
@@ -116,6 +170,9 @@ class PlayerCustomizationController: UIViewController {
              print("Save failed")
          }
         idchecker(id: id)
+        
+        editAvatar(imageID: id)
+
     }
     
     @IBAction func PressPic4(_ sender: Any)
@@ -158,6 +215,9 @@ class PlayerCustomizationController: UIViewController {
              print("Save failed")
          }
         idchecker(id: id)
+        
+        editAvatar(imageID: id)
+
     }
     
     @IBAction func PressPic5(_ sender: Any)
@@ -182,6 +242,9 @@ class PlayerCustomizationController: UIViewController {
              print("Save failed")
          }
         idchecker(id: id)
+        
+        
+
     }
     
     @IBAction func PressPic6(_ sender: Any)
@@ -206,6 +269,8 @@ class PlayerCustomizationController: UIViewController {
              print("Save failed")
          }
         idchecker(id: id)
+        
+
     }
     
     @IBAction func NextArrow(_ sender: Any)
