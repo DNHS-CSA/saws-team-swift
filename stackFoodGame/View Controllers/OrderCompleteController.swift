@@ -16,6 +16,7 @@ class OrderCompleteController: UIViewController {
     @IBOutlet weak var mainMenu: UIButton!
     @IBOutlet weak var orderStatus: UILabel!
     @IBOutlet weak var totalCoins: UILabel!
+    @IBOutlet weak var coinScreen: UILabel!
     
     let oStatus = true //pass in from CoreData true=fufilled false=failed
     
@@ -23,8 +24,10 @@ class OrderCompleteController: UIViewController {
     var coins: Int = 10
     
     var timer:Timer? = Timer()
+    var coinTimer:Timer? = Timer()
     
-    var counter : Int = 0
+    var xpcounter : Int = 0
+    var coincounter : Int = 0
     
     var good :[String] = ["Awesome!","Nice Job!","Incredible!"]
     var bad :[String] = ["Whoops","Hmmmmm","Is it supposed to look like that?"]
@@ -87,6 +90,9 @@ class OrderCompleteController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(countTime), userInfo: nil, repeats: true)
         
         self.orderStatus.isHidden = false
+
+        coinTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(countCoin), userInfo: nil, repeats: true)
+        
         //totalCoins.text = "COINS: " + String(getCoins())
         //saveData()
         
@@ -104,26 +110,33 @@ class OrderCompleteController: UIViewController {
     }
     
     
-    
+    func doMath(input: Int, x_val: Int) -> Int {
+        
+        let ppp = Double(input) * 1.003
+        let step1 = pow(2.71828, -0.00285 * Double(x_val))
+        let step2 = ppp * Double(step1)
+        let step3 = ppp - Double(step2)
+        
+        return Int(step3)
+    }
     
     
     @objc func countTime(){
         
-        let ppp = Double(points) * 1.003
-        
-        let step1 = pow(2.71828, -0.00285 * Double(self.counter))
-        let step2 = ppp * Double(step1)
-        let step3 = ppp - Double(step2)
+
         
         //print(String(self.points) + "  " + String(step3))
-        self.counter += 1
         //if()
-        
-        if(Int(step3) <= self.points){
-            itemScreen.text = "+" + String(Int(step3)) + " xp"
+        let result = doMath(input: points, x_val: xpcounter)
+        self.xpcounter += 1
+
+        if(result <= self.points){
+            itemScreen.text = "+" + String(result) + " xp"
         }else{
             
             timer?.invalidate()
+
+            
         }
         
         
@@ -136,6 +149,19 @@ class OrderCompleteController: UIViewController {
             //timer?.invalidate()
         }*/
         
+    }
+    
+    @objc func countCoin(){
+        
+        let result = doMath(input: coins, x_val: coincounter)
+        self.coincounter += 1
+
+        if(result <= self.coins){
+            coinScreen.text = "+" + String(result) + "$"
+        }else{
+            coinTimer?.invalidate()
+            
+        }
     }
 
 
