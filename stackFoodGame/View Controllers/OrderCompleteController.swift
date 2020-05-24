@@ -61,7 +61,7 @@ class OrderCompleteController: UIViewController {
         points -= myBurger.count*20 //subtracting points for excess ingredients
         if(points<0){points=0}
         
-        if(Double(points) >= Double(idealPoints) * 0.65){
+        if(Double(points)  >= Double(idealPoints) * 0.65){
             orderStatus.text = good.randomElement()
         }else{
             orderStatus.text = bad.randomElement()
@@ -93,6 +93,10 @@ class OrderCompleteController: UIViewController {
         player?.setValue(tcoins + coins, forKey: "coins")
         appDelegate?.saveAllEntityData()
         totalCoins.text =  ("CURRENT COINS: " + String(tcoins + coins))
+        
+        
+        //let avatar = player?.value(forKey: "avatar") as! [NSManagedObject]
+        //print("OrderComplete> avatar count: \(avatar.count)")
 
         
 
