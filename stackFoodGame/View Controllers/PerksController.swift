@@ -58,8 +58,11 @@ class PerksController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view
         do {
-            playerArray = try context.fetch(Player.fetchRequest())
-            print("Size of fetched player array = ", playerArray.count)
+            try playerArray = context.fetch(Player.fetchRequest())
+            guard playerArray.count > 0 else {
+                print("Player array is empty, throwing fatalError")
+                fatalError()
+            }
             player = playerArray[0]
             coins = Int(player!.coins)
         } catch let error as NSError {
