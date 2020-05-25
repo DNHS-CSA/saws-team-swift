@@ -133,7 +133,7 @@ class PlayGameController: UIViewController {
         var randomLocation = locationSpawns.randomElement()
         let randomYValue = Double.random(in: 1..<8)
         var trafficPrevention = 0
-        var randomGravity = CGPoint(x: 0.0, y: randomYValue)
+        var randomGravity = CGPoint(x: 0.0, y: randomYValue * 2) 
         let randomIngredient = ingredientTypes.randomElement()
         /*
          Method explanation: Purpose is to limit the number of ingredients that overlap each other, but not reduce the overlap all together
