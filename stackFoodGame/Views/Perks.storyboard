@@ -36,6 +36,7 @@
                                 </state>
                                 <connections>
                                     <action selector="purchaseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WvR-Fy-Srl"/>
+                                    <segue destination="bTS-0P-ZyC" kind="show" id="XAy-M6-2UD"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBR-QB-eel">
@@ -397,6 +398,16 @@
                 <exit id="L0o-NR-zg6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="98.4375"/>
+        </scene>
+        <!--orderassign-->
+        <scene sceneID="jxX-U2-WrR">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="shG-pA-aCp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="orderAssignment" referencedIdentifier="orderassign" id="bTS-0P-ZyC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iJo-yN-61m"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="671" y="168"/>
         </scene>
     </scenes>
     <resources>
