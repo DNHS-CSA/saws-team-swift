@@ -45,7 +45,8 @@ class PerksController: UIViewController {
     var textViews : [UITextView] = []
     var coins: Int = 0;
     var xp: Int = 0;
-    var item1c = 0, item2c = 0, item3c = 0, item4c = 0, item5c = 0, item6c = 0
+    var item1c = 0, item2c = 0, item3c = 0, item4c = 0, item5c = 0, item6c = 0 //c = counter
+    var item1p = 50, item2p = 25, item3p = 70, item4p = 100, item5p = 300, item6p = 500 //p = price
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,13 @@ class PerksController: UIViewController {
             imageViews[i].image = appDelegate.perkImages[i]
             textViews[i].text = appDelegate.perkDescriptions[i]
         }
+        item1PriceLabel.text = "$" + String(item1p)
+        item2PriceLabel.text = "$" + String(item2p)
+        item3PriceLabel.text = "$" + String(item3p)
+        item4PriceLabel.text = "$" + String(item4p)
+        item5PriceLabel.text = "$" + String(item5p)
+        item6PriceLabel.text = "$" + String(item6p)
+
  //       itemQuantity = appDelegate.itemQuantity
     }
     
