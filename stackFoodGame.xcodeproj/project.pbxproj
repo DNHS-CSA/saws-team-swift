@@ -23,6 +23,8 @@
 		521B7A582475A06900C9BFF3 /* Powerup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A4A2475A06900C9BFF3 /* Powerup+CoreDataProperties.swift */; };
 		524E6F4B246CC4B800032017 /* PerksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E6F4A246CC4B800032017 /* PerksController.swift */; };
 		524E6F4D246CC4FD00032017 /* Perks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524E6F4C246CC4FD00032017 /* Perks.storyboard */; };
+		5259AF29247C819E0051CE2B /* xpCoin.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5259AF28247C819E0051CE2B /* xpCoin.jpeg */; };
+		5259AF2B247C81D10051CE2B /* goldCoin.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5259AF2A247C81D10051CE2B /* goldCoin.jpeg */; };
 		52D5898D247375A400C8E12D /* chef.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 52D5898C247375A400C8E12D /* chef.jpg */; };
 		52D58991247375CE00C8E12D /* gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D58990247375CE00C8E12D /* gold.png */; };
 		52D58995247375F700C8E12D /* magnet.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D58994247375F700C8E12D /* magnet.png */; };
@@ -75,6 +77,8 @@
 		521B7A4A2475A06900C9BFF3 /* Powerup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Powerup+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		524E6F4A246CC4B800032017 /* PerksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerksController.swift; sourceTree = "<group>"; };
 		524E6F4C246CC4FD00032017 /* Perks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Perks.storyboard; sourceTree = "<group>"; };
+		5259AF28247C819E0051CE2B /* xpCoin.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xpCoin.jpeg; sourceTree = "<group>"; };
+		5259AF2A247C81D10051CE2B /* goldCoin.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = goldCoin.jpeg; sourceTree = "<group>"; };
 		52D5898C247375A400C8E12D /* chef.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chef.jpg; sourceTree = "<group>"; };
 		52D58990247375CE00C8E12D /* gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold.png; sourceTree = "<group>"; };
 		52D58994247375F700C8E12D /* magnet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnet.png; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 		52D5898B2473758200C8E12D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5259AF2A247C81D10051CE2B /* goldCoin.jpeg */,
+				5259AF28247C819E0051CE2B /* xpCoin.jpeg */,
 				52D589962473760C00C8E12D /* secret.jpg */,
 				52D589972473760C00C8E12D /* snail.png */,
 				52D589982473760C00C8E12D /* tips.jpeg */,
@@ -326,7 +332,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5259AF2B247C81D10051CE2B /* goldCoin.jpeg in Resources */,
 				52D5899B2473760C00C8E12D /* tips.jpeg in Resources */,
+				5259AF29247C819E0051CE2B /* xpCoin.jpeg in Resources */,
 				84429D7F2463356C00E5BA3A /* LaunchScreen.storyboard in Resources */,
 				84429D7C2463356C00E5BA3A /* Assets.xcassets in Resources */,
 				52D5899A2473760C00C8E12D /* snail.png in Resources */,

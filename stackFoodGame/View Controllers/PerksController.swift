@@ -60,8 +60,8 @@ class PerksController: UIViewController {
       
         player = (appDelegate.getRecordsFor(entity: "Player").first as! Player)
         coins = Int(player!.coins)
+        xp = Int(player!.xp)
         print("\n coins: ", coins)
-        
         self.navigationController?.isNavigationBarHidden = true
         imageViews = [item1ImageView, item2ImageView, item3ImageView, item4ImageView, item5ImageView, item6ImageView]
         textViews = [item1TextView, item2TextView, item3TextView, item4TextView, item5TextView, item6TextView]
@@ -78,55 +78,8 @@ class PerksController: UIViewController {
 
         coinsLabel.text = String(coins)
         xpLabel.text = String(xp)
- //       itemQuantity = appDelegate.itemQuantity
     }
     
-    func getData()
-    {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Player")
-        request.returnsObjectsAsFaults = false
-        do
-        {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject]
-            {
-                coins = data.value(forKey: "coins") as! Int
-                xp = data.value(forKey: "xp") as! Int
-            }
-            print("Data successfully fetched")
-        }
-        catch
-        {
-            print("Fetch failed")
-        }
-    }
-    
-    func saveData(){
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let player = NSEntityDescription.entity(forEntityName: "Player", in: context)
-        
-        player!.setValue(coins, forKey: "coins")
-        player!.setValue(xp, forKey: "xp")
-        do {
-            try context.save()
-            print("Save successful")
-            getData()
-        } catch {
-            print("Save failed")
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // if someone is going to change segue type away from storyboard reference, keep segue identifiers the same
-    switch segue.identifier ?? "" {
-    case "PerksUnwind":
-        print("Unwind Successful")
-    default:
-        print("No segue identifiers")
-        }
-    }
     
     @IBAction func item1PlusButtonTapped(_ sender: UIButton) {
         item1c += 1
