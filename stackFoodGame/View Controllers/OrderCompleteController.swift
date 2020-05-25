@@ -9,7 +9,9 @@
 import UIKit
 import CoreData
 
-class OrderCompleteController: UIViewController {
+class OrderCompleteController: UIViewController{
+
+    
 
     @IBOutlet weak var itemScreen: UILabel!
     @IBOutlet weak var newGame: UIButton!
@@ -17,6 +19,7 @@ class OrderCompleteController: UIViewController {
     @IBOutlet weak var orderStatus: UILabel!
     @IBOutlet weak var totalCoins: UILabel!
     @IBOutlet weak var coinScreen: UILabel!
+    @IBOutlet weak var progressImage: UIImageView!
     
     let oStatus = true //pass in from CoreData true=fufilled false=failed
     
@@ -25,12 +28,16 @@ class OrderCompleteController: UIViewController {
     
     var timer:Timer? = Timer()
     var coinTimer:Timer? = Timer()
+    var levelTimer:Timer? = Timer()
+
     
     var xpcounter : Int = 0
     var coincounter : Int = 0
     
     var good :[String] = ["Awesome!","Nice Job!","Incredible!"]
     var bad :[String] = ["Whoops","Hmmmmm","Is it supposed to look like that?"]
+    
+    var levelXP : Int = 300
     
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
 
@@ -103,8 +110,10 @@ class OrderCompleteController: UIViewController {
         
         //let avatar = player?.value(forKey: "avatar") as! [NSManagedObject]
         //print("OrderComplete> avatar count: \(avatar.count)")
-
-        
+        progressImage.layer.cornerRadius = 10
+        progressImage.clipsToBounds = true
+        setImageSize(width: 0)
+        levelTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(countLevel), userInfo: nil, repeats: true)
 
 
     }
@@ -121,6 +130,7 @@ class OrderCompleteController: UIViewController {
     }
     
     
+    
     @objc func countTime(){
         
 
@@ -129,6 +139,7 @@ class OrderCompleteController: UIViewController {
         //if()
         let result = doMath(input: points, x_val: xpcounter)
         self.xpcounter += 1
+        
 
         if(result <= self.points){
             itemScreen.text = "+" + String(result) + " xp"
@@ -163,6 +174,29 @@ class OrderCompleteController: UIViewController {
             
         }
     }
+    
+    var levelc : Int = 0
+    
+    @objc func countLevel(){
+        let pixels : Float = Float((315 * self.points)/self.levelXP)
+        //print(pixels)
+        
+        let result = doMath(input: Int(pixels), x_val: levelc)
+        levelc += 1
+        
+        if result <= Int(pixels) {
+            setImageSize(width: result)
+        }else{
+            levelTimer?.invalidate()
+        }
+        
+    }
+    
+    func setImageSize(width: Int){
+        var frame : CGRect = self.progressImage.frame
+        frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: CGFloat(width), height: frame.height)
+        self.progressImage.frame = frame
+    }
 
-
+    
 }

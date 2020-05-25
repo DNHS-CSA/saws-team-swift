@@ -69,7 +69,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ai2-dc-8FD">
+                                <rect key="frame" x="53" y="624" width="315" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4Te-up-Gzz"/>
@@ -80,6 +90,7 @@
                         <outlet property="mainMenu" destination="39j-ct-5no" id="Ims-JR-ZcU"/>
                         <outlet property="newGame" destination="chG-rw-Q38" id="8Sw-IC-Nyw"/>
                         <outlet property="orderStatus" destination="GCd-hZ-BVm" id="SKT-7f-xli"/>
+                        <outlet property="progressImage" destination="ai2-dc-8FD" id="2z0-XC-xpK"/>
                         <outlet property="totalCoins" destination="XhT-9t-Yv9" id="j6x-i3-s9I"/>
                     </connections>
                 </viewController>
