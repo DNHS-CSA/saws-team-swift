@@ -57,17 +57,10 @@ class PerksController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
-        do {
-            try playerArray = context.fetch(Player.fetchRequest())
-            guard playerArray.count > 0 else {
-                print("Player array is empty, throwing fatalError")
-                fatalError()
-            }
-            player = playerArray[0]
-            coins = Int(player!.coins)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
+      
+        player = (appDelegate.getRecordsFor(entity: "Player").first as! Player)
+        coins = Int(player!.coins)
+        print("\n coins: ", coins)
         
         self.navigationController?.isNavigationBarHidden = true
         imageViews = [item1ImageView, item2ImageView, item3ImageView, item4ImageView, item5ImageView, item6ImageView]
