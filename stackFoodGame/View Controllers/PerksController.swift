@@ -43,17 +43,30 @@ class PerksController: UIViewController {
     
     @IBOutlet var xpLabel: UILabel!
     @IBOutlet var coinsLabel: UILabel!
-   
+    
+   private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var playerArray : [Player] = [Player]()
+    var player : Player?
     var imageViews : [UIImageView] = []
     var textViews : [UITextView] = []
     var coins: Int = 1000;
     var xp: Int = 2020;
     var item1c = 0, item2c = 0, item3c = 0, item4c = 0, item5c = 0, item6c = 0 //c = counter
     var item1p = 50, item2p = 25, item3p = 70, item4p = 100, item5p = 300, item6p = 500 //p = price
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
+        do {
+            playerArray = try context.fetch(Player.fetchRequest())
+            print("Size of fetched player array = ", playerArray.count)
+            player = playerArray[0]
+            coins = Int(player!.coins)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        self.navigationController?.isNavigationBarHidden = true
         imageViews = [item1ImageView, item2ImageView, item3ImageView, item4ImageView, item5ImageView, item6ImageView]
         textViews = [item1TextView, item2TextView, item3TextView, item4TextView, item5TextView, item6TextView]
         for i in 0...5 {
