@@ -27,16 +27,26 @@ class PerksController: UIViewController {
     @IBOutlet var item5ImageView: UIImageView!
     @IBOutlet var item6ImageView: UIImageView!
     
+    @IBOutlet var item1PriceLabel: UILabel!
+    @IBOutlet var item2PriceLabel: UILabel!
+    @IBOutlet var item3PriceLabel: UILabel!
+    @IBOutlet var item4PriceLabel: UILabel!
+    @IBOutlet var item5PriceLabel: UILabel!
+    @IBOutlet var item6PriceLabel: UILabel!
+    
+    @IBOutlet var item1AmountLabel: UILabel!
+    @IBOutlet var item2AmountLabel: UILabel!
+    @IBOutlet var item3AmountLabel: UILabel!
+    @IBOutlet var item4AmountLabel: UILabel!
+    @IBOutlet var item5AmountLabel: UILabel!
+    @IBOutlet var item6AmountLabel: UILabel!
+    
     var imageViews : [UIImageView] = []
     var textViews : [UITextView] = []
     var coins: Int = 0;
     var xp: Int = 0;
-    var perkSpeed: Int = 0
-    var perkTips: Int = 0
-    var perkMagnet: Int = 0
-    var perkChef: Int = 0
-    var perkGold: Int = 0
-    var perkSecret: Int = 0
+    var item1c = 0, item2c = 0, item3c = 0, item4c = 0, item5c = 0, item6c = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
@@ -95,17 +105,67 @@ class PerksController: UIViewController {
         print("No segue identifiers")
         }
     }
-
-//    @IBAction func plusButtonTapped(_ sender: UIButton) {
-//        itemQuantity = itemQuantity + 1
-//    }
-//
-//    @IBAction func minusButtonTapped(_ sender: UIButton) {
-//        if(itemQuantity > 0) {
-//            itemQuantity = itemQuantity - 1
-//        }
-//    }
-//
+    
+    @IBAction func item1PlusButtonTapped(_ sender: UIButton) {
+        item1c += 1
+    }
+    
+    @IBAction func item2PlusButtonTapped(_ sender: UIButton) {
+        item2c += 1
+    }
+    
+    @IBAction func item3PlusButtonTapped(_ sender: UIButton) {
+        item3c += 1
+    }
+    
+    @IBAction func item4PlusButtonTapped(_ sender: UIButton) {
+        item4c += 1
+    }
+    
+    @IBAction func item5PlusButtonTapped(_ sender: UIButton) {
+        item5c += 1
+    }
+    
+    @IBAction func item6PlusButtonTapped(_ sender: UIButton) {
+        item6c += 1
+    }
+    
+    @IBAction func item1MinusButtonTapped(_ sender: UIButton) {
+        if(item1c > 0) {
+            item1c -= 1
+        }
+    }
+    
+    @IBAction func item2MinusButtonTapped(_ sender: UIButton) {
+        if(item2c > 0) {
+            item2c -= 1
+        }
+    }
+    
+    @IBAction func item3MinusButtonTapped(_ sender: UIButton) {
+        if(item3c > 0) {
+            item3c -= 1
+        }
+    }
+    
+    @IBAction func item4MinusButtonTapped(_ sender: UIButton) {
+        if(item4c > 0) {
+            item4c -= 1
+        }
+    }
+    
+    @IBAction func item5MinusButtonTapped(_ sender: UIButton) {
+        if(item5c > 0) {
+            item5c -= 1
+        }
+    }
+    
+    @IBAction func item6MinusButtonTapped(_ sender: UIButton) {
+        if(item6c > 0) {
+            item6c -= 1
+        }
+    }
+    
 //    @IBAction func purchaseButtonTapped(_ sender: UIButton) {
 //        appDelegate.itemQuantity = itemQuantity
 //    }
