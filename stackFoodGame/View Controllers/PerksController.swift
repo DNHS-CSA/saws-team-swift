@@ -41,10 +41,13 @@ class PerksController: UIViewController {
     @IBOutlet var item5AmountLabel: UILabel!
     @IBOutlet var item6AmountLabel: UILabel!
     
+    @IBOutlet var xpLabel: UILabel!
+    @IBOutlet var coinsLabel: UILabel!
+   
     var imageViews : [UIImageView] = []
     var textViews : [UITextView] = []
-    var coins: Int = 0;
-    var xp: Int = 0;
+    var coins: Int = 1000;
+    var xp: Int = 2020;
     var item1c = 0, item2c = 0, item3c = 0, item4c = 0, item5c = 0, item6c = 0 //c = counter
     var item1p = 50, item2p = 25, item3p = 70, item4p = 100, item5p = 300, item6p = 500 //p = price
 
@@ -64,6 +67,8 @@ class PerksController: UIViewController {
         item5PriceLabel.text = "$" + String(item5p)
         item6PriceLabel.text = "$" + String(item6p)
 
+        coinsLabel.text = String(coins)
+        xpLabel.text = String(xp)
  //       itemQuantity = appDelegate.itemQuantity
     }
     
@@ -185,8 +190,16 @@ class PerksController: UIViewController {
             item6AmountLabel.text = String(item6c)
         }
     }
-    
-//    @IBAction func purchaseButtonTapped(_ sender: UIButton) {
-//        appDelegate.itemQuantity = itemQuantity
-//    }
+    // Perks can only be purchased once. Once the transaction is complete, the player is taken to the "playGame" storyboard
+    @IBAction func purchaseButtonTapped(_ sender: UIButton) {
+        let totalCost: Int = (item1p * item1c) + (item2p * item2c) + (item3p * item3c) + (item4p * item4c) + (item5p * item5c) + (item6p * item6c)
+        if totalCost <= coins {
+            coins -= totalCost
+            coinsLabel.text = String(coins)
+            // Incert segue to "playGame" SB
+        } else {
+            print("You do not have the facilities for that big man")
+        }
+        
+    }
 }
