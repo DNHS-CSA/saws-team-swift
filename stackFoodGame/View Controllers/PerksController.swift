@@ -116,61 +116,73 @@ class PerksController: UIViewController {
     
     @IBAction func item1PlusButtonTapped(_ sender: UIButton) {
         item1c += 1
+        item1AmountLabel.text = String(item1c)
     }
     
     @IBAction func item2PlusButtonTapped(_ sender: UIButton) {
         item2c += 1
+        item2AmountLabel.text = String(item2c)
     }
     
     @IBAction func item3PlusButtonTapped(_ sender: UIButton) {
         item3c += 1
+        item3AmountLabel.text = String(item3c)
     }
     
     @IBAction func item4PlusButtonTapped(_ sender: UIButton) {
         item4c += 1
+        item4AmountLabel.text = String(item4c)
     }
     
     @IBAction func item5PlusButtonTapped(_ sender: UIButton) {
         item5c += 1
+        item5AmountLabel.text = String(item5c)
     }
     
     @IBAction func item6PlusButtonTapped(_ sender: UIButton) {
         item6c += 1
+        item6AmountLabel.text = String(item6c)
     }
     
     @IBAction func item1MinusButtonTapped(_ sender: UIButton) {
         if(item1c > 0) {
             item1c -= 1
+            item1AmountLabel.text = String(item1c)
         }
     }
     
     @IBAction func item2MinusButtonTapped(_ sender: UIButton) {
         if(item2c > 0) {
             item2c -= 1
+            item2AmountLabel.text = String(item2c)
         }
     }
     
     @IBAction func item3MinusButtonTapped(_ sender: UIButton) {
         if(item3c > 0) {
             item3c -= 1
+            item3AmountLabel.text = String(item3c)
         }
     }
     
     @IBAction func item4MinusButtonTapped(_ sender: UIButton) {
         if(item4c > 0) {
             item4c -= 1
+            item4AmountLabel.text = String(item4c)
         }
     }
     
     @IBAction func item5MinusButtonTapped(_ sender: UIButton) {
         if(item5c > 0) {
             item5c -= 1
+            item5AmountLabel.text = String(item5c)
         }
     }
     
     @IBAction func item6MinusButtonTapped(_ sender: UIButton) {
         if(item6c > 0) {
             item6c -= 1
+            item6AmountLabel.text = String(item6c)
         }
     }
     
