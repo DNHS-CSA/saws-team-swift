@@ -22,6 +22,7 @@ class GameHistoryDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
         /* For actual implementation with full Core Data
         locationLabel.text = detailContent.location
         coinsLabel.text = String(detailContent.coins)
