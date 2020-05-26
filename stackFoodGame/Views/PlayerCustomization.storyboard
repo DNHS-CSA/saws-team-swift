@@ -15,14 +15,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Picture of Character" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CK-iv-Gc9" userLabel="CharacterPic">
-                                <rect key="frame" x="52" y="91" width="310" height="482"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bird" translatesAutoresizingMaskIntoConstraints="NO" id="Oxz-9E-maU" userLabel="Pic6">
+                                <rect key="frame" x="13" y="380" width="310" height="482"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxG-nV-Nfy" userLabel="NextArrow">
+                                <rect key="frame" x="331" y="745" width="53" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="32"/>
+                                <state key="normal" title="&gt;"/>
+                                <connections>
+                                    <action selector="NextArrow:" destination="xhL-JS-1cW" eventType="touchUpInside" id="akh-ZP-wP1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fy-Yc-C7t" userLabel="PreviousArrow">
+                                <rect key="frame" x="31" y="745" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="32"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <action selector="PreviousArrow:" destination="xhL-JS-1cW" eventType="touchUpInside" id="beP-ZP-b2a"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="playercustomize" translatesAutoresizingMaskIntoConstraints="NO" id="fsb-iQ-ED0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY5-WE-B8R">
                                 <rect key="frame" x="0.0" y="806" width="93" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -39,7 +58,7 @@
                                 <rect key="frame" x="18" y="612" width="127" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Picture 1">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="PressPic1:" destination="xhL-JS-1cW" eventType="touchUpInside" id="ELl-yu-nhe"/>
@@ -49,7 +68,7 @@
                                 <rect key="frame" x="144" y="612" width="127" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Picture 2">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="PressPic2:" destination="xhL-JS-1cW" eventType="touchUpInside" id="RMp-tC-fhD"/>
@@ -59,7 +78,7 @@
                                 <rect key="frame" x="270" y="612" width="127" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Picture 3">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="PressPic3:" destination="xhL-JS-1cW" eventType="touchUpInside" id="5kJ-5y-hLh"/>
@@ -69,7 +88,7 @@
                                 <rect key="frame" x="18" y="612" width="127" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Picture 4">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="PressPic4:" destination="xhL-JS-1cW" eventType="touchUpInside" id="3eV-em-cdT"/>
@@ -79,7 +98,7 @@
                                 <rect key="frame" x="143" y="612" width="127" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Picture 5">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="PressPic5:" destination="xhL-JS-1cW" eventType="touchUpInside" id="dLJ-gh-l1x"/>
@@ -89,94 +108,59 @@
                                 <rect key="frame" x="269" y="612" width="127" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Picture 6">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="PressPic6:" destination="xhL-JS-1cW" eventType="touchUpInside" id="1pC-H6-s6f"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="boychef" translatesAutoresizingMaskIntoConstraints="NO" id="3Rt-lO-NaN" userLabel="CustomPic1">
-                                <rect key="frame" x="18" y="612" width="127" height="106"/>
+                                <rect key="frame" x="20" y="627" width="118" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="girlchef" translatesAutoresizingMaskIntoConstraints="NO" id="Szj-YH-fAg" userLabel="CustomPic2">
-                                <rect key="frame" x="144" y="612" width="127" height="106"/>
+                                <rect key="frame" x="153" y="624" width="109" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frog" translatesAutoresizingMaskIntoConstraints="NO" id="XSC-i8-e9p" userLabel="CustomPic3">
-                                <rect key="frame" x="270" y="612" width="127" height="106"/>
+                                <rect key="frame" x="280" y="629" width="107" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="penguin" translatesAutoresizingMaskIntoConstraints="NO" id="qDe-Rk-McN" userLabel="CustomPic4">
-                                <rect key="frame" x="18" y="612" width="127" height="106"/>
+                                <rect key="frame" x="20" y="627" width="116" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pig" translatesAutoresizingMaskIntoConstraints="NO" id="Mua-GC-e5H" userLabel="CustomPic5">
-                                <rect key="frame" x="143" y="612" width="127" height="106"/>
+                                <rect key="frame" x="153" y="624" width="103" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bird" translatesAutoresizingMaskIntoConstraints="NO" id="okm-np-ceg" userLabel="CustomPic6">
-                                <rect key="frame" x="269" y="612" width="127" height="106"/>
+                                <rect key="frame" x="270" y="624" width="127" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="boychef" translatesAutoresizingMaskIntoConstraints="NO" id="2Ya-mS-PYc" userLabel="Pic1">
-                                <rect key="frame" x="52" y="91" width="310" height="482"/>
+                                <rect key="frame" x="100" y="248" width="232" height="346"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="girlchef" translatesAutoresizingMaskIntoConstraints="NO" id="nM0-K7-Ytl" userLabel="Pic2">
-                                <rect key="frame" x="52" y="91" width="310" height="482"/>
+                                <rect key="frame" x="77" y="252" width="269" height="325"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frog" translatesAutoresizingMaskIntoConstraints="NO" id="TQj-Zt-LWd" userLabel="Pic3">
-                                <rect key="frame" x="52" y="91" width="310" height="482"/>
+                                <rect key="frame" x="77" y="262" width="269" height="316"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="penguin" translatesAutoresizingMaskIntoConstraints="NO" id="uja-T1-ZO2" userLabel="Pic4">
-                                <rect key="frame" x="52" y="91" width="310" height="482"/>
+                                <rect key="frame" x="80" y="272" width="269" height="298"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pig" translatesAutoresizingMaskIntoConstraints="NO" id="WpY-dv-4gi" userLabel="Pic5">
-                                <rect key="frame" x="52" y="91" width="310" height="482"/>
+                                <rect key="frame" x="79" y="262" width="261" height="308"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bird" translatesAutoresizingMaskIntoConstraints="NO" id="54q-Yb-4nk" userLabel="Pic6">
-                                <rect key="frame" x="52" y="91" width="310" height="482"/>
+                                <rect key="frame" x="80" y="246" width="260" height="340"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxG-nV-Nfy" userLabel="NextArrow">
-                                <rect key="frame" x="328" y="727" width="53" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="32"/>
-                                <state key="normal" title="&gt;"/>
-                                <connections>
-                                    <action selector="NextArrow:" destination="xhL-JS-1cW" eventType="touchUpInside" id="akh-ZP-wP1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fy-Yc-C7t" userLabel="PreviousArrow">
-                                <rect key="frame" x="31" y="724" width="50" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="32"/>
-                                <state key="normal" title="&lt;"/>
-                                <connections>
-                                    <action selector="PreviousArrow:" destination="xhL-JS-1cW" eventType="touchUpInside" id="beP-ZP-b2a"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBb-61-dK4" userLabel="Pic6">
-                                <rect key="frame" x="52" y="91" width="310" height="482"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -201,7 +185,7 @@
                         <outlet property="PressPic4" destination="Cer-FE-JC1" id="nS9-ld-08Y"/>
                         <outlet property="PressPic5" destination="f3E-Qe-3ww" id="k32-4k-yYj"/>
                         <outlet property="PressPic6" destination="swW-Cy-zqs" id="xNF-uo-ND8"/>
-                        <outlet property="imageDisplay" destination="PBb-61-dK4" id="rDb-Gy-Cxd"/>
+                        <outlet property="imageDisplay" destination="Oxz-9E-maU" id="Ee8-dc-4Si"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvF-PZ-Dh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -218,5 +202,6 @@
         <image name="girlchef" width="250" height="466"/>
         <image name="penguin" width="1380" height="1855"/>
         <image name="pig" width="210" height="340"/>
+        <image name="playercustomize" width="828" height="1792"/>
     </resources>
 </document>
