@@ -195,6 +195,7 @@ class OrderCompleteController: UIViewController{
         let levelXP = getLevelXP()
         
         let sPoints = player?.value(forKey: "xp") as! Int
+        print(sPoints)
         
         
         let result = doMath(input: mPoints, x_val: levelc) + sPoints
