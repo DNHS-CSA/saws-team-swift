@@ -38,7 +38,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //setting the stage for a player-centric model
-        let players = getRecordsFor(entity: "Player")  //fetchRecordsForEntity("Player", inManagedObjectContext: managedObjectContext)
+        let players = getRecordsFor(entity: "Player") //fetchRecordsForEntity("Player", inManagedObjectContext: managedObjectContext)
+        
+        var player : NSManagedObject? = nil
+        
+        if let p_record = players.first{ //this block basically make sure there is at least 1 element within entity, sets player to the first one
+            
+            player = p_record
+        }else if let p_record = createRecordForEntity("Player", inManagedObjectContext: managedObjectContext){
+            player = p_record
+        
+
+        //player?.setValue(0, forKey: "value")
+            
+        saveAllEntityData()
+        }
+        
+        print("APP DELEGATE: ")
+        let pllayr = getRecordsFor(entity: "Player").first
+        print(pllayr as Any)
+        
+        if pllayr == nil{
+            let atro = createEntity(entity: "Player")
+            atro?.setValue(0, forKey: "value")
+            saveAllEntityData()
+        }
+        
+        print("APP DELEGATE2: ")
+        
+        //doit()
+        let pllayr2 = getRecordsFor(entity: "Player").first
+        print(pllayr2 as Any)
+        
+        /*
         
         if players.count != 1 { //make sure that there is only 1 player on start
             for p in players{
@@ -48,6 +80,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let _ = createRecordForEntity("Player", inManagedObjectContext: managedObjectContext)
             
             saveAllEntityData()
+            let iplayer = getRecordsFor(entity: "Player").first
+            iplayer?.setValue(10, forKey: "level")
+            saveAllEntityData()
+            let oplayer = getRecordsFor(entity: "Player").first
+            oplayer?.setValue(10, forKey: "level")
+            saveAllEntityData()
+
         }
         
         var player: NSManagedObject? = nil
@@ -58,8 +97,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if player == nil{
             player = createRecordForEntity("Player", inManagedObjectContext: managedObjectContext)
             saveAllEntityData()
+            
+            let iplayer = getRecordsFor(entity: "Player").first
+            iplayer?.setValue(0, forKey: "level")
+            saveAllEntityData()
 
-        }
+
+        }*/
+        
+        
+        
+        
+        //initialize player variables
+        
         
         print("AppDelegate> PLAYERS: \(players.count) (make sure this is 1 on start)")
         //print(player as Any) //prints the FAULT not object
@@ -95,7 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             avatar = a_record
         }else if let a_record = createRecordForEntity("Avatar", inManagedObjectContext: managedObjectContext){
             avatar = a_record
-        }
+        
         
         
 
@@ -108,6 +158,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //print(avatar as Any)
         
         saveAllEntityData()
+        }
         
         print("APP DELEGATE: ")
         let playr = getRecordsFor(entity: "Player").first
@@ -123,10 +174,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         print("APP DELEGATE2: ")
+        
+        //doit()
         let playr2 = getRecordsFor(entity: "Player").first
         print(playr2?.value(forKey: "avatar") as Any)
             
-
+        
+        print(" LEVEL #: \(playr2?.value(forKey: "level") as! Int)")
+        
+        /*
+        let play2 = getRecordsFor(entity: "Player").first
+        let k = play2?.value(forKey: "level") as! Int
+        play2?.setValue(k + 1, forKey: "level")*/
+        saveAllEntityData()
+        
+        
+        
         
         return true
     }
