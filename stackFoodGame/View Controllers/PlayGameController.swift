@@ -55,7 +55,6 @@ class PlayGameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, outOfView: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false))
         ingredientStack[stackIndex].image = ingredientCatcher // array of UIImageViews that fills up based on what is in the stack- first element is the base (ingredientCatcher)
         ingredientStack[stackIndex].name = "ingredientCatcher"
@@ -133,7 +132,7 @@ class PlayGameController: UIViewController {
         var randomLocation = locationSpawns.randomElement()
         let randomYValue = Double.random(in: 1..<8)
         var trafficPrevention = 0
-        var randomGravity = CGPoint(x: 0.0, y: randomYValue)
+        var randomGravity = CGPoint(x: 0.0, y: randomYValue * 2) 
         let randomIngredient = ingredientTypes.randomElement()
         /*
          Method explanation: Purpose is to limit the number of ingredients that overlap each other, but not reduce the overlap all together
@@ -179,7 +178,7 @@ class PlayGameController: UIViewController {
             if ingredientStack[localStackIndex].name == "topbun" {
                 timer?.invalidate()
                 spawnTimer?.invalidate()
-                timeStampPlay()
+                //timeStampPlay() THROWS ERROR
             }
             if ingredient.inStack == false && ingredient.outOfView == false {
                 ingredient.image.center.y = ingredient.image.center.y + ingredient.gravity.y
@@ -192,10 +191,10 @@ class PlayGameController: UIViewController {
                 if abs(ingredientStack[localStackIndex].image.center.x - ingredient.image.center.x) < CGFloat(55) && ingredientStack[localStackIndex].image.center.y - ingredient.image.center.y > CGFloat(10)  {
                     if stackIndex == 0{
                         stackIndex += 1
-                        addIngredient(ingredient: ingredient)
+                        addIngredient(ingredient: ingredient, localStackIndex: localStackIndex)
                         animateStack(ingredient: ingredient, currentSpeed: ingredient.gravity)
                     } else if stackIndex - 1 != 0 && ingredient.inStack == false {
-                        addIngredient(ingredient: ingredient)
+                        addIngredient(ingredient: ingredient, localStackIndex: localStackIndex)
                         animateStack(ingredient: ingredient, currentSpeed: ingredient.gravity)
                     }
                     ingredient.inStack = true
@@ -206,18 +205,18 @@ class PlayGameController: UIViewController {
             }
         }
     }
-    func addIngredient(ingredient: Ingredient!){
-        print("GameController> stackIndex " + String(stackIndex))
+    func addIngredient(ingredient: Ingredient!, localStackIndex: Int){
         // adds the ingredient to the ingredientStack based on array position - concurrent with the visual experience of the stack
         ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, outOfView: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false))
         ingredientStack[stackIndex] = ingredient
         ingredient.image.layer.zPosition = zPositionIngredient // makes sure the current ingredient in the stack is really at the top in the UI hierachy
-        zPositionIngredient += 0.1
-        stackIndex += 1
+        print("GameController> " + "ingredient " + String(ingredientStack[stackIndex].name) + " stackIndex " + String(stackIndex))
         
         //ADDED BELOW TO SYNC BURGER WITH GLOBAL TRACKER IN ORDER.SWIFT
         orders.last?.curBurger.append(ingredientStack.last!.name)
         
+        zPositionIngredient += 0.1
+        stackIndex += 1
     }
     func animateStack(ingredient: Ingredient, currentSpeed: CGPoint) {
         var animateTimer = 0
@@ -272,14 +271,14 @@ class PlayGameController: UIViewController {
         let endOfRoundTimeStamp = Date() // takes current timestamp once order is complete
         let timeStampOfPlay = GameHistory(entity: GameHistory.entity(), insertInto: managedObjectContext) // creates a new space for new timestamp in table view
         timeStampOfPlay.setValue(endOfRoundTimeStamp, forKey: "date") // sets date attribute of entity "GameHistory"
-        saveData()
+        saveData(attributeName: "date")
     }
-    func saveData(){
+    func saveData(attributeName: String){
         do{
             try self.managedObjectContext.save() // try = handler for errors; saves the new detail set inside of the entity
-            print("playGame Core Data saved successfully")
+            print("GameController> playGame \(attributeName) saved successfully")
         } catch{
-            print("Save failed due to \(error.localizedDescription)") // if the save fails, displays error message
+            print("GameController> Save failed due to \(error.localizedDescription)") // if the save fails, displays error message
         }
     }
     
@@ -290,7 +289,7 @@ class PlayGameController: UIViewController {
         
         
         
-        //timeStampPlay() THROWING ERROR
+        //timeStampPlay() //THROWING ERROR
         
         
         

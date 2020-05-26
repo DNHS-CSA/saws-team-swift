@@ -23,6 +23,8 @@
 		521B7A582475A06900C9BFF3 /* Powerup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A4A2475A06900C9BFF3 /* Powerup+CoreDataProperties.swift */; };
 		524E6F4B246CC4B800032017 /* PerksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E6F4A246CC4B800032017 /* PerksController.swift */; };
 		524E6F4D246CC4FD00032017 /* Perks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524E6F4C246CC4FD00032017 /* Perks.storyboard */; };
+		5259AF29247C819E0051CE2B /* xpCoin.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5259AF28247C819E0051CE2B /* xpCoin.jpeg */; };
+		5259AF2B247C81D10051CE2B /* goldCoin.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5259AF2A247C81D10051CE2B /* goldCoin.jpeg */; };
 		52D5898D247375A400C8E12D /* chef.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 52D5898C247375A400C8E12D /* chef.jpg */; };
 		52D58991247375CE00C8E12D /* gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D58990247375CE00C8E12D /* gold.png */; };
 		52D58995247375F700C8E12D /* magnet.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D58994247375F700C8E12D /* magnet.png */; };
@@ -42,11 +44,11 @@
 		8489167224633D2C00ACB75A /* playGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8489167024633D2C00ACB75A /* playGame.storyboard */; };
 		8489167424633F0D00ACB75A /* PlayGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489167324633F0D00ACB75A /* PlayGameController.swift */; };
 		8489167924637B7500ACB75A /* stats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8489167724637B7500ACB75A /* stats.storyboard */; };
-		8489167C24637B8100ACB75A /* store.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8489167A24637B8100ACB75A /* store.storyboard */; };
+		8489167C24637B8100ACB75A /* Customization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8489167A24637B8100ACB75A /* Customization.storyboard */; };
 		8489167F24637BC300ACB75A /* orderAssignment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8489167D24637BC300ACB75A /* orderAssignment.storyboard */; };
 		8489168424637BED00ACB75A /* orderComplete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8489168224637BED00ACB75A /* orderComplete.storyboard */; };
 		8489168624637CFF00ACB75A /* statsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489168524637CFF00ACB75A /* statsController.swift */; };
-		8489168824637D1100ACB75A /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489168724637D1100ACB75A /* StoreController.swift */; };
+		8489168824637D1100ACB75A /* Customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489168724637D1100ACB75A /* Customization.swift */; };
 		8489168A24637D2400ACB75A /* OrderAssignmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489168924637D2400ACB75A /* OrderAssignmentController.swift */; };
 		8489168C24637D3B00ACB75A /* OrderCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489168B24637D3B00ACB75A /* OrderCompleteController.swift */; };
 		84906357246A0EA600485A99 /* ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906356246A0EA600485A99 /* ingredient.swift */; };
@@ -76,6 +78,8 @@
 		521B7A4A2475A06900C9BFF3 /* Powerup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Powerup+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		524E6F4A246CC4B800032017 /* PerksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerksController.swift; sourceTree = "<group>"; };
 		524E6F4C246CC4FD00032017 /* Perks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Perks.storyboard; sourceTree = "<group>"; };
+		5259AF28247C819E0051CE2B /* xpCoin.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xpCoin.jpeg; sourceTree = "<group>"; };
+		5259AF2A247C81D10051CE2B /* goldCoin.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = goldCoin.jpeg; sourceTree = "<group>"; };
 		52D5898C247375A400C8E12D /* chef.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chef.jpg; sourceTree = "<group>"; };
 		52D58990247375CE00C8E12D /* gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold.png; sourceTree = "<group>"; };
 		52D58994247375F700C8E12D /* magnet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnet.png; sourceTree = "<group>"; };
@@ -97,11 +101,11 @@
 		8489167124633D2C00ACB75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/playGame.storyboard; sourceTree = "<group>"; };
 		8489167324633F0D00ACB75A /* PlayGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGameController.swift; sourceTree = "<group>"; };
 		8489167824637B7500ACB75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/stats.storyboard; sourceTree = "<group>"; };
-		8489167B24637B8100ACB75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/store.storyboard; sourceTree = "<group>"; };
+		8489167B24637B8100ACB75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Customization.storyboard; sourceTree = "<group>"; };
 		8489167E24637BC300ACB75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/orderAssignment.storyboard; sourceTree = "<group>"; };
 		8489168324637BED00ACB75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/orderComplete.storyboard; sourceTree = "<group>"; };
 		8489168524637CFF00ACB75A /* statsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statsController.swift; sourceTree = "<group>"; };
-		8489168724637D1100ACB75A /* StoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreController.swift; sourceTree = "<group>"; };
+		8489168724637D1100ACB75A /* Customization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customization.swift; sourceTree = "<group>"; };
 		8489168924637D2400ACB75A /* OrderAssignmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAssignmentController.swift; sourceTree = "<group>"; };
 		8489168B24637D3B00ACB75A /* OrderCompleteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteController.swift; sourceTree = "<group>"; };
 		84906356246A0EA600485A99 /* ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ingredient.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 		52D5898B2473758200C8E12D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5259AF2A247C81D10051CE2B /* goldCoin.jpeg */,
+				5259AF28247C819E0051CE2B /* xpCoin.jpeg */,
 				52D589962473760C00C8E12D /* secret.jpg */,
 				52D589972473760C00C8E12D /* snail.png */,
 				52D589982473760C00C8E12D /* tips.jpeg */,
@@ -216,9 +222,9 @@
 			children = (
 				84429D7D2463356C00E5BA3A /* LaunchScreen.storyboard */,
 				84429D752463356900E5BA3A /* Main.storyboard */,
-				8489167724637B7500ACB75A /* stats.storyboard */,
-				8489167A24637B8100ACB75A /* store.storyboard */,
 				8489167D24637BC300ACB75A /* orderAssignment.storyboard */,
+				8489167A24637B8100ACB75A /* Customization.storyboard */,
+				8489167724637B7500ACB75A /* stats.storyboard */,
 				8489167024633D2C00ACB75A /* playGame.storyboard */,
 				8489168224637BED00ACB75A /* orderComplete.storyboard */,
 				524E6F4C246CC4FD00032017 /* Perks.storyboard */,
@@ -238,7 +244,7 @@
 				8467586B247794190030092B /* GameHistoryTableViewController.swift */,
 				8467586D24779F2F0030092B /* GameHistoryDetailController.swift */,
 				84C4D3D0247645F700AABDD6 /* GameHistoryTableViewCell.swift */,
-				8489168724637D1100ACB75A /* StoreController.swift */,
+				8489168724637D1100ACB75A /* Customization.swift */,
 				8489168924637D2400ACB75A /* OrderAssignmentController.swift */,
 				8489168B24637D3B00ACB75A /* OrderCompleteController.swift */,
 				D807178F247CA315006AABC9 /* orderCompleteHelper.swift */,
@@ -329,13 +335,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5259AF2B247C81D10051CE2B /* goldCoin.jpeg in Resources */,
 				52D5899B2473760C00C8E12D /* tips.jpeg in Resources */,
+				5259AF29247C819E0051CE2B /* xpCoin.jpeg in Resources */,
 				84429D7F2463356C00E5BA3A /* LaunchScreen.storyboard in Resources */,
 				84429D7C2463356C00E5BA3A /* Assets.xcassets in Resources */,
 				52D5899A2473760C00C8E12D /* snail.png in Resources */,
 				8489167F24637BC300ACB75A /* orderAssignment.storyboard in Resources */,
 				52D589992473760C00C8E12D /* secret.jpg in Resources */,
-				8489167C24637B8100ACB75A /* store.storyboard in Resources */,
+				8489167C24637B8100ACB75A /* Customization.storyboard in Resources */,
 				524E6F4D246CC4FD00032017 /* Perks.storyboard in Resources */,
 				8489168424637BED00ACB75A /* orderComplete.storyboard in Resources */,
 				52D5898D247375A400C8E12D /* chef.jpg in Resources */,
@@ -384,7 +392,7 @@
 				521B7A552475A06900C9BFF3 /* GameHistory+CoreDataClass.swift in Sources */,
 				84489FB6246E0D8300621433 /* playGameDictionaries.swift in Sources */,
 				521B7A522475A06900C9BFF3 /* Player+CoreDataProperties.swift in Sources */,
-				8489168824637D1100ACB75A /* StoreController.swift in Sources */,
+				8489168824637D1100ACB75A /* Customization.swift in Sources */,
 				521B7A4E2475A06900C9BFF3 /* Location+CoreDataProperties.swift in Sources */,
 				521B7A4B2475A06900C9BFF3 /* ImageVar+CoreDataClass.swift in Sources */,
 				DAB26BBE2464CDA90052BE46 /* PlayerCustomizationController.swift in Sources */,
@@ -427,12 +435,12 @@
 			name = stats.storyboard;
 			sourceTree = "<group>";
 		};
-		8489167A24637B8100ACB75A /* store.storyboard */ = {
+		8489167A24637B8100ACB75A /* Customization.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8489167B24637B8100ACB75A /* Base */,
 			);
-			name = store.storyboard;
+			name = Customization.storyboard;
 			sourceTree = "<group>";
 		};
 		8489167D24637BC300ACB75A /* orderAssignment.storyboard */ = {
