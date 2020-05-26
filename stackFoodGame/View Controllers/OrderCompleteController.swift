@@ -20,11 +20,14 @@ class OrderCompleteController: UIViewController{
     @IBOutlet weak var totalCoins: UILabel!
     @IBOutlet weak var coinScreen: UILabel!
     @IBOutlet weak var progressImage: UIImageView!
+    @IBOutlet weak var progressLabel: UILabel!
     
     let oStatus = true //pass in from CoreData true=fufilled false=failed
     
-    var points : Int = 100
+    var points : Int = 250
     var coins: Int = 10
+    
+    var mPoints : Int = 0 //just a copy of points to mutate
     
     var timer:Timer? = Timer()
     var coinTimer:Timer? = Timer()
@@ -37,7 +40,7 @@ class OrderCompleteController: UIViewController{
     var good :[String] = ["Awesome!","Nice Job!","Incredible!"]
     var bad :[String] = ["Whoops","Hmmmmm","Is it supposed to look like that?"]
     
-    var levelXP : Int = 300
+    var levelXP : Int = 0
     
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
 
@@ -91,6 +94,14 @@ class OrderCompleteController: UIViewController{
         let tcoins = player?.value(forKey: "coins") as! Int
         totalCoins.text =  ("CURRENT COINS: " + String(tcoins))
         
+        player?.setValue(tcoins + coins, forKey: "coins")
+        
+ 
+        
+        appDelegate?.saveAllEntityData()
+        
+        totalCoins.text =  ("CURRENT COINS: " + String(tcoins + coins))
+        
         
         
         //let tInterval :Float = 1.5/Float(points)
@@ -103,9 +114,7 @@ class OrderCompleteController: UIViewController{
         //totalCoins.text = "COINS: " + String(getCoins())
         //saveData()
         
-        player?.setValue(tcoins + coins, forKey: "coins")
-        appDelegate?.saveAllEntityData()
-        totalCoins.text =  ("CURRENT COINS: " + String(tcoins + coins))
+
         
         
         //let avatar = player?.value(forKey: "avatar") as! [NSManagedObject]
@@ -113,6 +122,12 @@ class OrderCompleteController: UIViewController{
         progressImage.layer.cornerRadius = 10
         progressImage.clipsToBounds = true
         setImageSize(width: 0)
+        
+        progressLabel.text = ""
+        
+        levelXP = getLevelXP()
+        
+        mPoints = points // Simply copying points to mutate
         levelTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(countLevel), userInfo: nil, repeats: true)
 
 
@@ -134,9 +149,6 @@ class OrderCompleteController: UIViewController{
     @objc func countTime(){
         
 
-        
-        //print(String(self.points) + "  " + String(step3))
-        //if()
         let result = doMath(input: points, x_val: xpcounter)
         self.xpcounter += 1
         
@@ -149,16 +161,7 @@ class OrderCompleteController: UIViewController{
 
             
         }
-        
-        
-        /*
-        let cpoints = Int(itemScreen.text!)!
-        print(String(self.points) + "  " + String(cpoints))
-        if(self.points > cpoints){
-            itemScreen.text = String(cpoints+1)
-        }else{
-            //timer?.invalidate()
-        }*/
+    
         
     }
     
@@ -175,27 +178,90 @@ class OrderCompleteController: UIViewController{
         }
     }
     
+    
+    
     var levelc : Int = 0
     
+    
     @objc func countLevel(){
-        let pixels : Float = Float((315 * self.points)/self.levelXP)
-        //print(pixels)
         
-        let result = doMath(input: Int(pixels), x_val: levelc)
-        levelc += 1
+        guard points != 0 else { //acts wierd when hits 0; put in guard to simplify
+            levelTimer?.invalidate()
+            return
+        }
         
-        if result <= Int(pixels) {
-            setImageSize(width: result)
-        }else{
+        var player = appDelegate?.getRecordsFor(entity: "Player").first
+
+        let levelXP = getLevelXP()
+        
+        let sPoints = player?.value(forKey: "xp") as! Int
+        
+        
+        let result = doMath(input: mPoints, x_val: levelc) + sPoints
+        levelc += 1 //incriment x val
+        
+        let pixelSize = 315.0/Float(levelXP) //pixels per point
+        let pixelsG = Int(Float(result) * pixelSize) // pixels to set image to grow to
+        setImageSize(width: pixelsG)
+        
+        
+        if result == levelXP {
+            //increment level val
+            mPoints = mPoints + sPoints - levelXP //updating points to fit new level
+            
+            
+            let k = player?.value(forKey: "level") as! Int
+            player?.setValue(k + 1, forKey: "level") //simple adding 1 to level
+            player?.setValue(0, forKey: "xp")//resetting previous points to 0
+            appDelegate?.saveAllEntityData()
+            
+            
+            levelc = 0 //resetting counter so it can count up again
+            
+            print("OrderComplete> NEW LEVEL")
+            
+            
+        }
+        
+        if result == mPoints { // only activated when it is finished
+            player?.setValue(mPoints, forKey: "xp") //setting the starting xp value for next play
+            appDelegate?.saveAllEntityData()
+            
+            print("OrderComplete> DONE")
+            
+            self.progressLabel.text = "\(levelXP-mPoints) points until level \(player?.value(forKey: "level") as! Int + 1)!"
+            
+            print("lxp \(levelXP) || spoints \(sPoints)")
+
+            
             levelTimer?.invalidate()
         }
         
+        
+        
+        
     }
+    
+    
+    
+    
     
     func setImageSize(width: Int){
         var frame : CGRect = self.progressImage.frame
         frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: CGFloat(width), height: frame.height)
         self.progressImage.frame = frame
+    }
+    
+    
+    
+    
+    func getLevelXP() -> Int {
+        let player = appDelegate?.getRecordsFor(entity: "Player").first
+        let levelNum = player?.value(forKey: "level") as! Int
+        
+        let step1 = pow(1.5, Double(levelNum)) * 300
+        
+        return Int(step1)
     }
 
     

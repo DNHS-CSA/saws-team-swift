@@ -21,6 +21,7 @@ extension Player {
     @NSManaged public var id: Int16
     @NSManaged public var name: String?
     @NSManaged public var xp: Int16
+    @NSManaged public var level: Int16
     @NSManaged public var avatar: Avatar?
     @NSManaged public var food: Food?
     @NSManaged public var gameHistory: NSSet?
