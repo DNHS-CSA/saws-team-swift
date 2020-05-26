@@ -138,10 +138,10 @@ class OrderAssignmentController: UIViewController {
             PlayerImage.image = UIImage(named: "penguin")
         }
         if idOrderImage == 5 {
-            PlayerImage.isHidden = true
+            PlayerImage.image = UIImage(named: "pig")
         }
         if idOrderImage == 6 {
-            PlayerImage.isHidden = true
+            PlayerImage.image = UIImage(named: "bird")
         }
     }
 

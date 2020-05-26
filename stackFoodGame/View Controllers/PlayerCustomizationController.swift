@@ -40,7 +40,7 @@ class PlayerCustomizationController: UIViewController {
     var iconName = String()
     
     var myIcon = String()
-    var imageNameData = [1:"boychef",2:"girlchef",3:"frog",4:"penguin",5:"image5",6:"image6"]
+    var imageNameData = [1:"boychef",2:"girlchef",3:"frog",4:"penguin",5:"pig",6:"bird"]
     
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     var player : NSManagedObject?
@@ -223,53 +223,59 @@ class PlayerCustomizationController: UIViewController {
     @IBAction func PressPic5(_ sender: Any)
     {
         id = 5
-        imageName = "image5"
-        iconName = "image5"
+        imageName = "pig"
+        iconName = "pig"
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-         
-         let Count = NSEntityDescription.entity(forEntityName: "Avatar", in: context)
-         let newCount = NSManagedObject(entity: Count!, insertInto:  context)
-         
-         newCount.setValue(id, forKey: "id")
-         newCount.setValue(tabCount, forKey: "tabCount")
-         newCount.setValue(imageName, forKey: "name")
-         newCount.setValue(iconName, forKey: "iconName")
-         do {
-             try context.save()
-             print("Save successful")
-             getData()
-         } catch {
-             print("Save failed")
-         }
+             
+        let Count = NSEntityDescription.entity(forEntityName: "Avatar", in: context)
+        let newCount = NSManagedObject(entity: Count!, insertInto:  context)
+             
+        newCount.setValue(id, forKey: "id")
+        newCount.setValue(tabCount, forKey: "tabCount")
+        newCount.setValue(imageName, forKey: "name")
+        newCount.setValue(iconName, forKey: "iconName")
+        do {
+            try context.save()
+            print("Save successful")
+            getData()
+            print(imageName)
+            print(iconName)
+        } catch {
+            print("Save failed")
+        }
         idchecker(id: id)
-        
-        
+            
+        editAvatar(imageID: id)
 
     }
+        
     
     @IBAction func PressPic6(_ sender: Any)
     {
         id = 6
-        imageName = "image6"
-        iconName = "image6"
+        imageName = "bird"
+        iconName = "bird"
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-         
-         let Count = NSEntityDescription.entity(forEntityName: "Avatar", in: context)
-         let newCount = NSManagedObject(entity: Count!, insertInto:  context)
-         
-         newCount.setValue(id, forKey: "id")
-         newCount.setValue(tabCount, forKey: "tabCount")
-         newCount.setValue(imageName, forKey: "name")
-         newCount.setValue(iconName, forKey: "iconName")
-         do {
-             try context.save()
-             print("Save successful")
-             getData()
-         } catch {
-             print("Save failed")
-         }
+             
+        let Count = NSEntityDescription.entity(forEntityName: "Avatar", in: context)
+        let newCount = NSManagedObject(entity: Count!, insertInto:  context)
+             
+        newCount.setValue(id, forKey: "id")
+        newCount.setValue(tabCount, forKey: "tabCount")
+        newCount.setValue(imageName, forKey: "name")
+        newCount.setValue(iconName, forKey: "iconName")
+        do {
+            try context.save()
+            print("Save successful")
+            getData()
+            print(imageName)
+            print(iconName)
+        } catch {
+            print("Save failed")
+        }
         idchecker(id: id)
-        
+            
+        editAvatar(imageID: id)
 
     }
     
