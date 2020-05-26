@@ -55,6 +55,7 @@ class PlayGameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.navigationController?.isNavigationBarHidden = true
         ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, outOfView: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false))
         ingredientStack[stackIndex].image = ingredientCatcher // array of UIImageViews that fills up based on what is in the stack- first element is the base (ingredientCatcher)
         ingredientStack[stackIndex].name = "ingredientCatcher"

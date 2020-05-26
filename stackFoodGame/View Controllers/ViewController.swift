@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
-        
+        self.navigationController?.isNavigationBarHidden = true
         // 
     }
     @IBAction func unwindToMainMenu(_ unwindSegue: UIStoryboardSegue) {

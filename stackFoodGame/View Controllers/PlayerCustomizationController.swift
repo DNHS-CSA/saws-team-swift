@@ -51,7 +51,7 @@ class PlayerCustomizationController: UIViewController {
         idchecker(id: id)
         tabCountChecker(tabCount: tabCount)
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = true
 
             
             /* Load Data for different Avatars here with

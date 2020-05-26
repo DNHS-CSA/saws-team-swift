@@ -57,7 +57,7 @@ class PerksController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
-      
+        self.navigationController?.isNavigationBarHidden = true
         player = (appDelegate.getRecordsFor(entity: "Player").first as! Player)
         coins = Int(player!.coins)
         xp = Int(player!.xp)

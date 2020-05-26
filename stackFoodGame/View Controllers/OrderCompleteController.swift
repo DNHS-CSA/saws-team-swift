@@ -49,7 +49,7 @@ class OrderCompleteController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = true
         points = 100 //start with 50 points
         var idealPoints = 100 //ideal points
         

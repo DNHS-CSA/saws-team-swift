@@ -16,7 +16,6 @@ class GameHistoryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         loadData()
