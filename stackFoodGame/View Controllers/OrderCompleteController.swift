@@ -52,10 +52,10 @@ class OrderCompleteController: UIViewController{
         self.navigationController?.isNavigationBarHidden = true
         //reset all perks
         appDelegate?.perkSpeed = 1.0
-        appDelegate?.perkSpeed = 1.0
+        appDelegate?.perkTips = 1.0
         appDelegate?.perkChef = 0.0
-        appDelegate?.perkTips = 0.0
-        appDelegate?.perkMagnet = 0.0
+        appDelegate?.perkGold = 0.0
+        appDelegate?.perkGordon = 0.0
         appDelegate?.perkSecret = 0.0
 
         points = 100 //start with 50 points

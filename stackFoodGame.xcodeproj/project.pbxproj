@@ -21,13 +21,13 @@
 		521B7A562475A06900C9BFF3 /* GameHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A482475A06900C9BFF3 /* GameHistory+CoreDataProperties.swift */; };
 		521B7A572475A06900C9BFF3 /* Powerup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A492475A06900C9BFF3 /* Powerup+CoreDataClass.swift */; };
 		521B7A582475A06900C9BFF3 /* Powerup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B7A4A2475A06900C9BFF3 /* Powerup+CoreDataProperties.swift */; };
+		5234E0BD247EFBF0007BD502 /* gordon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5234E0BC247EFBF0007BD502 /* gordon.jpeg */; };
 		524E6F4B246CC4B800032017 /* PerksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E6F4A246CC4B800032017 /* PerksController.swift */; };
 		524E6F4D246CC4FD00032017 /* Perks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524E6F4C246CC4FD00032017 /* Perks.storyboard */; };
 		5259AF29247C819E0051CE2B /* xpCoin.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5259AF28247C819E0051CE2B /* xpCoin.jpeg */; };
 		5259AF2B247C81D10051CE2B /* goldCoin.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5259AF2A247C81D10051CE2B /* goldCoin.jpeg */; };
 		52D5898D247375A400C8E12D /* chef.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 52D5898C247375A400C8E12D /* chef.jpg */; };
 		52D58991247375CE00C8E12D /* gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D58990247375CE00C8E12D /* gold.png */; };
-		52D58995247375F700C8E12D /* magnet.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D58994247375F700C8E12D /* magnet.png */; };
 		52D589992473760C00C8E12D /* secret.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 52D589962473760C00C8E12D /* secret.jpg */; };
 		52D5899A2473760C00C8E12D /* snail.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D589972473760C00C8E12D /* snail.png */; };
 		52D5899B2473760C00C8E12D /* tips.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 52D589982473760C00C8E12D /* tips.jpeg */; };
@@ -76,13 +76,13 @@
 		521B7A482475A06900C9BFF3 /* GameHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		521B7A492475A06900C9BFF3 /* Powerup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Powerup+CoreDataClass.swift"; sourceTree = "<group>"; };
 		521B7A4A2475A06900C9BFF3 /* Powerup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Powerup+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5234E0BC247EFBF0007BD502 /* gordon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gordon.jpeg; sourceTree = "<group>"; };
 		524E6F4A246CC4B800032017 /* PerksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerksController.swift; sourceTree = "<group>"; };
 		524E6F4C246CC4FD00032017 /* Perks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Perks.storyboard; sourceTree = "<group>"; };
 		5259AF28247C819E0051CE2B /* xpCoin.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xpCoin.jpeg; sourceTree = "<group>"; };
 		5259AF2A247C81D10051CE2B /* goldCoin.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = goldCoin.jpeg; sourceTree = "<group>"; };
 		52D5898C247375A400C8E12D /* chef.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chef.jpg; sourceTree = "<group>"; };
 		52D58990247375CE00C8E12D /* gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold.png; sourceTree = "<group>"; };
-		52D58994247375F700C8E12D /* magnet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnet.png; sourceTree = "<group>"; };
 		52D589962473760C00C8E12D /* secret.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = secret.jpg; sourceTree = "<group>"; };
 		52D589972473760C00C8E12D /* snail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snail.png; sourceTree = "<group>"; };
 		52D589982473760C00C8E12D /* tips.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tips.jpeg; sourceTree = "<group>"; };
@@ -154,12 +154,12 @@
 		52D5898B2473758200C8E12D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5234E0BC247EFBF0007BD502 /* gordon.jpeg */,
 				5259AF2A247C81D10051CE2B /* goldCoin.jpeg */,
 				5259AF28247C819E0051CE2B /* xpCoin.jpeg */,
 				52D589962473760C00C8E12D /* secret.jpg */,
 				52D589972473760C00C8E12D /* snail.png */,
 				52D589982473760C00C8E12D /* tips.jpeg */,
-				52D58994247375F700C8E12D /* magnet.png */,
 				52D58990247375CE00C8E12D /* gold.png */,
 				52D5898C247375A400C8E12D /* chef.jpg */,
 			);
@@ -343,6 +343,7 @@
 				52D5899A2473760C00C8E12D /* snail.png in Resources */,
 				8489167F24637BC300ACB75A /* orderAssignment.storyboard in Resources */,
 				52D589992473760C00C8E12D /* secret.jpg in Resources */,
+				5234E0BD247EFBF0007BD502 /* gordon.jpeg in Resources */,
 				8489167C24637B8100ACB75A /* Customization.storyboard in Resources */,
 				524E6F4D246CC4FD00032017 /* Perks.storyboard in Resources */,
 				8489168424637BED00ACB75A /* orderComplete.storyboard in Resources */,
@@ -352,7 +353,6 @@
 				DAB26BBA2464CD530052BE46 /* PlayerCustomization.storyboard in Resources */,
 				84429D772463356900E5BA3A /* Main.storyboard in Resources */,
 				52D58991247375CE00C8E12D /* gold.png in Resources */,
-				52D58995247375F700C8E12D /* magnet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
