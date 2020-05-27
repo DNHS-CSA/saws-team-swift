@@ -11,6 +11,8 @@ import CoreData
 
 class PlayGameController: UIViewController {
    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     @IBOutlet weak var ingredient: UIImageView!
     var itemGravity:CGPoint = CGPoint()
     var stopIngredient:Bool = false
@@ -182,7 +184,7 @@ class PlayGameController: UIViewController {
                 //timeStampPlay() THROWS ERROR
             }
             if ingredient.inStack == false && ingredient.outOfView == false {
-                ingredient.image.center.y = ingredient.image.center.y + ingredient.gravity.y
+                ingredient.image.center.y = ingredient.image.center.y + ingredient.gravity.y * CGFloat(appDelegate.perkSpeed)
                 if ingredient.image.center.y == CGFloat(895.0) {
                     ingredient.outOfView = true
                     ingredient.image.removeFromSuperview()

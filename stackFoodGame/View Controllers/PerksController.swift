@@ -158,6 +158,10 @@ class PerksController: UIViewController {
         if totalCost <= coins {
             coins -= totalCost
             coinsLabel.text = String(coins)
+            let storyboard = UIStoryboard(name: "orderAssignment", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "orderassign") as UIViewController
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
             // Incert segue to "playGame" SB
         } else {
             print("You do not have the facilities for that big man")
