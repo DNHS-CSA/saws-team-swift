@@ -51,12 +51,7 @@ class OrderCompleteController: UIViewController{
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         //reset all perks
-        appDelegate?.perkSpeed = 1.0
-        appDelegate?.perkTips = 1.0
-        appDelegate?.perkChef = 0.0
-        appDelegate?.perkGold = 0.0
-        appDelegate?.perkGordon = 0.0
-        appDelegate?.perkSecret = 0.0
+      
 
         points = 100 //start with 50 points
         var idealPoints = 100 //ideal points
@@ -91,6 +86,7 @@ class OrderCompleteController: UIViewController{
         
         print("OrderComplete> Ideal Points, " + String(idealPoints))
         
+        points *= Int(appDelegate!.perkGordon)
         
         print("OrderComplete> POINTS " + String(points))
         
@@ -101,10 +97,10 @@ class OrderCompleteController: UIViewController{
         
         let tcoins = player?.value(forKey: "coins") as! Int
         totalCoins.text =  ("CURRENT COINS: " + String(tcoins))
-        
+        coins *= Int(appDelegate!.perkTips)
         player?.setValue(tcoins + coins, forKey: "coins")
         
- 
+        
         
         appDelegate?.saveAllEntityData()
         
@@ -272,5 +268,21 @@ class OrderCompleteController: UIViewController{
         return Int(step1)
     }
 
+    @IBAction func nextGameButtonTapped(_ sender: UIButton) {
+        appDelegate?.perkSpeed = 1.0
+              appDelegate?.perkTips = 1.0
+              appDelegate?.perkChef = 0.0
+              appDelegate?.perkGold = 0.0
+              appDelegate?.perkGordon = 1.0
+              appDelegate?.perkSecret = 0.0
+    }
     
+    @IBAction func mainMenuButtonTapped(_ sender: UIButton) {
+        appDelegate?.perkSpeed = 1.0
+              appDelegate?.perkTips = 1.0
+              appDelegate?.perkChef = 0.0
+              appDelegate?.perkGold = 0.0
+              appDelegate?.perkGordon = 1.0
+              appDelegate?.perkSecret = 0.0
+    }
 }
