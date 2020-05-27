@@ -158,6 +158,10 @@ class PerksController: UIViewController {
         if totalCost <= coins {
             coins -= totalCost
             coinsLabel.text = String(coins)
+            //change perk amount in AppDelegate
+            appDelegate.perkSpeed = 1 - (0.1 * Double(item1c))
+            appDelegate.perkTips = 1 + (0.1 * Double(item2c))
+            //segue to orderAssignment SB
             let storyboard = UIStoryboard(name: "orderAssignment", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "orderassign") as UIViewController
             vc.modalPresentationStyle = .fullScreen
