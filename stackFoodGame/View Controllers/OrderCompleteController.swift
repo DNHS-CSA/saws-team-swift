@@ -21,6 +21,7 @@ class OrderCompleteController: UIViewController{
     @IBOutlet weak var coinScreen: UILabel!
     @IBOutlet weak var progressImage: UIImageView!
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var bottomBunImage: UIImageView!
     
     let oStatus = true //pass in from CoreData true=fufilled false=failed
     
@@ -57,6 +58,12 @@ class OrderCompleteController: UIViewController{
         var idealPoints = 100 //ideal points
         
         var myBurger = orders.last!.curBurger //copy of current burger
+        
+        
+
+        remakeBurger(items: myBurger) //recreating players burger on screen
+        
+        
         
         for(key, value) in orders.last!.order{ //looping over key pairs,locating ingredients, assigning points
             
@@ -136,7 +143,35 @@ class OrderCompleteController: UIViewController{
         levelTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(countLevel), userInfo: nil, repeats: true)
 
 
+
+        
+
+        
     }
+    
+    func remakeBurger(items:[String]){
+        var frame : CGRect = bottomBunImage.frame
+        
+        for item in items{
+            let iname = UIImage(named: item)
+            let iview = UIImageView(image: iname!)
+            frame = CGRect(x:frame.origin.x, y:frame.origin.y - 20, width: frame.width, height:frame.height)
+            
+            iview.frame = frame
+            view.addSubview(iview)
+        }
+        
+        
+        // setting label positions
+        
+        itemScreen.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat(-180/30))
+        coinScreen.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat(180/30))
+        
+        itemScreen.frame = CGRect(x:itemScreen.frame.origin.x, y:frame.origin.y - 50, width: itemScreen.frame.width, height:itemScreen.frame.height)
+        
+        coinScreen.frame = CGRect(x:coinScreen.frame.origin.x, y:frame.origin.y - 50, width: coinScreen.frame.width, height:coinScreen.frame.height)
+    }
+    
     
     
     func doMath(input: Int, x_val: Int) -> Int {
