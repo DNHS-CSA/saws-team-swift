@@ -24,7 +24,7 @@ extension Player {
     @NSManaged public var level: Int16
     @NSManaged public var avatar: Avatar?
     @NSManaged public var food: Food?
-    @NSManaged public var gameHistory: NSSet?
+    @NSManaged public var gameHistory: NSSet
     @NSManaged public var location: Location?
 
 }

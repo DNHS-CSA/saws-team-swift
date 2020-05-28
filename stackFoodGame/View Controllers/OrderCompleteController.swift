@@ -112,7 +112,7 @@ class OrderCompleteController: UIViewController{
         appDelegate?.saveAllEntityData()
         
         
-        createGameHistoryLog()
+        //createGameHistoryLog()
         
         totalCoins.text =  ("CURRENT COINS: " + String(tcoins + coins))
         
@@ -146,6 +146,8 @@ class OrderCompleteController: UIViewController{
 
 
 
+        addToGameHistory()
+       
         
 
         
@@ -320,6 +322,47 @@ class OrderCompleteController: UIViewController{
     
     
     
+
+    func addToGameHistory(){
+        let player = appDelegate?.getRecordsFor(entity: "Player").first as! Player//pulling whole player down
+        
+        var pastGames = player.value(forKey: "gameHistory") as! NSSet//getting SET of past games from player umbrella object
+        
+        let thisGame = appDelegate?.createEntity(entity: "GameHistory") as! GameHistory //Creating a new GameHistory object
+        
+        thisGame.avatarName = getIcon()
+        thisGame.coins = Int16(self.coins)
+        
+        let endOfRoundTimeStamp = Date()
+        thisGame.date = endOfRoundTimeStamp
+        
+        player.addToGameHistory(thisGame)
+        appDelegate?.saveAllEntityData()
+        
+        print(thisGame as Any)
+        
+        //print("COUNT: \(pastGames.count)")
+        //var pgames = Array(pastGames)
+        
+        //pgames.append(thisGame as NSSet.Element)
+        
+        
+        
+        //pastGames = Set(pgames.map({ ($0 as AnyObject).url })) as NSSet
+
+        //print(thisGame as Any)
+        
+    }
+    
+    func getIcon() -> String {
+        let players = appDelegate?.getRecordsFor(entity: "Player").first
+        let avatar = players?.value(forKey: "avatar") as! NSObject
+        let name = avatar.value(forKey: "iconName") as! String
+        return name
+    }
+    
+    
+    //temporarily canceled
     
     func createGameHistoryLog(){
         let managedObjectContext = appDelegate?.coreDataManager.managedObjectContext
