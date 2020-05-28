@@ -11,6 +11,8 @@ import CoreData
 
 class PlayGameController: UIViewController {
    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     @IBOutlet weak var ingredient: UIImageView!
     var itemGravity:CGPoint = CGPoint()
     var stopIngredient:Bool = false
@@ -55,6 +57,7 @@ class PlayGameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.navigationController?.isNavigationBarHidden = true
         ingredientStack.append(Ingredient(name: String(), image: UIImageView(), inStack: false, outOfView: false, gravity: CGPoint(x: 0.0, y: 0.0), location: CGPoint(x: 0.0, y: 0.0), isPastMiddle: false))
         ingredientStack[stackIndex].image = ingredientCatcher // array of UIImageViews that fills up based on what is in the stack- first element is the base (ingredientCatcher)
         ingredientStack[stackIndex].name = "ingredientCatcher"
@@ -181,7 +184,7 @@ class PlayGameController: UIViewController {
                 //timeStampPlay() THROWS ERROR
             }
             if ingredient.inStack == false && ingredient.outOfView == false {
-                ingredient.image.center.y = ingredient.image.center.y + ingredient.gravity.y
+                ingredient.image.center.y = ingredient.image.center.y + ingredient.gravity.y * CGFloat(appDelegate.perkSpeed)
                 if ingredient.image.center.y == CGFloat(895.0) {
                     ingredient.outOfView = true
                     ingredient.image.removeFromSuperview()

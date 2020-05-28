@@ -49,7 +49,10 @@ class OrderCompleteController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = true
+        //reset all perks
+      
+
         points = 100 //start with 50 points
         var idealPoints = 100 //ideal points
         
@@ -83,6 +86,7 @@ class OrderCompleteController: UIViewController{
         
         print("OrderComplete> Ideal Points, " + String(idealPoints))
         
+        points *= Int(appDelegate!.perkGordon)
         
         print("OrderComplete> POINTS " + String(points))
         
@@ -93,12 +97,13 @@ class OrderCompleteController: UIViewController{
         
         let tcoins = player?.value(forKey: "coins") as! Int
         totalCoins.text =  ("CURRENT COINS: " + String(tcoins))
-        
+        coins *= Int(appDelegate!.perkTips)
         player?.setValue(tcoins + coins, forKey: "coins")
         
- 
-        
         appDelegate?.saveAllEntityData()
+        
+        
+        createGameHistoryLog()
         
         totalCoins.text =  ("CURRENT COINS: " + String(tcoins + coins))
         
@@ -264,6 +269,44 @@ class OrderCompleteController: UIViewController{
         
         return Int(step1)
     }
-
     
+    func createGameHistoryLog(){
+        let managedObjectContext = appDelegate?.coreDataManager.managedObjectContext
+        // fetches player entity and gets current avatar and location from respective relationships to player
+        let player = appDelegate?.getRecordsFor(entity: "Player").first
+        //let avatar = player?.value(forKey: "avatar") // fetch relationship data
+        //let location = player?.value(forKey: "location") ?? "No location" // fetch relationship data
+        //let totalCoins = player?.value(forKey: "coins") // fetch relationship data
+        // creates a new row in gamHistory and sets values of avatar and location into relatioship and coins and date into normal attribute
+        let newGameHistoryEntry = appDelegate?.createRecordForEntity("GameHistory", inManagedObjectContext: managedObjectContext!)
+        newGameHistoryEntry?.setValue(player, forKey: "player")
+        //newGameHistoryEntry?.setValue(avatar, forKey: "avatar") // set data in relationship
+        //newGameHistoryEntry?.setValue(location, forKey: "location") // set data in relationship
+        newGameHistoryEntry?.setValue(coins, forKey: "coins") // set data in attribute
+        
+        let endOfRoundTimeStamp = Date() // takes current timestamp once order is complete
+        newGameHistoryEntry?.setValue(endOfRoundTimeStamp, forKey: "date")
+        
+        appDelegate?.saveAllEntityData()
+        
+        
+    }
+
+    @IBAction func nextGameButtonTapped(_ sender: UIButton) {
+        appDelegate?.perkSpeed = 1.0
+              appDelegate?.perkTips = 1.0
+              appDelegate?.perkChef = 0.0
+              appDelegate?.perkGold = 0.0
+              appDelegate?.perkGordon = 1.0
+              appDelegate?.perkSecret = 0.0
+    }
+    
+    @IBAction func mainMenuButtonTapped(_ sender: UIButton) {
+        appDelegate?.perkSpeed = 1.0
+              appDelegate?.perkTips = 1.0
+              appDelegate?.perkChef = 0.0
+              appDelegate?.perkGold = 0.0
+              appDelegate?.perkGordon = 1.0
+              appDelegate?.perkSecret = 0.0
+    }
 }

@@ -12,8 +12,13 @@ class statsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
 
         // Do any additional setup after loading the view.
+    }
+    // navigation controller hidden in viewDidAppear so that when you come from gameHistory back to stats screen, the navigation bar is hidden again
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     @IBAction func unwindToStats(_ unwindSegue: UIStoryboardSegue) {
         }

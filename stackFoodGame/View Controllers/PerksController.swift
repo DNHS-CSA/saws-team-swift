@@ -57,9 +57,10 @@ class PerksController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
-      
+        self.navigationController?.isNavigationBarHidden = true
         player = (appDelegate.getRecordsFor(entity: "Player").first as! Player)
         coins = Int(player!.coins)
+        coins = 10000
         xp = Int(player!.xp)
         print("\n coins: ", coins)
         self.navigationController?.isNavigationBarHidden = true
@@ -158,6 +159,15 @@ class PerksController: UIViewController {
         if totalCost <= coins {
             coins -= totalCost
             coinsLabel.text = String(coins)
+            //change perk amount in AppDelegate
+            appDelegate.perkSpeed = 1 - (0.1 * Double(item1c))
+            appDelegate.perkTips = 1 + (0.1 * Double(item2c))
+            appDelegate.perkGordon = 1 + (0.1 * Double(item3c))
+            //segue to orderAssignment SB
+//            let storyboard = UIStoryboard(name: "orderAssignment", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "orderassign") as UIViewController
+//            vc.modalPresentationStyle = .fullScreen
+//            present(vc, animated: true, completion: nil)
             // Incert segue to "playGame" SB
         } else {
             print("You do not have the facilities for that big man")

@@ -12,12 +12,18 @@ import CoreData
 class GameHistoryTableViewController: UITableViewController {
 
     var managedObjectContext: NSManagedObjectContext!
+    let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     var gameLogData = [GameHistory()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
+        // flips Y axis so that the table view populates from the top
+        //tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        
+        
+        managedObjectContext = appDelegate?.coreDataManager.managedObjectContext
 
-        managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         loadData()
         
@@ -89,24 +95,18 @@ class GameHistoryTableViewController: UITableViewController {
         
         //cell refererence in Table View
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameHistoryCell", for: indexPath) as! GameHistoryTableViewCell
+        //flips cell so that the tableview is populated from the top
+        //cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
         
         //row or object in data source
         let logEntry = gameLogData[indexPath.row]
         
         
         // lines below will work on Core Data is implemented
-//      let avatarImageName = logEntry.player?.avatar?.iconName
-//      cell.avatar.image = UIImage(named: avatarImageName!)
-//      cell.coins.text = String(logEntry.coins)
-        /*What is the difference between two lines below?
-        cell.location.text = "Location: " + String(logEntry.location?.name ?? "No location - error") // sets the location to real location and catches any Core Data relationship errors
-        cell.location.text = "Location: " + String(logEntry.player?.location?.name ?? "No location - error") */
-        let randomAvatar = avatars.randomElement()
-        
-        cell.avatar.image = UIImage(named: randomAvatar!)
-        cell.location.text = String("\(randomizer(typeOfSampleData: "Location"))")
-        cell.coins.text = String(Int.random(in: 1...200)) // sets coin value to filler value
-        
+        let avatarImageName = logEntry.player?.avatar?.iconName
+        cell.avatar.image = UIImage(named: avatarImageName!)
+        cell.coins.text = String(logEntry.coins)
+        cell.location.text = String(logEntry.location?.name ?? "No location saved") // sets the location to real location and catches any Core Data relationship errors
         
         /*
          Extra lines of code for date display
@@ -191,10 +191,11 @@ class GameHistoryTableViewController: UITableViewController {
             guard let gameHistoryDetail = segue.destination as? GameHistoryDetailController else {
                 fatalError("Could not find GameHistoryDetailController")
             }
-            gameHistoryDetail.detailContent.avatar = gameHistoryCell.avatar.image!//currentGameHistoryCell.player?.avatar?.iconName ?? ""
+            gameHistoryDetail.detailContent.avatar = currentGameHistoryCell.player?.avatar?.name ?? ""
             gameHistoryDetail.detailContent.date = currentGameHistoryCell.date!
-            gameHistoryDetail.detailContent.location = gameHistoryCell.location.text!//currentGameHistoryCell.location?.name ?? "No location"
-            gameHistoryDetail.detailContent.coins = gameHistoryCell.coins.text!//currentGameHistoryCell.coins
+            gameHistoryDetail.detailContent.location = currentGameHistoryCell.location?.name ?? "No location saved"
+            gameHistoryDetail.detailContent.coins = currentGameHistoryCell.coins
+            gameHistoryDetail.detailContent.totalCoins = (currentGameHistoryCell.player?.coins)!
             
         default:
             print("Did not locate segue identifier")

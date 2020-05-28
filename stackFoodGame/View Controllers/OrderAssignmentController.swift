@@ -34,8 +34,7 @@ class OrderAssignmentController: UIViewController {
     override func viewDidLoad() {
 
         // array definitions moved public to allow for segue data transfer
-       
-        
+        self.navigationController?.isNavigationBarHidden = true
         var foodTypes = ingredientTypes  //just a copy without topbun
         foodTypes.removeLast()
         
