@@ -45,6 +45,8 @@ class PlayGameController: UIViewController {
     @IBOutlet weak var quantityR: UILabel!
     @IBOutlet weak var bottom: UIImageView!
     @IBOutlet weak var completedOrder: UIImageView!
+    @IBOutlet weak var completeButton: UIButton!
+    
     
     var orderUI = (ingredientNames: [String()], quantityOfEachIngredient: [Int()])
     var ingredientHeaderImages: [UIImageView] = [UIImageView(), UIImageView(), UIImageView()]
@@ -98,6 +100,7 @@ class PlayGameController: UIViewController {
         }
         
         completedOrder.isHidden = true
+        completeButton.isHidden = true
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         /*
@@ -183,6 +186,7 @@ class PlayGameController: UIViewController {
             if ingredientStack[localStackIndex].name == "topbun" {
                 
                 self.completedOrder.isHidden = false
+                self.completeButton.isHidden = false
                 
                 timer?.invalidate()
                 spawnTimer?.invalidate()
