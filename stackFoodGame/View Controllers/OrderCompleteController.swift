@@ -244,11 +244,13 @@ class OrderCompleteController: UIViewController{
         let pixelsG = Int(Float(result) * pixelSize) // pixels to set image to grow to
         setImageSize(width: pixelsG)
         
-        
+        //print(result)
         if result == levelXP {
             //increment level val
+            //print("pre m poinys \(mPoints)")
             mPoints = mPoints + sPoints - levelXP //updating points to fit new level
-            
+            //print("after m poinys \(mPoints)")
+
             
             let k = player?.value(forKey: "level") as! Int
             player?.setValue(k + 1, forKey: "level") //simple adding 1 to level
@@ -263,9 +265,10 @@ class OrderCompleteController: UIViewController{
             
         }
         
-        if result == mPoints { // only activated when it is finished
+        if result == mPoints + sPoints { // only activated when it is finished
             player?.setValue(mPoints, forKey: "xp") //setting the starting xp value for next play
             appDelegate?.saveAllEntityData()
+            //print("MPOINTS: " + String(mPoints))
             
             print("OrderComplete> DONE")
             
