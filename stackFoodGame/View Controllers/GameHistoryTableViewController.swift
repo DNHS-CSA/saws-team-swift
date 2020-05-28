@@ -41,14 +41,47 @@ class GameHistoryTableViewController: UITableViewController {
     func loadData(){
         let player = appDelegate?.getRecordsFor(entity: "Player").first as! Player
         gameLogData = player.gameHistory.allObjects as! [NSManagedObject]
+        
+        print(gameLogData.count)
+        sortDataByDate()
+        
         for l in gameLogData{
             print(l.value(forKey: "avatarName") as Any)
             print(l.value(forKey: "coins") as Any)
-
+            print(l.value(forKey: "date") as Any)
         }
         self.tableView.reloadData()
     }
 
+    func sortDataByDate(){
+        var sdata : [NSManagedObject] = [gameLogData[0]] //adding 1 to start
+
+        gameLogData = Array(gameLogData.dropFirst(1))
+        
+        for g in gameLogData{
+            
+            for i in (0..<sdata.count){
+                
+                let gdate = g.value(forKey: "date") as! Date
+                let sdate = sdata[i].value(forKey: "date") as! Date
+                
+                if gdate < sdate{
+                    sdata.insert(g, at: i)
+                    break
+                }
+                
+                if i == sdata.count-1{ //will insert at the end if finished
+                    sdata.append(g)
+                }
+            }
+            
+        }
+        
+        gameLogData = sdata
+        
+    }
+    
+    
     // MARK: - Randomizer sample data
     func randomizer(typeOfSampleData: String) -> String {
         /*
