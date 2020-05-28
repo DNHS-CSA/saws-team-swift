@@ -145,8 +145,9 @@ class OrderCompleteController: UIViewController{
         levelTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(countLevel), userInfo: nil, repeats: true)
 
 
+
         addToGameHistory()
-        
+       
         
 
         
@@ -321,6 +322,7 @@ class OrderCompleteController: UIViewController{
     
     
     
+
     func addToGameHistory(){
         let player = appDelegate?.getRecordsFor(entity: "Player").first as! Player//pulling whole player down
         
@@ -339,7 +341,7 @@ class OrderCompleteController: UIViewController{
         
         print(thisGame as Any)
         
-        print("COUNT: \(pastGames.count)")
+        //print("COUNT: \(pastGames.count)")
         //var pgames = Array(pastGames)
         
         //pgames.append(thisGame as NSSet.Element)
@@ -361,6 +363,7 @@ class OrderCompleteController: UIViewController{
     
     
     //temporarily canceled
+    
     func createGameHistoryLog(){
         let managedObjectContext = appDelegate?.coreDataManager.managedObjectContext
         // fetches player entity and gets current avatar and location from respective relationships to player
