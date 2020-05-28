@@ -16,6 +16,7 @@
         <relationship name="player" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="food" inverseEntity="Player"/>
     </entity>
     <entity name="GameHistory" representedClassName="GameHistory" syncable="YES">
+        <attribute name="avatarName" optional="YES" attributeType="String"/>
         <attribute name="coins" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -51,7 +52,7 @@
     <elements>
         <element name="Avatar" positionX="-54.35546875" positionY="-176.58203125" width="128" height="133"/>
         <element name="Food" positionX="-74.49609375" positionY="118.98046875" width="128" height="118"/>
-        <element name="GameHistory" positionX="281.31640625" positionY="23.45703125" width="128" height="148"/>
+        <element name="GameHistory" positionX="281.31640625" positionY="23.45703125" width="128" height="163"/>
         <element name="Location" positionX="-95.57421875" positionY="260.62890625" width="128" height="118"/>
         <element name="Player" positionX="-275.39453125" positionY="-111.078125" width="128" height="178"/>
         <element name="Powerup" positionX="207.1328125" positionY="-155.13671875" width="128" height="103"/>

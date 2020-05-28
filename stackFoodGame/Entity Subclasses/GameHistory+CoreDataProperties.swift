@@ -20,6 +20,7 @@ extension GameHistory {
     @NSManaged public var coins: Int16
     @NSManaged public var date: Date?
     @NSManaged public var id: Int16
+    @NSManaged public var avatarName: String
     @NSManaged public var avatar: Avatar?
     @NSManaged public var food: Food?
     @NSManaged public var location: Location?

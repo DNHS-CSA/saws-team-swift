@@ -48,7 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else if let p_record = createRecordForEntity("Player", inManagedObjectContext: managedObjectContext){
             player = p_record
         
-
+            let games : NSSet = []
+            player?.setValue(games, forKey: "gameHistory")
         //player?.setValue(0, forKey: "value")
             
         saveAllEntityData()
@@ -61,6 +62,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if pllayr == nil{
             let atro = createEntity(entity: "Player")
             atro?.setValue(0, forKey: "value")
+            
+            let games : NSSet = []
+            atro?.setValue(games, forKey: "gameHistory")
             saveAllEntityData()
         }
         
