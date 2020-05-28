@@ -44,6 +44,7 @@ class PlayGameController: UIViewController {
     @IBOutlet weak var ingredientR: UIImageView!
     @IBOutlet weak var quantityR: UILabel!
     @IBOutlet weak var bottom: UIImageView!
+    @IBOutlet weak var completedOrder: UIImageView!
     
     var orderUI = (ingredientNames: [String()], quantityOfEachIngredient: [Int()])
     var ingredientHeaderImages: [UIImageView] = [UIImageView(), UIImageView(), UIImageView()]
@@ -96,6 +97,7 @@ class PlayGameController: UIViewController {
             ingredientHeaderQuantities[i].layer.zPosition = 2.01
         }
         
+        completedOrder.isHidden = true
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         /*
@@ -179,6 +181,9 @@ class PlayGameController: UIViewController {
         for ingredient in entitiesInView {
             // isolation of the movement in a Bool allows all of the falling UIImageViews to run off of one timer
             if ingredientStack[localStackIndex].name == "topbun" {
+                
+                self.completedOrder.isHidden = false
+                
                 timer?.invalidate()
                 spawnTimer?.invalidate()
                 //timeStampPlay() THROWS ERROR

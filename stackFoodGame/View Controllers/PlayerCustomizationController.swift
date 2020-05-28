@@ -346,7 +346,7 @@ class PlayerCustomizationController: UIViewController {
     
     func idchecker(id: Int)
     {
-        if id == 0 {
+        if id != -1 {
             Pic1.isHidden = true
             Pic2.isHidden = true
             Pic3.isHidden = true
@@ -354,6 +354,7 @@ class PlayerCustomizationController: UIViewController {
             Pic5.isHidden = true
             Pic6.isHidden = true
         }
+        /*
         if id == 1 {
             Pic1.isHidden = false
             Pic2.isHidden = true
@@ -401,7 +402,7 @@ class PlayerCustomizationController: UIViewController {
             Pic4.isHidden = true
             Pic5.isHidden = true
             Pic6.isHidden = false
-        }
+        } */
     }
     
     func tabCountChecker(tabCount: Int)
