@@ -100,9 +100,10 @@ class OrderCompleteController: UIViewController{
         coins *= Int(appDelegate!.perkTips)
         player?.setValue(tcoins + coins, forKey: "coins")
         
-        
-        
         appDelegate?.saveAllEntityData()
+        
+        
+        createGameHistoryLog()
         
         totalCoins.text =  ("CURRENT COINS: " + String(tcoins + coins))
         
@@ -266,6 +267,28 @@ class OrderCompleteController: UIViewController{
         let step1 = pow(1.5, Double(levelNum)) * 300
         
         return Int(step1)
+    }
+    
+    func createGameHistoryLog(){
+        let managedObjectContext = appDelegate?.coreDataManager.managedObjectContext
+        // fetches player entity and gets current avatar and location from respective relationships to player
+        let player = appDelegate?.getRecordsFor(entity: "Player").first
+        //let avatar = player?.value(forKey: "avatar") // fetch relationship data
+        //let location = player?.value(forKey: "location") ?? "No location" // fetch relationship data
+        //let totalCoins = player?.value(forKey: "coins") // fetch relationship data
+        // creates a new row in gamHistory and sets values of avatar and location into relatioship and coins and date into normal attribute
+        let newGameHistoryEntry = appDelegate?.createRecordForEntity("GameHistory", inManagedObjectContext: managedObjectContext!)
+        newGameHistoryEntry?.setValue(player, forKey: "player")
+        //newGameHistoryEntry?.setValue(avatar, forKey: "avatar") // set data in relationship
+        //newGameHistoryEntry?.setValue(location, forKey: "location") // set data in relationship
+        newGameHistoryEntry?.setValue(coins, forKey: "coins") // set data in attribute
+        
+        let endOfRoundTimeStamp = Date() // takes current timestamp once order is complete
+        newGameHistoryEntry?.setValue(endOfRoundTimeStamp, forKey: "date")
+        
+        appDelegate?.saveAllEntityData()
+        
+        
     }
 
     @IBAction func nextGameButtonTapped(_ sender: UIButton) {

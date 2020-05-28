@@ -197,7 +197,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     
-    private func createRecordForEntity(_ entity: String, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> NSManagedObject? {
+    func createRecordForEntity(_ entity: String, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> NSManagedObject? {
         // Helpers
         var result: NSManagedObject?
 
