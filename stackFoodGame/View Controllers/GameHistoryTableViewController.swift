@@ -39,7 +39,13 @@ class GameHistoryTableViewController: UITableViewController {
     }
     // MARK: - CoreData management
     func loadData(){
-        gameLogData = (appDelegate?.getRecordsFor(entity: "GameHistory"))!
+        let player = appDelegate?.getRecordsFor(entity: "Player").first as! Player
+        gameLogData = player.gameHistory.allObjects as! [NSManagedObject]
+        for l in gameLogData{
+            print(l.value(forKey: "avatarName") as Any)
+            print(l.value(forKey: "coins") as Any)
+
+        }
         self.tableView.reloadData()
     }
 
@@ -95,8 +101,9 @@ class GameHistoryTableViewController: UITableViewController {
         
         // lines below will work on Core Data is implemented
 
-        let avatarImageName = logEntry.player?.avatar?.iconName
-        cell.avatar.image = UIImage(named: avatarImageName!)
+        //let avatarImageName = logEntry.player?.avatar?.iconName
+        
+        cell.avatar.image = UIImage(named: logEntry.avatarName)
         cell.coins.text = String(logEntry.coins)
         cell.location.text = String(logEntry.location?.name ?? "No location saved") // sets the location to real location and catches any Core Data relationship errors
         
