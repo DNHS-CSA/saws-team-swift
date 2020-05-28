@@ -11,19 +11,14 @@ import CoreData
 
 class GameHistoryTableViewController: UITableViewController {
 
-    var managedObjectContext: NSManagedObjectContext!
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-    var gameLogData = [GameHistory()]
+    var gameLogData = [NSManagedObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
         // flips Y axis so that the table view populates from the top
         //tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
-        
-        
-        managedObjectContext = appDelegate?.coreDataManager.managedObjectContext
-
 
         loadData()
         
@@ -44,11 +39,7 @@ class GameHistoryTableViewController: UITableViewController {
     }
     // MARK: - CoreData management
     func loadData(){
-           do{
-            gameLogData = try managedObjectContext.fetch(GameHistory.fetchRequest())
-           } catch {
-               print("Load failed due to \(error.localizedDescription)")
-           }
+        gameLogData = (appDelegate?.getRecordsFor(entity: "GameHistory"))!
         self.tableView.reloadData()
     }
 
@@ -99,10 +90,11 @@ class GameHistoryTableViewController: UITableViewController {
         //cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
         
         //row or object in data source
-        let logEntry = gameLogData[indexPath.row]
+        let logEntry = gameLogData[indexPath.row] as! GameHistory
         
         
         // lines below will work on Core Data is implemented
+
         let avatarImageName = logEntry.player?.avatar?.iconName
         cell.avatar.image = UIImage(named: avatarImageName!)
         cell.coins.text = String(logEntry.coins)
@@ -117,8 +109,8 @@ class GameHistoryTableViewController: UITableViewController {
          */
         let displayFormatter = DateFormatter()
         displayFormatter.dateStyle = .medium // sets format to MM dd, YYYY
-        let universalDate = logEntry.date
-        cell.date.text = displayFormatter.string(from: universalDate!)
+        let universalDate = logEntry.value(forKey: "date") as! Date
+        cell.date.text = displayFormatter.string(from: universalDate)
         return cell
     }
 
@@ -186,7 +178,7 @@ class GameHistoryTableViewController: UITableViewController {
             guard let indexPath = tableView.indexPath(for: gameHistoryCell) else {
                 fatalError("Could not find current index")
             }
-            let currentGameHistoryCell = gameLogData[indexPath.row]
+            let currentGameHistoryCell = gameLogData[indexPath.row] as! GameHistory
             //Provide destination segue reference
             guard let gameHistoryDetail = segue.destination as? GameHistoryDetailController else {
                 fatalError("Could not find GameHistoryDetailController")
