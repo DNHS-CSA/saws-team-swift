@@ -104,6 +104,8 @@ class OrderCompleteController: UIViewController{
         
         let tcoins = player?.value(forKey: "coins") as! Int
         totalCoins.text =  ("CURRENT COINS: " + String(tcoins))
+        //multipliers go here
+        coins = Int(Double(coins) * getCoinMultiplier())
         coins *= Int(appDelegate!.perkTips)
         player?.setValue(tcoins + coins, forKey: "coins")
         
@@ -305,6 +307,15 @@ class OrderCompleteController: UIViewController{
         let step1 = pow(1.5, Double(levelNum)) * 300
         
         return Int(step1)
+    }
+    
+    func getCoinMultiplier() -> Double{
+        let player = appDelegate?.getRecordsFor(entity: "Player").first
+        let levelNum = player?.value(forKey: "level") as! Int
+        
+        let multiplier = pow(1.5, Double(levelNum))
+        
+        return multiplier
     }
     
     
