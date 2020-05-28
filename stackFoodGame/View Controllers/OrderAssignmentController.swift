@@ -59,16 +59,17 @@ class OrderAssignmentController: UIViewController {
         
         orders.append(Order(names: ingredientArray, nums: numberArray))
         
-        orderGetData()
-        orderImageCheck(idOrderImage: idOrderImage)
-        
         /*
+        orderGetData()
+        orderImageCheck(idOrderImage: idOrderImage) */
+        
+        
          
          
         setIcon() //alternate method of setting image data based of player-centric model
          
          
-        */
+        
         
         //verifies that there are no duplicate ingredients
 

@@ -200,7 +200,6 @@ class OrderCompleteController: UIViewController{
         let levelXP = getLevelXP()
         
         let sPoints = player?.value(forKey: "xp") as! Int
-        print(sPoints)
         
         
         let result = doMath(input: mPoints, x_val: levelc) + sPoints
@@ -269,6 +268,9 @@ class OrderCompleteController: UIViewController{
         
         return Int(step1)
     }
+    
+    
+    
     
     func createGameHistoryLog(){
         let managedObjectContext = appDelegate?.coreDataManager.managedObjectContext

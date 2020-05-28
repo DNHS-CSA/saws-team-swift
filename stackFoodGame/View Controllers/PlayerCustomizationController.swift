@@ -5,7 +5,6 @@
 //  Created by Nakul Nandhakumar on 5/7/20.
 //  Copyright © 2020 Nakul Nandhakumar. All rights reserved.
 //
-
 import UIKit
 import CoreData
 
@@ -179,7 +178,6 @@ class PlayerCustomizationController: UIViewController {
     {
         /*
         Avatar Table
-
         1 boychef
         2 girlchef
         3 penguin
@@ -441,4 +439,3 @@ class PlayerCustomizationController: UIViewController {
     }
 
 }
-
