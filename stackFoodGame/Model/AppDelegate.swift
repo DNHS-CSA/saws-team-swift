@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var perkSpeed: Double = 1.0
     var perkTips: Double = 1.0
-    var perkGordon: Double = 0.0
+    var perkGordon: Double = 1.0 //changed from 0 -> 1 otherwise points would be 0
     var perkChef: Double = 0.0
     var perkGold: Double = 0.0
     var perkSecret: Double = 0.0

@@ -159,7 +159,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bird" translatesAutoresizingMaskIntoConstraints="NO" id="54q-Yb-4nk" userLabel="Pic6">
-                                <rect key="frame" x="80" y="246" width="260" height="340"/>
+                                <rect key="frame" x="89" y="250" width="260" height="340"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kKC-xV-798">
+                                <rect key="frame" x="87" y="242" width="253" height="336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -185,7 +189,7 @@
                         <outlet property="PressPic4" destination="Cer-FE-JC1" id="nS9-ld-08Y"/>
                         <outlet property="PressPic5" destination="f3E-Qe-3ww" id="k32-4k-yYj"/>
                         <outlet property="PressPic6" destination="swW-Cy-zqs" id="xNF-uo-ND8"/>
-                        <outlet property="imageDisplay" destination="Oxz-9E-maU" id="Ee8-dc-4Si"/>
+                        <outlet property="imageDisplay" destination="kKC-xV-798" id="jRG-la-mLa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvF-PZ-Dh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

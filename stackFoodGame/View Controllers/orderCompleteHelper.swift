@@ -20,3 +20,5 @@ func doit(){
     appDelegate?.saveAllEntityData()
     
 }
+
+

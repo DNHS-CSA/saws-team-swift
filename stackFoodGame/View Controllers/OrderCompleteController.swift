@@ -21,6 +21,7 @@ class OrderCompleteController: UIViewController{
     @IBOutlet weak var coinScreen: UILabel!
     @IBOutlet weak var progressImage: UIImageView!
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var bottomBunImage: UIImageView!
     
     let oStatus = true //pass in from CoreData true=fufilled false=failed
     
@@ -57,6 +58,12 @@ class OrderCompleteController: UIViewController{
         var idealPoints = 100 //ideal points
         
         var myBurger = orders.last!.curBurger //copy of current burger
+        
+        
+
+        remakeBurger(items: myBurger) //recreating players burger on screen
+        
+        
         
         for(key, value) in orders.last!.order{ //looping over key pairs,locating ingredients, assigning points
             
@@ -97,6 +104,8 @@ class OrderCompleteController: UIViewController{
         
         let tcoins = player?.value(forKey: "coins") as! Int
         totalCoins.text =  ("CURRENT COINS: " + String(tcoins))
+        //multipliers go here
+        coins = Int(Double(coins) * getCoinMultiplier())
         coins *= Int(appDelegate!.perkTips)
         player?.setValue(tcoins + coins, forKey: "coins")
         
@@ -136,7 +145,35 @@ class OrderCompleteController: UIViewController{
         levelTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(countLevel), userInfo: nil, repeats: true)
 
 
+
+        
+
+        
     }
+    
+    func remakeBurger(items:[String]){
+        var frame : CGRect = bottomBunImage.frame
+        
+        for item in items{
+            let iname = UIImage(named: item)
+            let iview = UIImageView(image: iname!)
+            frame = CGRect(x:frame.origin.x, y:frame.origin.y - 20, width: frame.width, height:frame.height)
+            
+            iview.frame = frame
+            view.addSubview(iview)
+        }
+        
+        
+        // setting label positions
+        
+        itemScreen.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat(-180/30))
+        coinScreen.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat(180/30))
+        
+        itemScreen.frame = CGRect(x:itemScreen.frame.origin.x, y:frame.origin.y - 50, width: itemScreen.frame.width, height:itemScreen.frame.height)
+        
+        coinScreen.frame = CGRect(x:coinScreen.frame.origin.x, y:frame.origin.y - 50, width: coinScreen.frame.width, height:coinScreen.frame.height)
+    }
+    
     
     
     func doMath(input: Int, x_val: Int) -> Int {
@@ -209,11 +246,13 @@ class OrderCompleteController: UIViewController{
         let pixelsG = Int(Float(result) * pixelSize) // pixels to set image to grow to
         setImageSize(width: pixelsG)
         
-        
+        //print(result)
         if result == levelXP {
             //increment level val
+            //print("pre m poinys \(mPoints)")
             mPoints = mPoints + sPoints - levelXP //updating points to fit new level
-            
+            //print("after m poinys \(mPoints)")
+
             
             let k = player?.value(forKey: "level") as! Int
             player?.setValue(k + 1, forKey: "level") //simple adding 1 to level
@@ -228,9 +267,10 @@ class OrderCompleteController: UIViewController{
             
         }
         
-        if result == mPoints { // only activated when it is finished
+        if result == mPoints + sPoints { // only activated when it is finished
             player?.setValue(mPoints, forKey: "xp") //setting the starting xp value for next play
             appDelegate?.saveAllEntityData()
+            //print("MPOINTS: " + String(mPoints))
             
             print("OrderComplete> DONE")
             
@@ -268,6 +308,18 @@ class OrderCompleteController: UIViewController{
         
         return Int(step1)
     }
+    
+    func getCoinMultiplier() -> Double{
+        let player = appDelegate?.getRecordsFor(entity: "Player").first
+        let levelNum = player?.value(forKey: "level") as! Int
+        
+        let multiplier = pow(1.5, Double(levelNum))
+        
+        return multiplier
+    }
+    
+    
+    
     
     func createGameHistoryLog(){
         let managedObjectContext = appDelegate?.coreDataManager.managedObjectContext
