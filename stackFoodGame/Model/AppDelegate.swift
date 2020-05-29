@@ -164,9 +164,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         saveAllEntityData()
         }
         
+        let locations = getRecordsFor(entity: "Location")   // Loads in BoyChef as starting character
+        var location : NSManagedObject? = nil
+        
+        if let l_record = locations.first{ //this block basically make sure there is at least 1 element within entity, sets player to the first one
+            
+            location = l_record
+        }else if let l_record = createRecordForEntity("Location", inManagedObjectContext: managedObjectContext){
+            location = l_record
+        
+        
+        
+
+        location?.setValue(1, forKey: "locid")
+        location?.setValue("location1", forKey: "locname")
+        location?.setValue("location1", forKey: "lociconName")
+        
+        
+        player?.setValue(location, forKey: "location")
+        //print(avatar as Any)
+        
+        saveAllEntityData()
+        }
+        
         print("APP DELEGATE: ")
         let playr = getRecordsFor(entity: "Player").first
         print(playr?.value(forKey: "avatar") as Any)
+        print(playr?.value(forKey: "location") as Any)
         
         if playr?.value(forKey: "avatar") == nil{
             let atr = createEntity(entity: "Avatar")
@@ -176,12 +200,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             playr?.setValue(atr, forKey: "avatar")
             saveAllEntityData()
         }
+        if playr?.value(forKey: "location") == nil{
+            let loc = createEntity(entity: "Location")
+            loc?.setValue(1, forKey: "locid")
+            loc?.setValue("location1", forKey: "locname")
+            loc?.setValue("location1", forKey: "lociconName")
+            playr?.setValue(loc, forKey: "location")
+            saveAllEntityData()
+        }
         
         print("APP DELEGATE2: ")
         
         //doit()
         let playr2 = getRecordsFor(entity: "Player").first
         print(playr2?.value(forKey: "avatar") as Any)
+        print(playr2?.value(forKey: "location") as Any)
             
         
         print(" LEVEL #: \(playr2?.value(forKey: "level") as! Int)")

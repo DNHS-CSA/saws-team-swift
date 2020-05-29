@@ -59,6 +59,8 @@
 		D807178E2478ED8E006AABC9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807178D2478ED8E006AABC9 /* CoreDataManager.swift */; };
 		D8071790247CA315006AABC9 /* orderCompleteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807178F247CA315006AABC9 /* orderCompleteHelper.swift */; };
 		D85D0149246F70ED00B129B7 /* order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85D0148246F70ED00B129B7 /* order.swift */; };
+		DA11D69D248087E3006D30A9 /* LocationCustomizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11D69C248087E3006D30A9 /* LocationCustomizationController.swift */; };
+		DA11D69F24808AFB006D30A9 /* LocationCustomization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA11D69E24808AFB006D30A9 /* LocationCustomization.storyboard */; };
 		DAB26BBA2464CD530052BE46 /* PlayerCustomization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB26BB92464CD530052BE46 /* PlayerCustomization.storyboard */; };
 		DAB26BBE2464CDA90052BE46 /* PlayerCustomizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB26BBD2464CDA90052BE46 /* PlayerCustomizationController.swift */; };
 /* End PBXBuildFile section */
@@ -118,6 +120,8 @@
 		D807178D2478ED8E006AABC9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D807178F247CA315006AABC9 /* orderCompleteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderCompleteHelper.swift; sourceTree = "<group>"; };
 		D85D0148246F70ED00B129B7 /* order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = order.swift; sourceTree = "<group>"; };
+		DA11D69C248087E3006D30A9 /* LocationCustomizationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCustomizationController.swift; sourceTree = "<group>"; };
+		DA11D69E24808AFB006D30A9 /* LocationCustomization.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocationCustomization.storyboard; sourceTree = "<group>"; };
 		DAB26BB92464CD530052BE46 /* PlayerCustomization.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayerCustomization.storyboard; sourceTree = "<group>"; };
 		DAB26BBD2464CDA90052BE46 /* PlayerCustomizationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCustomizationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,6 +247,7 @@
 				8489168224637BED00ACB75A /* orderComplete.storyboard */,
 				524E6F4C246CC4FD00032017 /* Perks.storyboard */,
 				DAB26BB92464CD530052BE46 /* PlayerCustomization.storyboard */,
+				DA11D69E24808AFB006D30A9 /* LocationCustomization.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			children = (
 				84429D732463356900E5BA3A /* ViewController.swift */,
 				DAB26BBD2464CDA90052BE46 /* PlayerCustomizationController.swift */,
+				DA11D69C248087E3006D30A9 /* LocationCustomizationController.swift */,
 				8489167324633F0D00ACB75A /* PlayGameController.swift */,
 				524E6F4A246CC4B800032017 /* PerksController.swift */,
 				8489168524637CFF00ACB75A /* statsController.swift */,
@@ -356,6 +362,7 @@
 				84429D7C2463356C00E5BA3A /* Assets.xcassets in Resources */,
 				52D5899A2473760C00C8E12D /* snail.png in Resources */,
 				8489167F24637BC300ACB75A /* orderAssignment.storyboard in Resources */,
+				DA11D69F24808AFB006D30A9 /* LocationCustomization.storyboard in Resources */,
 				5A4D35BB247FDF2C000B5EC8 /* Gilroy-ExtraBold.otf in Resources */,
 				52D589992473760C00C8E12D /* secret.jpg in Resources */,
 				5234E0BD247EFBF0007BD502 /* gordon.jpeg in Resources */,
@@ -386,6 +393,7 @@
 				D85D0149246F70ED00B129B7 /* order.swift in Sources */,
 				521B7A582475A06900C9BFF3 /* Powerup+CoreDataProperties.swift in Sources */,
 				D807178B2478DAB8006AABC9 /* persistanceService.swift in Sources */,
+				DA11D69D248087E3006D30A9 /* LocationCustomizationController.swift in Sources */,
 				521B7A562475A06900C9BFF3 /* GameHistory+CoreDataProperties.swift in Sources */,
 				8489168624637CFF00ACB75A /* statsController.swift in Sources */,
 				521B7A4F2475A06900C9BFF3 /* Avatar+CoreDataClass.swift in Sources */,
