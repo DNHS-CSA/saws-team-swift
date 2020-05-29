@@ -43,6 +43,9 @@ class GameHistoryTableViewController: UITableViewController {
         gameLogData = player.gameHistory.allObjects as! [NSManagedObject]
         
         print(gameLogData.count)
+        if gameLogData.count == 0 {
+            return
+        }
         sortDataByDate()
         
         for l in gameLogData{
