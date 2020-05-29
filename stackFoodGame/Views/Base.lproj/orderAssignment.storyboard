@@ -102,11 +102,16 @@
                                 <color key="textColor" red="0.17667354060913709" green="0.15333883852204386" blue="0.1362455161186108" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HdA-DY-dWi">
+                                <rect key="frame" x="-5" y="0.0" width="425" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" name="appRed"/>
                         <viewLayoutGuide key="safeArea" id="a5L-ED-OiE"/>
                     </view>
                     <connections>
+                        <outlet property="Background" destination="HdA-DY-dWi" id="1nW-xr-cSX"/>
                         <outlet property="PlayerImage" destination="yks-vD-g40" id="JMB-0A-o2z"/>
                         <outlet property="ingredient1" destination="Bm6-Hk-FQL" id="R4H-6f-Yx0"/>
                         <outlet property="ingredient2" destination="exY-i2-739" id="Cdr-py-jzp"/>

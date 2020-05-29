@@ -20,6 +20,9 @@ class LocationCustomizationController: UIViewController {
     @IBOutlet weak var LocCustomPic7: UIImageView!
     @IBOutlet weak var LocCustomPic8: UIImageView!
     @IBOutlet weak var LocCustomPic9: UIImageView!
+    @IBOutlet weak var LocIcon1: UIImageView!
+    @IBOutlet weak var LocIcon2: UIImageView!
+    @IBOutlet weak var LocIcon3: UIImageView!
     
     @IBOutlet weak var LocPic1: UIImageView!
     @IBOutlet weak var LocPic2: UIImageView!
@@ -288,7 +291,7 @@ class LocationCustomizationController: UIViewController {
     
     @IBAction func LocPressPic7(_ sender: Any)
     {
-        Locid = 6
+        Locid = 7
         LocimageName = "sunsetcity"
         LociconName = "sunsetcity"
         let Loccontext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -317,7 +320,7 @@ class LocationCustomizationController: UIViewController {
     
     @IBAction func LocPressPic8(_ sender: Any)
     {
-        Locid = 6
+        Locid = 8
         LocimageName = "farm"
         LociconName = "farm"
         let Loccontext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -346,7 +349,7 @@ class LocationCustomizationController: UIViewController {
     
     @IBAction func LocPressPic9(_ sender: Any)
     {
-        Locid = 6
+        Locid = 9
         LocimageName = "beach"
         LociconName = "beach"
         let Loccontext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -449,6 +452,9 @@ class LocationCustomizationController: UIViewController {
             LocPic4.isHidden = true
             LocPic5.isHidden = true
             LocPic6.isHidden = true
+            LocPic7.isHidden = true
+            LocPic8.isHidden = true
+            LocPic9.isHidden = true
         }
         /*
         if locid == 1 {
@@ -503,13 +509,16 @@ class LocationCustomizationController: UIViewController {
     
     func LoctabCountChecker(LoctabCount: Int)
     {
-        if (LoctabCount.magnitude % 2) == 0 {
+        if (LoctabCount.magnitude % 3) == 0 {
             LocCustomPic1.isHidden = false
             LocCustomPic2.isHidden = false
             LocCustomPic3.isHidden = false
             LocCustomPic4.isHidden = true
             LocCustomPic5.isHidden = true
             LocCustomPic6.isHidden = true
+            LocCustomPic7.isHidden = true
+            LocCustomPic8.isHidden = true
+            LocCustomPic9.isHidden = true
             
             LocPressPic1.isHidden = false
             LocPressPic2.isHidden = false
@@ -517,14 +526,24 @@ class LocationCustomizationController: UIViewController {
             LocPressPic4.isHidden = true
             LocPressPic5.isHidden = true
             LocPressPic6.isHidden = true
+            LocPressPic7.isHidden = true
+            LocPressPic8.isHidden = true
+            LocPressPic9.isHidden = true
+            
+            LocIcon1.isHidden = false
+            LocIcon2.isHidden = true
+            LocIcon3.isHidden = true
         }
-        if (LoctabCount.magnitude % 2) == 1 {
+        if (LoctabCount.magnitude % 3) == 1 {
             LocCustomPic1.isHidden = true
             LocCustomPic2.isHidden = true
             LocCustomPic3.isHidden = true
             LocCustomPic4.isHidden = false
             LocCustomPic5.isHidden = false
             LocCustomPic6.isHidden = false
+            LocCustomPic7.isHidden = true
+            LocCustomPic8.isHidden = true
+            LocCustomPic9.isHidden = true
             
             LocPressPic1.isHidden = true
             LocPressPic2.isHidden = true
@@ -532,6 +551,38 @@ class LocationCustomizationController: UIViewController {
             LocPressPic4.isHidden = false
             LocPressPic5.isHidden = false
             LocPressPic6.isHidden = false
+            LocPressPic7.isHidden = true
+            LocPressPic8.isHidden = true
+            LocPressPic9.isHidden = true
+            
+            LocIcon1.isHidden = true
+            LocIcon2.isHidden = false
+            LocIcon3.isHidden = true
+        }
+        if (LoctabCount.magnitude % 3) == 2 {
+            LocCustomPic1.isHidden = true
+            LocCustomPic2.isHidden = true
+            LocCustomPic3.isHidden = true
+            LocCustomPic4.isHidden = true
+            LocCustomPic5.isHidden = true
+            LocCustomPic6.isHidden = true
+            LocCustomPic7.isHidden = false
+            LocCustomPic8.isHidden = false
+            LocCustomPic9.isHidden = false
+            
+            LocPressPic1.isHidden = true
+            LocPressPic2.isHidden = true
+            LocPressPic3.isHidden = true
+            LocPressPic4.isHidden = true
+            LocPressPic5.isHidden = true
+            LocPressPic6.isHidden = true
+            LocPressPic7.isHidden = false
+            LocPressPic8.isHidden = false
+            LocPressPic9.isHidden = false
+            
+            LocIcon1.isHidden = true
+            LocIcon2.isHidden = true
+            LocIcon3.isHidden = false
         }
     }
 

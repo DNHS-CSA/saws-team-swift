@@ -20,6 +20,7 @@ class OrderAssignmentController: UIViewController {
     @IBOutlet weak var ingredient3: UIImageView!
     
     @IBOutlet weak var PlayerImage: UIImageView!
+    @IBOutlet weak var Background: UIImageView!
     
     var idOrderImage = Int()
     var orderImageName = String()
@@ -144,7 +145,6 @@ class OrderAssignmentController: UIViewController {
             PlayerImage.image = UIImage(named: "bird")
         }
     }
-
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
