@@ -17,6 +17,9 @@ class LocationCustomizationController: UIViewController {
     @IBOutlet weak var LocCustomPic4: UIImageView!
     @IBOutlet weak var LocCustomPic5: UIImageView!
     @IBOutlet weak var LocCustomPic6: UIImageView!
+    @IBOutlet weak var LocCustomPic7: UIImageView!
+    @IBOutlet weak var LocCustomPic8: UIImageView!
+    @IBOutlet weak var LocCustomPic9: UIImageView!
     
     @IBOutlet weak var LocPic1: UIImageView!
     @IBOutlet weak var LocPic2: UIImageView!
@@ -24,6 +27,9 @@ class LocationCustomizationController: UIViewController {
     @IBOutlet weak var LocPic4: UIImageView!
     @IBOutlet weak var LocPic5: UIImageView!
     @IBOutlet weak var LocPic6: UIImageView!
+    @IBOutlet weak var LocPic7: UIImageView!
+    @IBOutlet weak var LocPic8: UIImageView!
+    @IBOutlet weak var LocPic9: UIImageView!
     @IBOutlet weak var LocimageDisplay: UIImageView!
     
     @IBOutlet weak var LocPressPic1: UIButton!
@@ -32,6 +38,9 @@ class LocationCustomizationController: UIViewController {
     @IBOutlet weak var LocPressPic4: UIButton!
     @IBOutlet weak var LocPressPic5: UIButton!
     @IBOutlet weak var LocPressPic6: UIButton!
+    @IBOutlet weak var LocPressPic7: UIButton!
+    @IBOutlet weak var LocPressPic8: UIButton!
+    @IBOutlet weak var LocPressPic9: UIButton!
     
     var LoctabCount = Int()
     var Locid = Int()
@@ -39,7 +48,7 @@ class LocationCustomizationController: UIViewController {
     var LociconName = String()
     
     var LocmyIcon = String()
-    var LocimageNameData = [1:"location1",2:"location2",3:"location3",4:"location4",5:"location5",6:"location6"]
+    var LocimageNameData = [1:"defaultcity",2:"carnival",3:"stadium",4:"skycity",5:"playground",6:"basketballcourt",7:"sunsetcity",8:"farm",9:"beach"]
     
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     var player : NSManagedObject?
@@ -58,7 +67,7 @@ class LocationCustomizationController: UIViewController {
              
             avatars.append((appDelegate?.createEntity(entity: "Avatar"))!) //creating and loading avatars
             avatars[0].setValue(0, forKey: "locid")
-            avatars[0].setValue("location3", forKey: "locname")
+            avatars[0].setValue("stadium", forKey: "locname")
             
             let player = appDelegate?.getRecordsFor(entity: "Player").first
             player?.setValue(avatars, forKey: "avatar")
@@ -97,8 +106,8 @@ class LocationCustomizationController: UIViewController {
     @IBAction func LocPressPic1(_ sender: Any)
     {
         Locid = 1
-        LocimageName = "location1"
-        LociconName = "location1"
+        LocimageName = "defaultcity"
+        LociconName = "defaultcity"
         let Loccontext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let Count = NSEntityDescription.entity(forEntityName: "Location", in: Loccontext)
@@ -124,8 +133,8 @@ class LocationCustomizationController: UIViewController {
     @IBAction func LocPressPic2(_ sender: Any)
     {
         Locid = 2
-        LocimageName = "location2"
-        LociconName = "location2"
+        LocimageName = "carnival"
+        LociconName = "carnival"
         let Loccontext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
          
          let Count = NSEntityDescription.entity(forEntityName: "Location", in: Loccontext)
@@ -150,8 +159,8 @@ class LocationCustomizationController: UIViewController {
     @IBAction func LocPressPic3(_ sender: Any)
     {
         Locid = 3
-        LocimageName = "location3"
-        LociconName = "location3"
+        LocimageName = "stadium"
+        LociconName = "stadium"
         let Loccontext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
          
          let Count = NSEntityDescription.entity(forEntityName: "Location", in: Loccontext)
@@ -178,9 +187,9 @@ class LocationCustomizationController: UIViewController {
     {
         /*
         Avatar Table
-        1 location1
-        2 location2
-        3 location4
+        1 defaultcity
+        2 carnival
+        3 skycity
         
         fetch - avatar -- get only locid 4
         
@@ -192,8 +201,8 @@ class LocationCustomizationController: UIViewController {
         
         
         Locid = 4
-        LocimageName = "location4"
-        LociconName = "location4"
+        LocimageName = "skycity"
+        LociconName = "skycity"
         let Loccontext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
          
          let Count = NSEntityDescription.entity(forEntityName: "Location", in: Loccontext)
@@ -221,8 +230,8 @@ class LocationCustomizationController: UIViewController {
     @IBAction func LocPressPic5(_ sender: Any)
     {
         Locid = 5
-        LocimageName = "location5"
-        LociconName = "location5"
+        LocimageName = "playground"
+        LociconName = "playground"
         let Loccontext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
              
         let Count = NSEntityDescription.entity(forEntityName: "Location", in: Loccontext)
@@ -251,8 +260,95 @@ class LocationCustomizationController: UIViewController {
     @IBAction func LocPressPic6(_ sender: Any)
     {
         Locid = 6
-        LocimageName = "location6"
-        LociconName = "location6"
+        LocimageName = "basketballcourt"
+        LociconName = "basketballcourt"
+        let Loccontext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+             
+        let Count = NSEntityDescription.entity(forEntityName: "Location", in: Loccontext)
+        let newCount = NSManagedObject(entity: Count!, insertInto:  Loccontext)
+             
+        newCount.setValue(Locid, forKey: "locid")
+        newCount.setValue(LoctabCount, forKey: "loctabCount")
+        newCount.setValue(LocimageName, forKey: "locname")
+        newCount.setValue(LociconName, forKey: "lociconName")
+        do {
+            try Loccontext.save()
+            print("Save successful")
+            LocgetData()
+            print(LocimageName)
+            print(LociconName)
+        } catch {
+            print("Save failed")
+        }
+        Locidchecker(Locid: Locid)
+            
+        editLocation(LocimageID: Locid)
+
+    }
+    
+    @IBAction func LocPressPic7(_ sender: Any)
+    {
+        Locid = 6
+        LocimageName = "sunsetcity"
+        LociconName = "sunsetcity"
+        let Loccontext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+             
+        let Count = NSEntityDescription.entity(forEntityName: "Location", in: Loccontext)
+        let newCount = NSManagedObject(entity: Count!, insertInto:  Loccontext)
+             
+        newCount.setValue(Locid, forKey: "locid")
+        newCount.setValue(LoctabCount, forKey: "loctabCount")
+        newCount.setValue(LocimageName, forKey: "locname")
+        newCount.setValue(LociconName, forKey: "lociconName")
+        do {
+            try Loccontext.save()
+            print("Save successful")
+            LocgetData()
+            print(LocimageName)
+            print(LociconName)
+        } catch {
+            print("Save failed")
+        }
+        Locidchecker(Locid: Locid)
+            
+        editLocation(LocimageID: Locid)
+
+    }
+    
+    @IBAction func LocPressPic8(_ sender: Any)
+    {
+        Locid = 6
+        LocimageName = "farm"
+        LociconName = "farm"
+        let Loccontext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+             
+        let Count = NSEntityDescription.entity(forEntityName: "Location", in: Loccontext)
+        let newCount = NSManagedObject(entity: Count!, insertInto:  Loccontext)
+             
+        newCount.setValue(Locid, forKey: "locid")
+        newCount.setValue(LoctabCount, forKey: "loctabCount")
+        newCount.setValue(LocimageName, forKey: "locname")
+        newCount.setValue(LociconName, forKey: "lociconName")
+        do {
+            try Loccontext.save()
+            print("Save successful")
+            LocgetData()
+            print(LocimageName)
+            print(LociconName)
+        } catch {
+            print("Save failed")
+        }
+        Locidchecker(Locid: Locid)
+            
+        editLocation(LocimageID: Locid)
+
+    }
+    
+    @IBAction func LocPressPic9(_ sender: Any)
+    {
+        Locid = 6
+        LocimageName = "beach"
+        LociconName = "beach"
         let Loccontext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
              
         let Count = NSEntityDescription.entity(forEntityName: "Location", in: Loccontext)

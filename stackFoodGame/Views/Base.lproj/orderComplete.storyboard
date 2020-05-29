@@ -20,8 +20,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundcity" translatesAutoresizingMaskIntoConstraints="NO" id="UNv-Nf-KkL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultcity" translatesAutoresizingMaskIntoConstraints="NO" id="NEJ-hF-8Vk">
+                                <rect key="frame" x="-5" y="0.0" width="425" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chG-rw-Q38">
@@ -137,7 +137,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backgroundcity" width="828" height="1792"/>
         <image name="bottombun" width="438" height="243"/>
+        <image name="defaultcity" width="828" height="1792"/>
     </resources>
 </document>

@@ -33,6 +33,15 @@
                                     <segue destination="te7-O4-Hzr" kind="show" identifier="goToPlayGame" id="62s-Ss-aXc"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultcity" translatesAutoresizingMaskIntoConstraints="NO" id="Tyk-EK-d8c">
+                                <rect key="frame" x="-5" y="0.0" width="425" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C1q-PE-7m5">
+                                <rect key="frame" x="-66" y="-58" width="658" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="appRed"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="orderscreen" translatesAutoresizingMaskIntoConstraints="NO" id="421-Eh-2nv">
                                 <rect key="frame" x="0.0" y="14" width="414" height="899"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -126,6 +135,7 @@
     <resources>
         <image name="backbutton" width="828" height="1792"/>
         <image name="bottombun" width="438" height="243"/>
+        <image name="defaultcity" width="828" height="1792"/>
         <image name="orderscreen" width="828" height="1792"/>
         <image name="topbun" width="438" height="243"/>
         <namedColor name="appRed">
