@@ -249,7 +249,7 @@ class OrderCompleteController: UIViewController{
         let result = doMath(input: mPoints, x_val: levelc) + sPoints
         levelc += 1 //incriment x val
         
-        let pixelSize = 315.0/Float(levelXP) //pixels per point
+        let pixelSize = 274.0/Float(levelXP) //pixels per point
         let pixelsG = Int(Float(result) * pixelSize) // pixels to set image to grow to
         setImageSize(width: pixelsG)
         
