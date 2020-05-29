@@ -22,6 +22,7 @@ class OrderCompleteController: UIViewController{
     @IBOutlet weak var progressImage: UIImageView!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var bottomBunImage: UIImageView!
+    @IBOutlet weak var bpimage: UIImageView!
     
     let oStatus = true //pass in from CoreData true=fufilled false=failed
     
@@ -135,6 +136,10 @@ class OrderCompleteController: UIViewController{
         //print("OrderComplete> avatar count: \(avatar.count)")
         progressImage.layer.cornerRadius = 10
         progressImage.clipsToBounds = true
+        
+        bpimage.layer.cornerRadius = 10
+        bpimage.clipsToBounds = true
+        
         setImageSize(width: 0)
         
         progressLabel.text = ""
