@@ -44,6 +44,7 @@
                                 <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="17"/>
                                 <state key="normal" title="Main Menu">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="mainMenuButtonTapped:" destination="Smf-yl-uSa" eventType="touchUpInside" id="5hd-En-dSd"/>
