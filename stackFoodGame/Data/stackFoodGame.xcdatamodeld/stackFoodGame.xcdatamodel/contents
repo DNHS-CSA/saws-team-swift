@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Avatar" representedClassName="Avatar" syncable="YES">
         <attribute name="iconName" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -26,9 +26,10 @@
         <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="gameHistory" inverseEntity="Player"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
-        <attribute name="iconName" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="lociconName" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="locid" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="locname" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="loctabCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="gameHistory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameHistory" inverseName="location" inverseEntity="GameHistory"/>
         <relationship name="player" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="location" inverseEntity="Player"/>
     </entity>
@@ -53,7 +54,7 @@
         <element name="Avatar" positionX="-54.35546875" positionY="-176.58203125" width="128" height="133"/>
         <element name="Food" positionX="-74.49609375" positionY="118.98046875" width="128" height="118"/>
         <element name="GameHistory" positionX="281.31640625" positionY="23.45703125" width="128" height="163"/>
-        <element name="Location" positionX="-95.57421875" positionY="260.62890625" width="128" height="118"/>
+        <element name="Location" positionX="-95.57421875" positionY="260.62890625" width="128" height="133"/>
         <element name="Player" positionX="-275.39453125" positionY="-111.078125" width="128" height="178"/>
         <element name="Powerup" positionX="207.1328125" positionY="-155.13671875" width="128" height="103"/>
     </elements>

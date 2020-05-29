@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Location Customization Controller-->
+        <scene sceneID="0hy-xX-47H">
+            <objects>
+                <viewController storyboardIdentifier="LocationCustomization" id="xhL-JS-1cW" customClass="LocationCustomizationController" customModule="stackFoodGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1lP-zM-bhQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bird" translatesAutoresizingMaskIntoConstraints="NO" id="Oxz-9E-maU" userLabel="Pic6">
+                                <rect key="frame" x="13" y="380" width="310" height="482"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxG-nV-Nfy" userLabel="NextArrow">
+                                <rect key="frame" x="331" y="745" width="53" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="32"/>
+                                <state key="normal" title="&gt;"/>
+                                <connections>
+                                    <action selector="NextArrow:" destination="xhL-JS-1cW" eventType="touchUpInside" id="akh-ZP-wP1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fy-Yc-C7t" userLabel="PreviousArrow">
+                                <rect key="frame" x="31" y="745" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="32"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <action selector="PreviousArrow:" destination="xhL-JS-1cW" eventType="touchUpInside" id="beP-ZP-b2a"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="playercustomize" translatesAutoresizingMaskIntoConstraints="NO" id="fsb-iQ-ED0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY5-WE-B8R">
+                                <rect key="frame" x="0.0" y="806" width="93" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Ezl-DO-5pB" kind="unwind" unwindAction="unwindCustomization:" id="BFQ-7P-L6J"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backbutton" translatesAutoresizingMaskIntoConstraints="NO" id="VSw-92-6Tz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJj-dM-q6B" userLabel="LocPressPic1">
+                                <rect key="frame" x="18" y="612" width="127" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Picture 1">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="LocPressPic1:" destination="xhL-JS-1cW" eventType="touchUpInside" id="6j4-Jd-OzK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUL-jV-6Af" userLabel="LocPressPic2">
+                                <rect key="frame" x="144" y="612" width="127" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Picture 2">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="LocPressPic2:" destination="xhL-JS-1cW" eventType="touchUpInside" id="Q6t-3C-pJ9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wc-1e-1pA" userLabel="LocPressPic3">
+                                <rect key="frame" x="270" y="612" width="127" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Picture 3">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="LocPressPic3:" destination="xhL-JS-1cW" eventType="touchUpInside" id="e9S-zM-PnA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cer-FE-JC1" userLabel="LocPressPic4">
+                                <rect key="frame" x="18" y="612" width="127" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Picture 4">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="LocPressPic4:" destination="xhL-JS-1cW" eventType="touchUpInside" id="hXP-01-kJ6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3E-Qe-3ww" userLabel="LocPressPic5">
+                                <rect key="frame" x="143" y="612" width="127" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Picture 5">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="LocPressPic5:" destination="xhL-JS-1cW" eventType="touchUpInside" id="rq5-WR-5u1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swW-Cy-zqs" userLabel="LocPressPic6">
+                                <rect key="frame" x="269" y="612" width="127" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Picture 6">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="LocPressPic6:" destination="xhL-JS-1cW" eventType="touchUpInside" id="veG-Vu-hvM"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location1" translatesAutoresizingMaskIntoConstraints="NO" id="3Rt-lO-NaN" userLabel="LocCustomPic1">
+                                <rect key="frame" x="20" y="627" width="118" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location2" translatesAutoresizingMaskIntoConstraints="NO" id="Szj-YH-fAg" userLabel="LocCustomPic2">
+                                <rect key="frame" x="153" y="624" width="109" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location3" translatesAutoresizingMaskIntoConstraints="NO" id="XSC-i8-e9p" userLabel="LocCustomPic3">
+                                <rect key="frame" x="280" y="629" width="107" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location4" translatesAutoresizingMaskIntoConstraints="NO" id="qDe-Rk-McN" userLabel="LocCustomPic4">
+                                <rect key="frame" x="20" y="627" width="116" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location5" translatesAutoresizingMaskIntoConstraints="NO" id="Mua-GC-e5H" userLabel="LocCustomPic5">
+                                <rect key="frame" x="153" y="624" width="103" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location6" translatesAutoresizingMaskIntoConstraints="NO" id="okm-np-ceg" userLabel="LocCustomPic6">
+                                <rect key="frame" x="270" y="624" width="127" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location1" translatesAutoresizingMaskIntoConstraints="NO" id="2Ya-mS-PYc" userLabel="LocPic1">
+                                <rect key="frame" x="100" y="248" width="232" height="346"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location2" translatesAutoresizingMaskIntoConstraints="NO" id="nM0-K7-Ytl" userLabel="LocPic2">
+                                <rect key="frame" x="77" y="252" width="269" height="325"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location3" translatesAutoresizingMaskIntoConstraints="NO" id="TQj-Zt-LWd" userLabel="LocPic3">
+                                <rect key="frame" x="77" y="262" width="269" height="316"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location4" translatesAutoresizingMaskIntoConstraints="NO" id="uja-T1-ZO2" userLabel="LocPic4">
+                                <rect key="frame" x="80" y="272" width="269" height="298"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location5" translatesAutoresizingMaskIntoConstraints="NO" id="WpY-dv-4gi" userLabel="LocPic5">
+                                <rect key="frame" x="79" y="262" width="261" height="308"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location6" translatesAutoresizingMaskIntoConstraints="NO" id="54q-Yb-4nk" userLabel="LocPic6">
+                                <rect key="frame" x="89" y="250" width="260" height="340"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kKC-xV-798" userLabel="LocimageDisplay">
+                                <rect key="frame" x="87" y="242" width="253" height="336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="BCK-dw-UqM"/>
+                    </view>
+                    <connections>
+                        <outlet property="LocCustomPic1" destination="3Rt-lO-NaN" id="brv-Ns-47t"/>
+                        <outlet property="LocCustomPic2" destination="Szj-YH-fAg" id="Krp-D6-6fa"/>
+                        <outlet property="LocCustomPic3" destination="XSC-i8-e9p" id="7zT-fc-eVj"/>
+                        <outlet property="LocCustomPic4" destination="qDe-Rk-McN" id="c3m-Bx-i9N"/>
+                        <outlet property="LocCustomPic5" destination="Mua-GC-e5H" id="rWr-LQ-NO7"/>
+                        <outlet property="LocCustomPic6" destination="okm-np-ceg" id="GWw-XJ-rg4"/>
+                        <outlet property="LocPic1" destination="2Ya-mS-PYc" id="8jm-bJ-J0A"/>
+                        <outlet property="LocPic2" destination="nM0-K7-Ytl" id="CTV-XP-gO0"/>
+                        <outlet property="LocPic3" destination="TQj-Zt-LWd" id="Jxd-89-nrb"/>
+                        <outlet property="LocPic4" destination="uja-T1-ZO2" id="Ivj-MP-B4F"/>
+                        <outlet property="LocPic5" destination="WpY-dv-4gi" id="Ycy-EO-Wba"/>
+                        <outlet property="LocPic6" destination="54q-Yb-4nk" id="MHu-my-7pO"/>
+                        <outlet property="LocPressPic1" destination="NJj-dM-q6B" id="Fgw-6m-TZc"/>
+                        <outlet property="LocPressPic2" destination="SUL-jV-6Af" id="wXr-4F-3iU"/>
+                        <outlet property="LocPressPic3" destination="5Wc-1e-1pA" id="EPw-XP-bLd"/>
+                        <outlet property="LocPressPic4" destination="Cer-FE-JC1" id="vKo-7d-JAB"/>
+                        <outlet property="LocPressPic5" destination="f3E-Qe-3ww" id="Ydg-uB-17Z"/>
+                        <outlet property="LocPressPic6" destination="swW-Cy-zqs" id="KS3-SP-4V0"/>
+                        <outlet property="LocimageDisplay" destination="kKC-xV-798" id="xMY-Si-QxJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pvF-PZ-Dh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Ezl-DO-5pB" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="105.79710144927537" y="96.428571428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backbutton" width="828" height="1792"/>
+        <image name="bird" width="346" height="483"/>
+        <image name="location1" width="920" height="678"/>
+        <image name="location2" width="840" height="683"/>
+        <image name="location3" width="900" height="938"/>
+        <image name="location4" width="900" height="620"/>
+        <image name="location5" width="860" height="452"/>
+        <image name="location6" width="220" height="229"/>
+        <image name="playercustomize" width="828" height="1792"/>
+    </resources>
+</document>
