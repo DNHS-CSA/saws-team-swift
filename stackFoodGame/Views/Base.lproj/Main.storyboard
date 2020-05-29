@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="1659" y="189"/>
         </scene>
-        <!--stats-->
+        <!--gamehistory-->
         <scene sceneID="Aof-VN-dq9">
             <objects>
-                <viewControllerPlaceholder storyboardName="stats" referencedIdentifier="stats" id="SqK-hC-BB2" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="stats" referencedIdentifier="gamehistory" id="SqK-hC-BB2" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="cBw-Ti-bg6"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2o-Yr-3dH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
