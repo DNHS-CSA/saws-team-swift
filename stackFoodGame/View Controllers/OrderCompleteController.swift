@@ -39,8 +39,8 @@ class OrderCompleteController: UIViewController{
     var xpcounter : Int = 0
     var coincounter : Int = 0
     
-    var good :[String] = ["Awesome!","Nice Job!","Incredible!"]
-    var bad :[String] = ["Whoops","Hmmmmm","Is it supposed to look like that?"]
+    var good :[String] = ["PERFECTION","DELICIOUS","INCREDIBLE","AMAZING"]
+    var bad :[String] = ["INEDIBLE","TASTELESS","TRY AGAIN", "WHOOPS", "STALE"]
     
     var levelXP : Int = 0
     
@@ -104,7 +104,7 @@ class OrderCompleteController: UIViewController{
         let player = appDelegate?.getRecordsFor(entity: "Player").first
         
         let tcoins = player?.value(forKey: "coins") as! Int
-        totalCoins.text =  ("CURRENT COINS: " + String(tcoins))
+        totalCoins.text =  ("TOTAL COINS: " + String(tcoins))
         //multipliers go here
         coins = Int(Double(coins) * getCoinMultiplier())
         coins *= Int(appDelegate!.perkTips)
@@ -115,7 +115,7 @@ class OrderCompleteController: UIViewController{
         
         //createGameHistoryLog()
         
-        totalCoins.text =  ("CURRENT COINS: " + String(tcoins + coins))
+        totalCoins.text =  ("TOTAL COINS: " + String(tcoins + coins))
         
         
         
@@ -281,7 +281,7 @@ class OrderCompleteController: UIViewController{
             
             print("OrderComplete> DONE")
             
-            self.progressLabel.text = "\(levelXP-mPoints) points until level \(player?.value(forKey: "level") as! Int + 1)!"
+            self.progressLabel.text = "\(levelXP-mPoints) points until Level \(player?.value(forKey: "level") as! Int + 1)!"
             
             print("lxp \(levelXP) || spoints \(sPoints)")
 
