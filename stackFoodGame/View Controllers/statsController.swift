@@ -20,9 +20,12 @@ class statsController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
-    @IBAction func unwindToStats(_ unwindSegue: UIStoryboardSegue) {
-        }
+    
+    @IBAction func unwindToStats(_ unwindSegue: UIStoryboardSegue){
+        
     }
+    
+}
     
 
     /*

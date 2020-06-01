@@ -25,6 +25,8 @@ class PlayerCustomizationController: UIViewController {
     @IBOutlet weak var Pic5: UIImageView!
     @IBOutlet weak var Pic6: UIImageView!
     @IBOutlet weak var imageDisplay: UIImageView!
+    @IBOutlet weak var Background: UIImageView!
+
     
     @IBOutlet weak var PressPic1: UIButton!
     @IBOutlet weak var PressPic2: UIButton!
@@ -44,11 +46,13 @@ class PlayerCustomizationController: UIViewController {
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     var player : NSManagedObject?
     var avatar : NSObject?
+    var location : NSObject?
 
     override func viewDidLoad() {
         getData()
         idchecker(id: id)
         tabCountChecker(tabCount: tabCount)
+        setBackground()
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
 
@@ -437,6 +441,12 @@ class PlayerCustomizationController: UIViewController {
             PressPic5.isHidden = false
             PressPic6.isHidden = false
         }
+    }
+    func setBackground() -> Void {
+        let players = appDelegate?.getRecordsFor(entity: "Player").first
+        let location = players?.value(forKey: "location") as! NSObject
+        let backgroundName = location.value(forKey: "lociconName") as! String
+        Background.image = UIImage(named: backgroundName)
     }
 
 }

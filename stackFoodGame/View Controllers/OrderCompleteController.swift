@@ -24,6 +24,8 @@ class OrderCompleteController: UIViewController{
     @IBOutlet weak var bottomBunImage: UIImageView!
     @IBOutlet weak var bpimage: UIImageView!
     
+    @IBOutlet weak var Background: UIImageView!
+    
     let oStatus = true //pass in from CoreData true=fufilled false=failed
     
     var points : Int = 250
@@ -46,10 +48,10 @@ class OrderCompleteController: UIViewController{
     
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
 
-    
-
+    var location : NSObject?
     
     override func viewDidLoad() {
+        setBackground()
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         //reset all perks
@@ -407,5 +409,12 @@ class OrderCompleteController: UIViewController{
               appDelegate?.perkGold = 0.0
               appDelegate?.perkGordon = 1.0
               appDelegate?.perkSecret = 0.0
+    }
+    
+    func setBackground() -> Void {
+        let players = appDelegate?.getRecordsFor(entity: "Player").first
+        let location = players?.value(forKey: "location") as! NSObject
+        let backgroundName = location.value(forKey: "lociconName") as! String
+        Background.image = UIImage(named: backgroundName)
     }
 }

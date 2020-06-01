@@ -177,8 +177,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         location?.setValue(1, forKey: "locid")
-        location?.setValue("location1", forKey: "locname")
-        location?.setValue("location1", forKey: "lociconName")
+        location?.setValue("defaultcity", forKey: "locname")
+        location?.setValue("defaultcity", forKey: "lociconName")
         
         
         player?.setValue(location, forKey: "location")
@@ -203,8 +203,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if playr?.value(forKey: "location") == nil{
             let loc = createEntity(entity: "Location")
             loc?.setValue(1, forKey: "locid")
-            loc?.setValue("location1", forKey: "locname")
-            loc?.setValue("location1", forKey: "lociconName")
+            loc?.setValue("defaultcity", forKey: "locname")
+            loc?.setValue("defaultcity", forKey: "lociconName")
             playr?.setValue(loc, forKey: "location")
             saveAllEntityData()
         }

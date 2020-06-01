@@ -12,7 +12,7 @@ import CoreData
 class PlayGameController: UIViewController {
    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    //let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     @IBOutlet weak var ingredient: UIImageView!
     var itemGravity:CGPoint = CGPoint()
     var stopIngredient:Bool = false
@@ -47,6 +47,8 @@ class PlayGameController: UIViewController {
     @IBOutlet weak var completedOrder: UIImageView!
     @IBOutlet weak var completeButton: UIButton!
     
+    @IBOutlet weak var Background: UIImageView!
+    
     
     var orderUI = (ingredientNames: [String()], quantityOfEachIngredient: [Int()])
     var ingredientHeaderImages: [UIImageView] = [UIImageView(), UIImageView(), UIImageView()]
@@ -56,8 +58,10 @@ class PlayGameController: UIViewController {
     var spawnTimer:Timer? = Timer()
     
     var managedObjectContext: NSManagedObjectContext!
+    var location : NSObject?
     
     override func viewDidLoad() {
+        setBackground()
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationController?.isNavigationBarHidden = true
@@ -306,6 +310,13 @@ class PlayGameController: UIViewController {
         
         
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    func setBackground() -> Void {
+        let players = appDelegate.getRecordsFor(entity: "Player").first
+        let location = players?.value(forKey: "location") as! NSObject
+        let backgroundName = location.value(forKey: "lociconName") as! String
+        Background.image = UIImage(named: backgroundName)
     }
 }
     /*

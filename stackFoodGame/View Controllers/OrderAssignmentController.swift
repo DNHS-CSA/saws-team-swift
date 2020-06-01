@@ -30,8 +30,8 @@ class OrderAssignmentController: UIViewController {
     var ingredientArray : [String] = []
     
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-
     
+    var location : NSObject?
     override func viewDidLoad() {
 
         // array definitions moved public to allow for segue data transfer
@@ -66,7 +66,7 @@ class OrderAssignmentController: UIViewController {
         
         
          
-         
+        setBackground()
         setIcon() //alternate method of setting image data based of player-centric model
          
          
@@ -95,7 +95,7 @@ class OrderAssignmentController: UIViewController {
         PlayerImage.image = UIImage(named: name)
     }
     
-    
+    /*
     
     func orderGetData()
     {
@@ -144,7 +144,7 @@ class OrderAssignmentController: UIViewController {
         if idOrderImage == 6 {
             PlayerImage.image = UIImage(named: "bird")
         }
-    }
+    } */
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -164,7 +164,13 @@ class OrderAssignmentController: UIViewController {
             print("OrderAssignment> No segue identifiers")
         }
     }
-
+    
+    func setBackground() -> Void {
+        let players = appDelegate?.getRecordsFor(entity: "Player").first
+        let location = players?.value(forKey: "location") as! NSObject
+        let backgroundName = location.value(forKey: "lociconName") as! String
+        Background.image = UIImage(named: backgroundName)
+    }
 
 
 }
