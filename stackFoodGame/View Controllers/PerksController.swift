@@ -60,7 +60,6 @@ class PerksController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         player = (appDelegate.getRecordsFor(entity: "Player").first as! Player)
         coins = Int(player!.coins)
-        coins = 10000
         xp = Int(player!.xp)
         print("\n coins: ", coins)
         self.navigationController?.isNavigationBarHidden = true
