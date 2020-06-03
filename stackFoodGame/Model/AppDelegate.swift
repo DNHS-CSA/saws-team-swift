@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /* The following variables are added temporarily to make Perks.Controller run properly. I will be removing these and replacing them with arrays, some of which could be stored as Core Data. */
     var itemQuantity: Int = 0;
     var perkImages: [UIImage] = [UIImage(named: "snail.png")!, UIImage(named: "tips.jpeg")!, UIImage(named: "gordon.jpeg")!, UIImage(named: "chef.jpg")!, UIImage(named: "gold.png")!, UIImage(named: "secret.jpg")!]
-    var perkDescriptions: [String] = ["This snail will slow down the speed of ites falling by 5% for you!", "Increase the total tip amount by 10%", "Gordon Ramsay will visit you, increasing your experience earned by 10%!", "This chef will make your engridients delicious! Increase the money earned!", "All your ingredients will be golden, giving you a 100% bonus for money earned!", "Unlock a mystery ingredient, giving you tons of money and experience!"]
+    var perkDescriptions: [String] = ["This snail will slow down the speed of ingredients falling by 5% for you!", "Increase the total tip amount by 10%", "Gordon Ramsay will visit you, increasing your experience earned by 10%!", "This chef will make your ingredients delicious! Increase the money earned!", "All your ingredients will be golden, giving you a 100% bonus for money earned!", "Unlock a mystery ingredient, giving you tons of money and experience!"]
 
     var perkSpeed: Double = 1.0
     var perkTips: Double = 1.0
